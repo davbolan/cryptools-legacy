@@ -1,2 +1,2 @@
-# cryptools
-basic tools for encryption and obfuscation of texts
+# Cryptools
+Basic tools for encryption and obfuscation of texts
