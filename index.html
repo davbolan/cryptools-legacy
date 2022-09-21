@@ -6,6 +6,8 @@
     <title>Crypts tools</title>
 
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap-icons/bootstrap-icons.css" />
+    <link rel="stylesheet" href="css/jsonviewer/jquery.json-viewer.css" />
     <link rel="stylesheet" href="css/styles.css" />
 
     <!--  
@@ -21,6 +23,14 @@
     <script
       type="text/javascript"
       src="js/jquery/base64/jquery.base64.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="js/jquery/jsonViewer/jquery.json-editor.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="js/jquery/jsonViewer/jquery.json-viewer.js"
     ></script>
 
     <script type="text/javascript" src="js/crypt.js"></script>
@@ -157,6 +167,135 @@
           </div>
         </div>
 
+        <!-- 2.3 Diccionario -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingDictAccordion">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseDictAccordion"
+              aria-expanded="false"
+              aria-controls="collapseDictAccordion"
+            >
+              <strong>Diccionario</strong>
+            </button>
+          </h2>
+          <div
+            id="collapseDictAccordion"
+            class="accordion-collapse show"
+            aria-labelledby="headingDictAccordion"
+            data-bs-parent="#general-accordion"
+          >
+            <div class="accordion-body">
+              <div
+                id="separator-word-panel-id"
+                class="col-md-6 col-md-6 col-xl-6"
+              >
+                <label for="separator-word-id">
+                  <strong>¿Que separador quieres usar?</strong>
+                </label>
+                <div class="row" id="separator-word-id">
+                  <div class="col col-md-4 col-md-4 col-xl-4">
+                    <select id="separator-list" class="form-select">
+                      <option value="">Caracter a caracter</option>
+                      <option value=" ">Espacio ( &nbsp; )</option>
+                      <option value=".">Punto ( . )</option>
+                      <option value=":">Coma ( , )</option>
+                      <option value=":">Dos puntos ( : )</option>
+                      <option value="*">Asterisco ( * )</option>
+                      <option value="customOption">Personalizado...</option>
+                    </select>
+                  </div>
+                  <div class="col col-md-4 col-md-4 col-xl-4">
+                    <input
+                      type="input"
+                      id="separator-custom"
+                      class="form-control d-none"
+                      placeholder="Personalizado"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div id="dict-list-panel-id" class="col-md-8 col-md-8 col-xl-9">
+                <label for="dict-list-id">
+                  <strong
+                    >¿Qué texto vas a usar para crear el diccionario?</strong
+                  >
+                </label>
+
+                <textarea
+                  class="form-control"
+                  id="dict-list-id"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div
+                id="dict-result-panel-id"
+                class="col-md-8 col-md-8 col-xl-12"
+              >
+                <label for="dict-result-id">
+                  <strong>Resultado: </strong>
+                  <button
+                    id="open-modal-button"
+                    type="button"
+                    class="btn btn-outline-secondary json-btn-sm d-none"
+                    data-bs-toggle="modal"
+                    data-bs-target="#dict-json-result-modal"
+                  >
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </button>
+                </label>
+                <div>
+                  <code class="dict-result-class" id="dict-result-id"> </code>
+                </div>
+
+                <!-- Modal -->
+                <div
+                  class="modal"
+                  id="dict-json-result-modal"
+                  tabindex="-1"
+                  aria-labelledby="dict-json-result-modal-label"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5
+                          class="modal-title"
+                          id="dict-json-result-modal-label"
+                        >
+                          Modal title
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+
+                      <div class="modal-body">
+                        <pre id="json-modal-content"></pre>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
