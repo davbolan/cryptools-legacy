@@ -15,6 +15,21 @@ const loadBase64Handle = () => {
   typeElem.on('change', coderDecoder);
 };
 
+const loadDeleterHandle = () => {
+  /* const answerElem = $('input[type=radio][name=deleter-answer-name]'); */
+  const wordElem = $('#deleter-word-id');
+  const textElem = $('#deleter-text-id');
+  const resultElem = $('#deleter-result-id');
+
+  const deleter = () => {
+    resultElem.text(textElem.val().replaceAll(wordElem.val(), ''));
+  };
+
+  wordElem.on('keyup', deleter);
+  textElem.on('keyup', deleter);
+};
+
 $(() => {
   loadBase64Handle();
+  loadDeleterHandle();
 });
