@@ -64,6 +64,13 @@
           >
             <i class="bi bi-box-arrow-up-right"></i>
           </button>
+          <button
+            id="redo-dict-button"
+            type="button"
+            class="btn btn-outline-secondary json-btn-sm"
+          >
+            <i class="bi bi-arrow-repeat"></i>
+          </button>
         </label>
         <div>
           <code class="dict-result-class" id="dict-result-id"> </code>
@@ -97,8 +104,16 @@
 
               <div class="modal-footer">
                 <button
+                  id="copypaste-button-modal"
                   type="button"
                   class="btn btn-primary"
+                >
+                  Copiar diccionario al cortapapeles
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close

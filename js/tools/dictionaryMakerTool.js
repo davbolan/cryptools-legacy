@@ -1,7 +1,9 @@
 const HIDE = 'd-none';
-const elemVisibility = (elem, visible) =>
-  visible ? elem.removeClass(HIDE) : elem.addClass(HIDE);
-
+const elemVisibility = (elems, visible) => {
+  elems.forEach((elem) =>
+    visible ? elem.removeClass(HIDE) : elem.addClass(HIDE)
+  );
+};
 const displayResult = (result) => {
   $('#dict-result-id').text(result);
 };
@@ -12,6 +14,7 @@ const loadDictionaryMakerHandle = () => {
   const separatorListElem = $('#separator-list');
   const customSeparatorElem = $('#separator-custom');
   const openModalButtonElem = $('#open-modal-button');
+  const redoDictButtonElem = $('#redo-dict-button');
   const modalContentElemId = '#json-modal-content';
   const resultElem = $('#dict-result-id');
 
@@ -40,10 +43,10 @@ const loadDictionaryMakerHandle = () => {
       });
 
       displayResult(JSON.stringify(result, 0, 4));
-      elemVisibility(openModalButtonElem, true);
+      elemVisibility([openModalButtonElem, redoDictButtonElem], true);
     } else {
       displayResult('');
-      elemVisibility(openModalButtonElem, false);
+      elemVisibility([openModalButtonElem, redoDictButtonElem], false);
     }
   };
 
@@ -51,7 +54,7 @@ const loadDictionaryMakerHandle = () => {
     let separatorValue = separatorListElem.val();
 
     if (separatorValue !== 'customOption') {
-      elemVisibility(customSeparatorElem, false);
+      elemVisibility([customSeparatorElem], false);
       customSeparatorElem.val('');
     } else {
       elemVisibility(customSeparatorElem, true);
@@ -71,6 +74,7 @@ const loadDictionaryMakerHandle = () => {
   separatorListElem.on('change', separatorSelector);
   customSeparatorElem.on('keyup', separatorSelector);
   listElem.on('keyup', separatorSelector);
+  redoDictButtonElem.on('click', separatorSelector);
   openModalButtonElem.on('click', modalButtonHandle);
 };
 
