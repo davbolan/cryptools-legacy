@@ -1,9 +1,13 @@
 const HIDE = 'd-none';
+
 const elemVisibility = (elems, visible) => {
-  elems.forEach((elem) =>
-    visible ? elem.removeClass(HIDE) : elem.addClass(HIDE)
-  );
+  elems.forEach((elem) => elem.toggleClass(HIDE, !visible));
 };
+
+const elemEnability = (elems, enable) => {
+  elems.forEach((elem) => elem.prop('disabled', !enable));
+};
+
 const displayResult = (result) => {
   $('#dict-result-id').text(result);
 };
@@ -20,6 +24,11 @@ const loadDictionaryMakerHandle = () => {
 
   const dictMaker = (separatorValue) => {
     const listVal = listElem.val().trim();
+    const resultButtonsGroup = [
+      openModalButtonElem,
+      redoDictButtonElem,
+      copyDictButtonElem,
+    ];
 
     if (listVal !== '') {
       let listDict = listVal.split(separatorValue);
@@ -43,10 +52,10 @@ const loadDictionaryMakerHandle = () => {
       });
 
       displayResult(JSON.stringify(result, 0, 4));
-      elemVisibility([openModalButtonElem, redoDictButtonElem], true);
+      elemEnability(resultButtonsGroup, true);
     } else {
       displayResult('');
-      elemVisibility([openModalButtonElem, redoDictButtonElem], false);
+      elemEnability(resultButtonsGroup, false);
     }
   };
 
@@ -57,7 +66,7 @@ const loadDictionaryMakerHandle = () => {
       elemVisibility([customSeparatorElem], false);
       customSeparatorElem.val('');
     } else {
-      elemVisibility(customSeparatorElem, true);
+      elemVisibility([customSeparatorElem], false);
       separatorValue = customSeparatorElem.val();
     }
     dictMaker(separatorValue);
