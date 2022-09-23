@@ -10,6 +10,7 @@ const elemEnability = (elems, enable) => {
 
 const displayResult = (result) => {
   $('#dict-result-id').text(result);
+  $('#dict-textarea-result-id').val(result);
 };
 
 const loadDictionaryMakerHandle = () => {
@@ -19,8 +20,11 @@ const loadDictionaryMakerHandle = () => {
   const customSeparatorElem = $('#separator-custom');
   const openModalButtonElem = $('#open-modal-button');
   const redoDictButtonElem = $('#redo-dict-button');
+  const copyDictButtonElem = $('#copy-dict-button');
+  const copyDictModalButtonElem = $('#copy-dict-modal-button');
   const modalContentElemId = '#json-modal-content';
   const resultElem = $('#dict-result-id');
+  const hiddenResultElem = $('#dict-textarea-result-id');
 
   const dictMaker = (separatorValue) => {
     const listVal = listElem.val().trim();
@@ -72,6 +76,17 @@ const loadDictionaryMakerHandle = () => {
     dictMaker(separatorValue);
   };
 
+  const copyToClipboard = () => {
+    $(document).focus();
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(hiddenResultElem.val());
+    } else {
+      hiddenResultElem.select();
+      document.execCommand('copy');
+    }
+  };
+
   const configureEditor = () => {
     const jsonViewerOptions = { withQuotes: true, withLinks: false };
     return new JsonEditor(modalContentElemId, jsonViewerOptions);
@@ -84,6 +99,8 @@ const loadDictionaryMakerHandle = () => {
   customSeparatorElem.on('keyup', separatorSelector);
   listElem.on('keyup', separatorSelector);
   redoDictButtonElem.on('click', separatorSelector);
+  copyDictButtonElem.on('click', copyToClipboard);
+  copyDictModalButtonElem.on('click', copyToClipboard);
   openModalButtonElem.on('click', modalButtonHandle);
 };
 
