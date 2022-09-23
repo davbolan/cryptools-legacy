@@ -18,20 +18,20 @@ const loadDictionaryMakerHandle = () => {
   const listElem = $('#dict-list-id');
   const separatorListElem = $('#separator-list');
   const customSeparatorElem = $('#separator-custom');
-  const openModalButtonElem = $('#open-modal-button');
-  const redoDictButtonElem = $('#redo-dict-button');
-  const copyDictButtonElem = $('#copy-dict-button');
-  const copyDictModalButtonElem = $('#copy-dict-modal-button');
+  const openModalButton = $('#open-modal-button');
+  const redoDictButton = $('#redo-dict-button');
+  const copyDictButton = $('#copy-dict-button');
+  const copyDictModalButton = $('#copy-dict-modal-button');
   const modalContentElemId = '#json-modal-content';
-  const resultElem = $('#dict-result-id');
-  const hiddenResultElem = $('#dict-textarea-result-id');
+  const resultElemTextarea = $('#dict-result-id');
+  const hiddenResultTextarea = $('#dict-textarea-result-id');
 
   const dictMaker = (separatorValue) => {
     const listVal = listElem.val().trim();
     const resultButtonsGroup = [
-      openModalButtonElem,
-      redoDictButtonElem,
-      copyDictButtonElem,
+      openModalButton,
+      redoDictButton,
+      copyDictButton,
     ];
 
     if (listVal !== '') {
@@ -80,9 +80,9 @@ const loadDictionaryMakerHandle = () => {
     $(document).focus();
 
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(hiddenResultElem.val());
+      navigator.clipboard.writeText(hiddenResultTextarea.val());
     } else {
-      hiddenResultElem.select();
+      hiddenResultTextarea.select();
       document.execCommand('copy');
     }
   };
@@ -93,15 +93,16 @@ const loadDictionaryMakerHandle = () => {
   };
 
   const editor = configureEditor();
-  const modalButtonHandle = () => editor.load(JSON.parse(resultElem.text()));
+  const modalButtonHandle = () =>
+    editor.load(JSON.parse(resultElemTextarea.text()));
 
   separatorListElem.on('change', separatorSelector);
   customSeparatorElem.on('keyup', separatorSelector);
   listElem.on('keyup', separatorSelector);
-  redoDictButtonElem.on('click', separatorSelector);
-  copyDictButtonElem.on('click', copyToClipboard);
-  copyDictModalButtonElem.on('click', copyToClipboard);
-  openModalButtonElem.on('click', modalButtonHandle);
+  redoDictButton.on('click', separatorSelector);
+  copyDictButton.on('click', copyToClipboard);
+  copyDictModalButton.on('click', copyToClipboard);
+  openModalButton.on('click', modalButtonHandle);
 };
 
 export default loadDictionaryMakerHandle;
