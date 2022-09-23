@@ -39,7 +39,6 @@
 
   <body>
     <!-- 1. Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light"></nav>
     <?php include 'components/nav.html';?>
 
     <!-- 2. Content -->
@@ -47,7 +46,7 @@
       <div class="accordion" id="general-accordion">
         <?php include 'components/base64.html';?>
         <?php include 'components/deleter.html';?>
-        <?php include 'components/dictionary.html';?>
+        <?php include 'components/dictionaryMaker.html';?>
       </div>
     </div>
   </body>

@@ -1,8 +1,12 @@
 const HIDE = 'd-none';
-const showElem = (elem) => elem.removeClass(HIDE);
-const hideElem = (elem) => elem.addClass(HIDE);
+const elemVisibility = (elem, visible) =>
+  visible ? elem.removeClass(HIDE) : elem.addClass(HIDE);
 
-const loadDictionaryHandle = () => {
+const displayResult = (result) => {
+  $('#dict-result-id').text(result);
+};
+
+const loadDictionaryMakerHandle = () => {
   // TODO: poner un boton para rehacer un nuevo diccionario sin que haya que tocar el texto.
   const listElem = $('#dict-list-id');
   const separatorListElem = $('#separator-list');
@@ -35,12 +39,11 @@ const loadDictionaryHandle = () => {
         result[k] = valueSet[i];
       });
 
-      resultElem.text(JSON.stringify(result));
-
-      showElem(openModalButtonElem);
+      displayResult(JSON.stringify(result, 0, 4));
+      elemVisibility(openModalButtonElem, true);
     } else {
-      resultElem.text('');
-      hideElem(openModalButtonElem);
+      displayResult('');
+      elemVisibility(openModalButtonElem, false);
     }
   };
 
@@ -48,10 +51,10 @@ const loadDictionaryHandle = () => {
     let separatorValue = separatorListElem.val();
 
     if (separatorValue !== 'customOption') {
-      hideElem(customSeparatorElem);
+      elemVisibility(customSeparatorElem, false);
       customSeparatorElem.val('');
     } else {
-      showElem(customSeparatorElem);
+      elemVisibility(customSeparatorElem, true);
       separatorValue = customSeparatorElem.val();
     }
     dictMaker(separatorValue);
@@ -71,4 +74,4 @@ const loadDictionaryHandle = () => {
   openModalButtonElem.on('click', modalButtonHandle);
 };
 
-export default loadDictionaryHandle;
+export default loadDictionaryMakerHandle;
