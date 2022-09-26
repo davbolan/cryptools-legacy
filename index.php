@@ -34,8 +34,12 @@
       type="text/javascript"
       src="js/jquery/jsonViewer/jquery.json-viewer.js"
     ></script>
+    <script
+      type="text/javascript"
+      src="js/moment/moment.js"
+    ></script>
 
-    <script type="module" src="js/crypt.js"></script>
+    <script type="module" src="js/app.js"></script>
   </head>
 
   <body>

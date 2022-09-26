@@ -1,4 +1,5 @@
 const HIDE = 'd-none';
+import moment from '../moment/moment.js';
 
 const elemVisibility = (elems, visible) => {
   elems.forEach((elem) => elem.toggleClass(HIDE, !visible));
@@ -21,7 +22,9 @@ const loadDictionaryMakerHandle = () => {
   const openModalButton = $('#open-modal-button');
   const redoDictButton = $('#redo-dict-button');
   const copyDictButton = $('#copy-dict-button');
+  const downloadDictButton = $('#download-dict-button');
   const copyDictModalButton = $('#copy-dict-modal-button');
+  const downloadDictModalButton = $('#download-dict-modal-button');
   const modalContentElemId = '#json-modal-content';
   const resultElemTextarea = $('#dict-result-id');
   const hiddenResultTextarea = $('#dict-textarea-result-id');
@@ -32,6 +35,7 @@ const loadDictionaryMakerHandle = () => {
       openModalButton,
       redoDictButton,
       copyDictButton,
+      downloadDictButton,
     ];
 
     if (listVal !== '') {
@@ -87,6 +91,17 @@ const loadDictionaryMakerHandle = () => {
     }
   };
 
+  const downloadJson = () => {
+    const result = hiddenResultTextarea.val();
+    const linkProps = {
+      href: 'data:text/plain;charset=UTF-8,' + encodeURIComponent(result),
+      download: 'dict_' + moment().format('DDMMYYMMD_HHmmss') + '.json',
+    };
+
+    $('#result-download-link').prop(linkProps);
+    $('#result-download-button').click();
+  };
+
   const configureEditor = () => {
     const jsonViewerOptions = { withQuotes: true, withLinks: false };
     return new JsonEditor(modalContentElemId, jsonViewerOptions);
@@ -101,7 +116,9 @@ const loadDictionaryMakerHandle = () => {
   listElem.on('keyup', separatorSelector);
   redoDictButton.on('click', separatorSelector);
   copyDictButton.on('click', copyToClipboard);
+  downloadDictButton.on('click', downloadJson);
   copyDictModalButton.on('click', copyToClipboard);
+  downloadDictModalButton.on('click', downloadJson);
   openModalButton.on('click', modalButtonHandle);
 };
 

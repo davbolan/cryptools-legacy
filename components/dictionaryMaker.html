@@ -56,6 +56,14 @@
         <label for="dict-result-id">
           <strong>Resultado: </strong>
           <button
+            id="redo-dict-button"
+            type="button"
+            class="btn btn-outline-dark json-btn-sm"
+            disabled
+          >
+            <i class="bi bi-arrow-repeat"></i>
+          </button>
+          <button
             id="open-modal-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
@@ -74,20 +82,24 @@
             <i class="bi bi-files"></i>
           </button>
           <button
-            id="redo-dict-button"
+            id="download-dict-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
             disabled
           >
-            <i class="bi bi-arrow-repeat"></i>
+            <i class="bi bi-download"></i>
           </button>
         </label>
         <div>
           <code class="dict-result-class" id="dict-result-id"> </code>
-          <textarea
-            id="dict-textarea-result-id"
+          <textarea id="dict-textarea-result-id" hidden></textarea>
+          <a
             style="display: none"
-          ></textarea>
+            id="result-download-link"
+            href="#"
+            download="result.json"
+            ><button id="result-download-button"></button>
+          </a>
         </div>
 
         <!-- Modal -->
@@ -102,7 +114,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="dict-json-result-modal-label">
-                  Modal title
+                  Resultado
                 </h5>
                 <button
                   type="button"
@@ -111,26 +123,23 @@
                   aria-label="Close"
                 ></button>
               </div>
-
-              <div class="modal-body">
-                <pre id="json-modal-content"></pre>
+              <div class="modal-body code">
+                <pre class="code" id="json-modal-content"></pre>
               </div>
-
               <div class="modal-footer">
                 <button
                   id="copy-dict-modal-button"
                   type="button"
                   class="btn btn-primary"
                 >
-                  Copiar diccionario al cortapapeles
+                  Copiar al cortapapeles<i class="bi bi-files"></i>
                 </button>
-
                 <button
+                  id="download-dict-modal-button"
                   type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
+                  class="btn btn-primary"
                 >
-                  Close
+                  Descargar<i class="bi bi-box-arrow-up-right"></i>
                 </button>
               </div>
             </div>
