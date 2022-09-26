@@ -34,7 +34,7 @@
       type="text/javascript"
       src="js/jquery/jsonViewer/jquery.json-viewer.js"
     ></script>
-
+    <script type="module" src="js/utils/utils.js"></script>
     <script type="module" src="js/app.js"></script>
   </head>
 
