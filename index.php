@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="css/styles.css" />
 
     <!--  
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="js/jquery.base64.min.js"></script> 
-    <script type="text/javascript" src="js/jquery.json-editor.min.js"></script> 
+    <script type="text/javascript" src="js/min/jquery.min.js"></script>
+    <script type="text/javascript" src="js/min/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/min/jquery.base64.min.js"></script> 
+    <script type="text/javascript" src="js/min/jquery.json-editor.min.js"></script> 
+    <script type="text/javascript" src="js/min/moment.min.js"></script> 
   -->
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script
