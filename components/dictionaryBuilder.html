@@ -1,20 +1,20 @@
 <div class="accordion-item">
-  <h2 class="accordion-header" id="headingDictAccordion">
+  <h2 class="accordion-header" id="headingDictbuilderAccordion">
     <button
       class="accordion-button collapsed"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#collapseDictAccordion"
+      data-bs-target="#collapseDictbuilderAccordion"
       aria-expanded="false"
-      aria-controls="collapseDictAccordion"
+      aria-controls="collapseDictbuilderAccordion"
     >
       <strong>Dictionary builder</strong>
     </button>
   </h2>
   <div
-    id="collapseDictAccordion"
+    id="collapseDictbuilderAccordion"
     class="accordion-collapse collapse"
-    aria-labelledby="headingDictAccordion"
+    aria-labelledby="headingDictbuilderAccordion"
     data-bs-parent="#general-accordion"
   >
     <div class="accordion-body">
@@ -45,18 +45,21 @@
         </div>
       </div>
 
-      <div id="dict-list-panel-id" class="col-md-8 col-md-8 col-xl-9">
-        <label for="dict-list-id">
+      <div id="dictbuilder-list-panel-id" class="col-md-8 col-md-8 col-xl-9">
+        <label for="dictbuilder-list-id">
           <strong>¿Qué texto vas a usar para crear el diccionario?</strong>
         </label>
-
-        <textarea class="form-control" id="dict-list-id" rows="5"></textarea>
+        <textarea
+          class="form-control"
+          id="dictbuilder-list-id"
+          rows="5"
+        ></textarea>
       </div>
-      <div id="dict-result-panel-id" class="col-md-8 col-md-8 col-xl-12">
-        <label for="dict-result-id">
+      <div id="dictbuilder-result-panel-id" class="col-md-8 col-md-8 col-xl-12">
+        <label for="dictbuilder-result-id">
           <strong>Resultado: </strong>
           <button
-            id="redo-dict-button"
+            id="redo-dictbuilder-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
             data-bs-toggle="tooltip"
@@ -77,14 +80,14 @@
               type="button"
               class="btn btn-outline-dark json-btn-sm"
               data-bs-toggle="modal"
-              data-bs-target="#dict-json-result-modal"
+              data-bs-target="#dictbuilder-json-result-modal"
               disabled
             >
               <i class="bi bi-box-arrow-up-right"></i>
             </button>
           </div>
           <button
-            id="copy-dict-button"
+            id="copy-dictbuilder-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
             data-bs-toggle="tooltip"
@@ -95,7 +98,7 @@
             <i class="bi bi-files"></i>
           </button>
           <button
-            id="download-dict-button"
+            id="download-dictbuilder-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
             data-bs-toggle="tooltip"
@@ -107,8 +110,9 @@
           </button>
         </label>
         <div>
-          <code class="dict-result-class" id="dict-result-id"> </code>
-          <textarea id="dict-textarea-result-id" hidden></textarea>
+          <code class="dictbuilder-result-class" id="dictbuilder-result-id">
+          </code>
+          <textarea id="dictbuilder-textarea-result-id" hidden></textarea>
           <a
             style="display: none"
             id="result-download-link"
@@ -121,15 +125,18 @@
         <!-- Modal -->
         <div
           class="modal"
-          id="dict-json-result-modal"
+          id="dictbuilder-json-result-modal"
           tabindex="-1"
-          aria-labelledby="dict-json-result-modal-label"
+          aria-labelledby="dictbuilder-json-result-modal-label"
           aria-hidden="true"
         >
           <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="dict-json-result-modal-label">
+                <h5
+                  class="modal-title"
+                  id="dictbuilder-json-result-modal-label"
+                >
                   Resultado
                 </h5>
                 <button
@@ -144,14 +151,14 @@
               </div>
               <div class="modal-footer">
                 <button
-                  id="copy-dict-modal-button"
+                  id="copy-dictbuilder-modal-button"
                   type="button"
                   class="btn btn-primary"
                 >
                   Copiar al cortapapeles &nbsp;<i class="bi bi-files"></i>
                 </button>
                 <button
-                  id="download-dict-modal-button"
+                  id="download-dictbuilder-modal-button"
                   type="button"
                   class="btn btn-primary"
                 >

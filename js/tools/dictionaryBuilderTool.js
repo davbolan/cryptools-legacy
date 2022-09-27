@@ -20,8 +20,8 @@ const elemEnability = (elems, enable) => {
 };
 
 const displayResult = (result) => {
-  $('#dict-result-id').text(result);
-  $('#dict-textarea-result-id').val(result);
+  $('#dictbuilder-result-id').text(result);
+  $('#dictbuilder-textarea-result-id').val(result);
 };
 
 const shuffle = (list) => {
@@ -33,18 +33,18 @@ const shuffle = (list) => {
 };
 
 const loadDictionaryBuilderHandle = () => {
-  const $listElem = $('#dict-list-id');
+  const $listElem = $('#dictbuilder-list-id');
   const $separatorListElem = $('#separator-list');
   const $customSeparatorElem = $('#separator-custom');
   const $openModalButton = $('#open-modal-button');
-  const $redoDictButton = $('#redo-dict-button');
-  const $copyDictButton = $('#copy-dict-button');
-  const $downloadDictButton = $('#download-dict-button');
-  const $copyDictModalButton = $('#copy-dict-modal-button');
-  const $downloadDictModalButton = $('#download-dict-modal-button');
+  const $redoDictButton = $('#redo-dictbuilder-button');
+  const $copyDictButton = $('#copy-dictbuilder-button');
+  const $downloadDictButton = $('#download-dictbuilder-button');
+  const $copyDictModalButton = $('#copy-dictbuilder-modal-button');
+  const $downloadDictModalButton = $('#download-dictbuilder-modal-button');
   const $modalContentElemId = '#json-modal-content';
-  const $resultElemTextarea = $('#dict-result-id');
-  const $hiddenResultTextarea = $('#dict-textarea-result-id');
+  const $resultElemTextarea = $('#dictbuilder-result-id');
+  const $hiddenResultTextarea = $('#dictbuilder-textarea-result-id');
 
   const dictBuilder = (separatorValue) => {
     const listVal = $listElem.val().trim();
