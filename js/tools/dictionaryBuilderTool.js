@@ -32,7 +32,7 @@ const shuffle = (list) => {
   return list;
 };
 
-const loadDictionaryMakerHandle = () => {
+const loadDictionaryBuilderHandle = () => {
   const $listElem = $('#dict-list-id');
   const $separatorListElem = $('#separator-list');
   const $customSeparatorElem = $('#separator-custom');
@@ -46,7 +46,7 @@ const loadDictionaryMakerHandle = () => {
   const $resultElemTextarea = $('#dict-result-id');
   const $hiddenResultTextarea = $('#dict-textarea-result-id');
 
-  const dictMaker = (separatorValue) => {
+  const dictBuilder = (separatorValue) => {
     const listVal = $listElem.val().trim();
     const resultButtonsGroup = [
       $openModalButton,
@@ -82,7 +82,7 @@ const loadDictionaryMakerHandle = () => {
       elemVisibility([$customSeparatorElem], false);
       separatorValue = $customSeparatorElem.val();
     }
-    dictMaker(separatorValue);
+    dictBuilder(separatorValue);
   };
 
   const copyToClipboard = () => {
@@ -127,4 +127,4 @@ const loadDictionaryMakerHandle = () => {
   $openModalButton.on(CLICK, modalButtonHandle);
 };
 
-export default loadDictionaryMakerHandle;
+export default loadDictionaryBuilderHandle;

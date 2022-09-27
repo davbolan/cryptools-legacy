@@ -47,7 +47,7 @@
       <div class="accordion" id="general-accordion">
         <?php include 'components/base64.html';?>
         <?php include 'components/deleter.html';?>
-        <?php include 'components/dictionaryMaker.html';?>
+        <?php include 'components/dictionaryBuilder.html';?>
       </div>
     </div>
   </body>
