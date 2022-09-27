@@ -34,7 +34,7 @@
       type="text/javascript"
       src="js/jquery/jsonViewer/jquery.json-viewer.js"
     ></script>
-
+    <script type="module" src="js/utils/utils.js"></script>
     <script type="module" src="js/app.js"></script>
   </head>
 
@@ -47,7 +47,7 @@
       <div class="accordion" id="general-accordion">
         <?php include 'components/base64.html';?>
         <?php include 'components/deleter.html';?>
-        <?php include 'components/dictionaryMaker.html';?>
+        <?php include 'components/dictionaryBuilder.html';?>
       </div>
     </div>
   </body>

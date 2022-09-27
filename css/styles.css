@@ -11,3 +11,7 @@
 .code {
   background: #1c2833;
 }
+
+.wrap {
+  display: inline-block;
+}

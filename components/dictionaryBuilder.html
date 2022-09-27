@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-controls="collapseDictAccordion"
     >
-      <strong>Dictionary maker</strong>
+      <strong>Dictionary builder</strong>
     </button>
   </h2>
   <div
@@ -59,24 +59,37 @@
             id="redo-dict-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Rehacer diccionario"
             disabled
           >
             <i class="bi bi-arrow-repeat"></i>
           </button>
-          <button
-            id="open-modal-button"
-            type="button"
-            class="btn btn-outline-dark json-btn-sm"
-            data-bs-toggle="modal"
-            data-bs-target="#dict-json-result-modal"
-            disabled
+          <div
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Abrir en ventana"
+            class="wrap"
           >
-            <i class="bi bi-box-arrow-up-right"></i>
-          </button>
+            <button
+              id="open-modal-button"
+              type="button"
+              class="btn btn-outline-dark json-btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#dict-json-result-modal"
+              disabled
+            >
+              <i class="bi bi-box-arrow-up-right"></i>
+            </button>
+          </div>
           <button
             id="copy-dict-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Copiar diccionario al cortapapeles"
             disabled
           >
             <i class="bi bi-files"></i>
@@ -85,6 +98,9 @@
             id="download-dict-button"
             type="button"
             class="btn btn-outline-dark json-btn-sm"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Descargar diccionario"
             disabled
           >
             <i class="bi bi-download"></i>
