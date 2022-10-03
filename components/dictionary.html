@@ -1,0 +1,96 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingDictAccordion">
+    <button
+      class="accordion-button collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseDictAccordion"
+      aria-expanded="false"
+      aria-controls="collapseDictAccordion"
+    >
+      <h5>Dictionary</h5>
+    </button>
+  </h2>
+  <div
+    id="collapseDictAccordion"
+    class="accordion-collapse show"
+    aria-labelledby="headingDictAccordion"
+    data-bs-parent="#general-accordion"
+  >
+    <div class="accordion-body">
+      <div class="row">
+        <div id="dict-list-panel-id" class="col-lg-6">
+          <div class="row">
+            <label for="dict-list-id">
+              <strong
+                >Carga un diccionario desde un fichero o indícalo manualmente
+                (Formato: JSON)</strong
+              >
+            </label>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input
+                hidden
+                type="file"
+                class="form-control"
+                id="dict-file-input"
+              />
+              <button
+                class="btn btn-primary"
+                id="dict-file-button"
+                type="button"
+              >
+                Cargar fichero &nbsp;<i class="bi bi bi-upload"></i>
+              </button>
+            </div>
+          </div>
+          <div class="mt-2">
+            <!--   <div class="col-md-8 col-md-8 col-xl-9"> -->
+            <textarea
+              class="form-control mt-2"
+              id="dict-json-content"
+              rows="7"
+            ></textarea>
+            <!--   </div> -->
+          </div>
+        </div>
+
+        <div id="dict-text-panel-id" class="col-lg-6">
+          <div class="row">
+            <label for="dict-text-id">
+              <strong
+                >Carga el texto a tratar desde un fichero o indícalo
+                manualmente</strong
+              >
+            </label>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input
+                hidden
+                type="file"
+                class="form-control"
+                id="text-file-input"
+              />
+              <button
+                class="btn btn-primary"
+                id="text-file-button"
+                type="button"
+              >
+                Cargar texto &nbsp;<i class="bi bi bi-upload"></i>
+              </button>
+            </div>
+          </div>
+          <div class="mt-2">
+            <textarea
+              class="form-control"
+              id="text-content"
+              rows="7"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

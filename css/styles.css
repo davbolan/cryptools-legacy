@@ -15,3 +15,12 @@
 .wrap {
   display: inline-block;
 }
+
+#dict-file-input {
+  margin-left: -2px !important;
+}
+
+#dict-file-input::-webkit-file-upload-button,
+#dict-file-input::file-selector-button {
+  display: none;
+}
