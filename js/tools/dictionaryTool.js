@@ -1,9 +1,11 @@
 import {
+  DISABLED,
   CLICK,
   CHANGE,
+  KEY_UP,
+  PASTE,
   CHAR_SEPARATOR,
   SPACE_SEPARATOR,
-  CRYPTOOLS_JSON_ERROR,
   ERROR,
 } from '../utils/constant.js';
 
@@ -29,18 +31,31 @@ const loadInputFileHandle = ($inputEl, $targetEl) => {
     const result = e.target.result;
     $targetEl.val(result);
     $inputEl.val('');
+    $targetEl.trigger(PASTE);
   };
 };
 
 const loadButtonFileHandle = (fileInput) => fileInput.click();
 
+const loadTextareaHandle = () => {
+  let allPanelsHaveContent = true;
+  $('.dict-panel').each((i, elem) => {
+    const val = elem.value.trim();
+    allPanelsHaveContent &&= !!val;
+  });
+
+  $('#transform-button').prop(DISABLED, !allPanelsHaveContent);
+};
+
 const loadPanel = (panel) => {
+  const KEY_UP__PASTE = `${KEY_UP} ${PASTE}`;
   const $fileInput = $(panel.inputId);
   const $fileButton = $(panel.buttonId);
   const $textTarget = $(panel.contentId);
 
   $fileInput.on(CHANGE, () => loadInputFileHandle($fileInput, $textTarget));
   $fileButton.on(CLICK, () => loadButtonFileHandle($fileInput));
+  $textTarget.on(KEY_UP__PASTE, loadTextareaHandle);
 };
 
 const loadPanels = () => {

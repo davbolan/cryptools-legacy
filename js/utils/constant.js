@@ -12,13 +12,12 @@ export const DISABLED = 'disabled';
 export const CLICK = 'click';
 export const CHANGE = 'change';
 export const KEY_UP = 'keyup';
+export const PASTE = 'paste';
 
 export const CHAR_SEPARATOR = '';
 export const SPACE_SEPARATOR = ' ';
 
 // ERRORS
-export const CRYPTOOLS_JSON_ERROR = 'cryptoolsJsonError';
-
 export const ERROR = {
   INVALID_JSON_FORMAT:
     'El diccionario introducido no tiene un formato Json válido',
