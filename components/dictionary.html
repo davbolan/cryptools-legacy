@@ -17,15 +17,16 @@
     aria-labelledby="headingDictAccordion"
     data-bs-parent="#general-accordion"
   >
-    <div class="accordion-body">
+    <div class="accordion-body container">
+      <!-- 1. Paneles -->
       <div class="row">
         <div id="dict-list-panel-id" class="col-lg-6">
           <div class="row">
             <label for="dict-list-id">
               <strong
-                >Carga un diccionario desde un fichero o indícalo manualmente
-                (Formato: JSON)</strong
-              >
+                >Carga un diccionario desde un fichero (Formato JSON) o indícalo
+                manualmente
+              </strong>
             </label>
           </div>
           <div class="row">
@@ -88,6 +89,31 @@
               id="text-content"
               rows="7"
             ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Botón generar -->
+      <div class="row mt-2">
+        <div class="col">
+          <button
+            class="btn btn-primary col-3 col-lg-2"
+            id="transform-button"
+            type="button"
+          >
+            Transformar &nbsp;<i class="bi bi-hammer"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. Resultado -->
+      <div class="row mt-2">
+        <div id="dict-result-panel-id">
+          <label for="dict-result-id">
+            <strong>Resultado: </strong>
+          </label>
+          <div>
+            <code class="dict-result-class" id="dict-result-id"> </code>
           </div>
         </div>
       </div>

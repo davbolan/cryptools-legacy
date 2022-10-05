@@ -7,6 +7,9 @@
   font-size: 0.875rem;
   border: none;
 }
+.json-btn-sm:disabled {
+  color: rgba(0, 0, 0, 0.3);
+}
 
 .code {
   background: #1c2833;
