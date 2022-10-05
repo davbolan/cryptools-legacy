@@ -44,6 +44,7 @@
     <?php include 'components/nav.html';?>
 
     <!-- 2. Content -->    
+    <?php include 'components/alert.html';?>
     <div class="container">
       <div class="accordion" id="general-accordion">
         <?php include 'components/base64.html';?>

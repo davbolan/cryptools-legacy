@@ -18,3 +18,19 @@
 .wrap {
   display: inline-block;
 }
+
+.alert-icon {
+  font-size: 20px;
+}
+
+#alert-component {
+  position: fixed;
+  top: 0;
+  left: 7.5%;
+  width: 85%;
+  z-index: 50;
+  display: none;
+}
+#alert-msg {
+  margin: 0 auto;
+}

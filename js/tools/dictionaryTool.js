@@ -3,9 +3,11 @@ import {
   CHANGE,
   CHAR_SEPARATOR,
   SPACE_SEPARATOR,
+  CRYPTOOLS_JSON_ERROR,
+  ERROR,
 } from '../utils/constant.js';
 
-const panels = [
+import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
 
 const dictPanel = {
   inputId: '#dict-file-input',
@@ -48,7 +50,11 @@ const loadPanels = () => {
 
 const getJson = (jsonStr) => {
   let dictJson = {};
+  try {
     dictJson = JSON.parse(jsonStr);
+  } catch (err) {
+    throw new CryptoolsJsonError(ERROR.INVALID_JSON_FORMAT);
+  }
   return dictJson;
 };
 
@@ -61,7 +67,15 @@ const parseSeparator = (separator) =>
   separator || (separator === '' ? CHAR_SEPARATOR : SPACE_SEPARATOR);
 
 const parseDict = (dict) => {
+  if (!dict) {
+    throw new CryptoolsJsonError(ERROR.DICT_FIELD_MISSING);
+  }
   return dict;
+};
+
+const showAlertError = (errorMsg) => {
+  $('#alert-msg').text(errorMsg);
+  $('#alert-component').fadeIn(150).delay(2500).fadeOut(150);
 };
 
 const processText = (dictJson, textToProcess) => {
@@ -86,10 +100,19 @@ const transformButtonHandle = () => {
   const $dictTextPanel = $(dictPanel.contentId);
   const $inputTextPanel = $(textPanel.contentId);
   const $dictResultPanel = $('#dict-result-id');
+
+  try {
     const dictJson = getJson($dictTextPanel.val());
     const textToProcess = $inputTextPanel.val();
     const textProcessed = processText(dictJson, textToProcess);
     $dictResultPanel.text(textProcessed);
+  } catch (err) {
+    if (err instanceof CryptoolsJsonError) {
+      showAlertError(err.message);
+    } else {
+      throw err;
+    }
+  }
 };
 
 const loadButtonTransfomHandle = () => {
