@@ -1,0 +1,121 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingDictAccordion">
+    <button
+      class="accordion-button collapsed"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapseDictAccordion"
+      aria-expanded="false"
+      aria-controls="collapseDictAccordion"
+    >
+      <h5>Dictionary</h5>
+    </button>
+  </h2>
+  <div
+    id="collapseDictAccordion"
+    class="accordion-collapse show"
+    aria-labelledby="headingDictAccordion"
+    data-bs-parent="#general-accordion"
+  >
+    <div class="accordion-body container">
+      <!-- 1. Paneles -->
+      <div class="row">
+        <div id="dict-list-panel-id" class="col-lg-6">
+          <div class="row">
+            <label for="dict-list-id">
+              <strong
+                >Carga un diccionario desde un fichero (Formato JSON) o indícalo
+                manualmente
+              </strong>
+            </label>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input
+                hidden
+                type="file"
+                class="form-control"
+                id="dict-file-input"
+              />
+              <button
+                class="btn btn-primary"
+                id="dict-file-button"
+                type="button"
+              >
+                Cargar fichero &nbsp;<i class="bi bi bi-upload"></i>
+              </button>
+            </div>
+          </div>
+          <div class="mt-2">
+            <textarea
+              class="form-control mt-2 dict-panel"
+              id="dict-json-content"
+              rows="7"
+            ></textarea>
+          </div>
+        </div>
+
+        <div id="dict-text-panel-id" class="col-lg-6">
+          <div class="row">
+            <label for="dict-text-id">
+              <strong
+                >Carga el texto a tratar desde un fichero o indícalo
+                manualmente</strong
+              >
+            </label>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input
+                hidden
+                type="file"
+                class="form-control"
+                id="text-file-input"
+              />
+              <button
+                class="btn btn-primary"
+                id="text-file-button"
+                type="button"
+              >
+                Cargar texto &nbsp;<i class="bi bi bi-upload"></i>
+              </button>
+            </div>
+          </div>
+          <div class="mt-2">
+            <textarea
+              class="form-control dict-panel"
+              id="text-content"
+              rows="7"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Botón generar -->
+      <div class="row mt-2">
+        <div class="col">
+          <button
+            class="btn btn-primary col-3 col-lg-2"
+            id="transform-button"
+            type="button"
+            disabled
+          >
+            Transformar &nbsp;<i class="bi bi-hammer"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. Resultado -->
+      <div class="row mt-2">
+        <div id="dict-result-panel-id">
+          <label for="dict-result-id">
+            <strong>Resultado: </strong>
+          </label>
+          <div>
+            <code class="dict-result-class" id="dict-result-id"> </code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
