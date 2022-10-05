@@ -17,22 +17,22 @@
     <script type="text/javascript" src="js/min/jquery.json-editor.min.js"></script> 
     <script type="text/javascript" src="js/min/moment.min.js"></script> 
   -->
-    <script type="text/javascript" src="js/jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
     <script
       type="text/javascript"
-      src="js/bootstrap/bootstrap.bundle.js"
+      src="js/libs/bootstrap/bootstrap.bundle.js"
     ></script>
     <script
       type="text/javascript"
-      src="js/jquery/base64/jquery.base64.js"
+      src="js/libs/jquery/base64/jquery.base64.js"
     ></script>
     <script
       type="text/javascript"
-      src="js/jquery/jsonViewer/jquery.json-editor.js"
+      src="js/libs/jquery/jsonViewer/jquery.json-editor.js"
     ></script>
     <script
       type="text/javascript"
-      src="js/jquery/jsonViewer/jquery.json-viewer.js"
+      src="js/libs/jquery/jsonViewer/jquery.json-viewer.js"
     ></script>
     <script type="module" src="js/utils/utils.js"></script>
     <script type="module" src="js/app.js"></script>
