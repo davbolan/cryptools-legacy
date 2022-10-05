@@ -79,7 +79,7 @@ const loadDictionaryBuilderHandle = () => {
       elemVisibility([$customSeparatorElem], false);
       $customSeparatorElem.val('');
     } else {
-      elemVisibility([$customSeparatorElem], false);
+      elemVisibility([$customSeparatorElem], true);
       separatorValue = $customSeparatorElem.val();
     }
     dictBuilder(separatorValue);
