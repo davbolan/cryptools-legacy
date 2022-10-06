@@ -13,6 +13,7 @@ export const CLICK = 'click';
 export const CHANGE = 'change';
 export const KEY_UP = 'keyup';
 export const PASTE = 'paste';
+export const FOCUS = 'focus';
 
 export const CHAR_SEPARATOR = '';
 export const SPACE_SEPARATOR = ' ';
