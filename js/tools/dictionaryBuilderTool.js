@@ -22,8 +22,8 @@ const setEnable = (enable, ...elems) => {
   elems.forEach((elem) => elem.prop(DISABLED, !enable));
 };
 
-const setResult = (result) => {
-  $('#dictbuilder-result-id').text(result);
+const setResult = (resultNoLinebreak, result) => {
+  $('#dictbuilder-result-id').text(resultNoLinebreak);
   $('#dictbuilder-textarea-result-id').val(result);
 };
 
@@ -96,13 +96,40 @@ const isValidEvent = (event) => {
   return !!classnameElemList.find((className) => className === eventType);
 };
 
-const updateResult = (resultDict) => {
-  const resultButtonsGroup = getResultButtonsGroup();
-  setResult(resultDict ? JSON.stringify(resultDict, 0, 4) : '');
-  setEnable(!!resultDict, ...resultButtonsGroup);
+const buildJsonStr = (resultDict, options = {}) => {
+  let dictString = '';
+
+  if (!options?.lineBreak) {
+    const items = [];
+    Object.entries(resultDict.dict).forEach(([key, value]) => {
+      items.push(`"${key}": "${value}"`);
+    });
+    const itemsStr = items.join(', ');
+
+    dictString = `{ "separator": "${resultDict.separator}", "dict": {${itemsStr}} }`;
+  } else {
+    dictString = JSON.stringify(resultDict, null, options?.spaces);
+  }
+
+  return dictString;
 };
 
-const dictBuilder = (event) => {
+const updateResult = (resultDict) => {
+  const resultButtonsGroup = getResultButtonsGroup();
+  let resultNoLinebreak = '';
+  let result = '';
+  let enableButtons = false;
+
+  if (resultDict) {
+    resultNoLinebreak = buildJsonStr(resultDict, null);
+    result = buildJsonStr(resultDict, { lineBreak: true, spaces: 4 });
+    enableButtons = true;
+  }
+  setResult(resultNoLinebreak, result);
+  setEnable(enableButtons, ...resultButtonsGroup);
+};
+
+const buildDict = (event) => {
   if (!isValidEvent(event)) return;
 
   const listValTrimmed = $('#dictbuilder-list-id').val().trim();
@@ -117,14 +144,14 @@ const dictBuilder = (event) => {
     const keysDictSet = shuffle([...listDict]);
     const valuesDictSet = shuffle([...listDict]);
     keysDictSet.forEach((k, i) => (resultDict[k] = valuesDictSet[i]));
+    resultDict = { separator, dict };
   }
-
   updateResult(resultDict);
 };
 
 const loadDictionaryBuilderHandle = () => {
   const DICT_BUILDER_EVENTS = `${KEY_UP} ${CHANGE} ${CLICK}`;
-  $('.dict-builder').on(DICT_BUILDER_EVENTS, dictBuilder);
+  $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
   $('.copy-dict').on(CLICK, copyToClipboard);
   $('.download-dict').on(CLICK, downloadJson);
   $('#open-modal-button').on(CLICK, modalButtonHandle);
