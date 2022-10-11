@@ -1,7 +1,9 @@
-import loadBase64Handle from './tools/base64tool.js';
-import loadDeleterHandle from './tools/deleterTool.js';
-import loadDictionaryBuilderHandle from './tools/dictionaryBuilderTool.js';
-import loadDictionaryHandle from './tools/dictionaryTool.js';
+import {
+  loadBase64Handle,
+  loadDeleterHandle,
+  loadDictionaryBuilderHandle,
+  loadDictionaryHandle,
+} from './tools/tools.js';
 
 const DEBUG = false;
 
@@ -11,12 +13,16 @@ const initTooltips = () => {
   });
 };
 
-const initApp = () => {
-  initTooltips();
+const loadToolsHandles = () => {
   loadBase64Handle();
   loadDeleterHandle();
   loadDictionaryBuilderHandle();
   loadDictionaryHandle();
+};
+
+const initApp = () => {
+  initTooltips();
+  loadToolsHandles();
 };
 
 $(initApp);

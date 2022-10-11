@@ -1,5 +1,20 @@
-.base64-result-class {
+.result-panel {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem !important;
+  background-color: #1c2833;
+  color: #4fdee5;
+  padding: 10px;
+}
+
+.text-result {
   word-break: break-all;
+  white-space: pre-wrap;
+  font-size: 12px;
+}
+
+.text-area {
+  word-break: break-all;
+  white-space: pre-wrap;
 }
 
 .json-btn-sm {
