@@ -50,7 +50,7 @@
           <strong>¿Qué texto vas a usar para crear el diccionario?</strong>
         </label>
         <textarea
-          class="form-control dict-builder keyup"
+          class="form-control dict-builder text-area keyup"
           id="dictbuilder-list-id"
           rows="5"
         ></textarea>
@@ -109,8 +109,8 @@
         >
           <i class="bi bi-download"></i>
         </button>
-        <div>
-          <pre id="dictbuilder-result-id"></pre>
+        <div class="result-panel">
+          <samp class="text-result" id="dictbuilder-result-id"></samp>
           <textarea id="dictbuilder-textarea-result-id" hidden></textarea>
           <a
             style="display: none"
