@@ -6,10 +6,13 @@ import {
   DATE_FORMAT,
   CLICK,
   KEY_UP,
+  KEY_DOWN,
   CHANGE,
   FOCUS,
   COPY,
+  ENTER_KEY,
   CUSTOM_OPTION,
+  LINE_SEPARATOR,
 } from '../utils/constant.js';
 
 let editor;
@@ -150,7 +153,7 @@ const buildDict = (event) => {
 };
 
 const loadDictionaryBuilderHandle = () => {
-  const DICT_BUILDER_EVENTS = `${KEY_UP} ${CHANGE} ${CLICK}`;
+  const DICT_BUILDER_EVENTS = `${KEY_DOWN} ${KEY_UP} ${CHANGE} ${CLICK}`;
   $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
   $('.copy-dict').on(CLICK, copyToClipboard);
   $('.download-dict').on(CLICK, downloadJson);
