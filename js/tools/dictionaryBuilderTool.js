@@ -1,4 +1,4 @@
-import moment from '../moment/moment.js';
+import moment from '../libs/moment/moment.js';
 import {
   HIDE,
   DISABLED,
@@ -6,21 +6,27 @@ import {
   DATE_FORMAT,
   CLICK,
   KEY_UP,
+  KEY_DOWN,
   CHANGE,
+  FOCUS,
   COPY,
+  ENTER_KEY,
   CUSTOM_OPTION,
+  LINE_SEPARATOR,
 } from '../utils/constant.js';
 
-const elemVisibility = (elems, visible) => {
+let editor;
+
+const setVisible = (visible, ...elems) => {
   elems.forEach((elem) => elem.toggleClass(HIDE, !visible));
 };
 
-const elemEnability = (elems, enable) => {
+const setEnable = (enable, ...elems) => {
   elems.forEach((elem) => elem.prop(DISABLED, !enable));
 };
 
-const displayResult = (result) => {
-  $('#dictbuilder-result-id').text(result);
+const setResult = (resultNoLinebreak, result) => {
+  $('#dictbuilder-result-id').text(resultNoLinebreak);
   $('#dictbuilder-textarea-result-id').val(result);
 };
 
@@ -32,99 +38,126 @@ const shuffle = (list) => {
   return list;
 };
 
-const loadDictionaryBuilderHandle = () => {
-  const $listElem = $('#dictbuilder-list-id');
-  const $separatorListElem = $('#separator-list');
-  const $customSeparatorElem = $('#separator-custom');
-  const $openModalButton = $('#open-modal-button');
-  const $redoDictButton = $('#redo-dictbuilder-button');
-  const $copyDictButton = $('#copy-dictbuilder-button');
-  const $downloadDictButton = $('#download-dictbuilder-button');
-  const $copyDictModalButton = $('#copy-dictbuilder-modal-button');
-  const $downloadDictModalButton = $('#download-dictbuilder-modal-button');
-  const $modalContentElemId = '#json-modal-content';
-  const $resultElemTextarea = $('#dictbuilder-result-id');
+const copyToClipboard = () => {
   const $hiddenResultTextarea = $('#dictbuilder-textarea-result-id');
+  $(document).trigger(FOCUS);
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText($hiddenResultTextarea.val());
+  } else {
+    $hiddenResultTextarea.select();
+    document.execCommand(COPY);
+  }
+};
 
-  const dictBuilder = (separatorValue) => {
-    const listVal = $listElem.val().trim();
-    const resultButtonsGroup = [
-      $openModalButton,
-      $redoDictButton,
-      $copyDictButton,
-      $downloadDictButton,
-    ];
+const downloadJson = () => {
+  const result = $('#dictbuilder-textarea-result-id').val();
+  const href = 'data:text/plain;charset=UTF-8,' + encodeURIComponent(result);
+  const download = JSON_FILENAME_TEMPLATE.replace(
+    '$date',
+    moment().format(DATE_FORMAT)
+  );
 
-    if (listVal !== '') {
-      let listDict = listVal.split(separatorValue);
-      listDict = listDict.filter((item) => item); // Clean empty values
-      listDict = [...new Set(listDict)]; // Clean duplicated values
+  $('#result-download-link').prop({ href, download });
+  $('#result-download-button').click();
+};
 
-      const keySet = shuffle([...listDict]);
-      const valueSet = shuffle([...listDict]);
-      let result = {};
+const configureEditor = () => {
+  const jsonViewerOptions = { withQuotes: true, withLinks: false };
+  return new JsonEditor('#json-modal-content', jsonViewerOptions);
+};
 
-      keySet.forEach((k, i) => (result[k] = valueSet[i]));
-      displayResult(JSON.stringify(result, 0, 4));
-      elemEnability(resultButtonsGroup, true);
-    } else {
-      displayResult('');
-      elemEnability(resultButtonsGroup, false);
-    }
-  };
+const modalButtonHandle = () => {
+  editor ||= configureEditor();
+  editor.load(JSON.parse($('#dictbuilder-result-id').text()));
+};
 
-  const separatorSelector = () => {
-    let separatorValue = $separatorListElem.val();
-    if (separatorValue !== CUSTOM_OPTION) {
-      elemVisibility([$customSeparatorElem], false);
-      $customSeparatorElem.val('');
-    } else {
-      elemVisibility([$customSeparatorElem], true);
-      separatorValue = $customSeparatorElem.val();
-    }
-    dictBuilder(separatorValue);
-  };
+const getResultButtonsGroup = () => {
+  return [
+    $('#open-modal-button'),
+    $('#redo-dictbuilder-button'),
+    $('#copy-dictbuilder-button'),
+    $('#download-dictbuilder-button'),
+  ];
+};
 
-  const copyToClipboard = () => {
-    $(document).focus();
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText($hiddenResultTextarea.val());
-    } else {
-      $hiddenResultTextarea.select();
-      document.execCommand(COPY);
-    }
-  };
+const separatorSelector = () => {
+  let separatorValue = $('#separator-list').val();
+  const $customSeparatorElem = $('#separator-custom');
+  if (separatorValue !== CUSTOM_OPTION) {
+    setVisible(false, $customSeparatorElem);
+    $customSeparatorElem.val('');
+  } else {
+    setVisible(true, $customSeparatorElem);
+    separatorValue = $customSeparatorElem.val();
+  }
+  return separatorValue;
+};
 
-  const downloadJson = () => {
-    const result = $hiddenResultTextarea.val();
-    const download = JSON_FILENAME_TEMPLATE.replace(
-      '$date',
-      moment().format(DATE_FORMAT)
-    );
-    const linkProps = {
-      href: 'data:text/plain;charset=UTF-8,' + encodeURIComponent(result),
-      download,
-    };
+const isValidEvent = (event) => {
+  const eventType = event.type;
+  const classnameElemList = event.currentTarget.className.split(' ');
+  return !!classnameElemList.find((className) => className === eventType);
+};
 
-    $('#result-download-link').prop(linkProps);
-    $('#result-download-button').click();
-  };
+const buildJsonStr = (resultDict, options = {}) => {
+  let dictString = '';
 
-  const configureEditor = () => {
-    const jsonViewerOptions = { withQuotes: true, withLinks: false };
-    return new JsonEditor($modalContentElemId, jsonViewerOptions);
-  };
+  if (!options?.lineBreak) {
+    const items = [];
+    Object.entries(resultDict.dict).forEach(([key, value]) => {
+      items.push(`"${key}": "${value}"`);
+    });
+    const itemsStr = items.join(', ');
 
-  const editor = configureEditor();
-  const modalButtonHandle = () =>
-    editor.load(JSON.parse($resultElemTextarea.text()));
+    dictString = `{ "separator": "${resultDict.separator}", "dict": {${itemsStr}} }`;
+  } else {
+    dictString = JSON.stringify(resultDict, null, options?.spaces);
+  }
 
-  $separatorListElem.on(CHANGE, separatorSelector);
-  [$customSeparatorElem, $listElem].on(KEY_UP, separatorSelector);
-  $redoDictButton.on(CLICK, separatorSelector);
-  [$copyDictButton, $copyDictModalButton].on(CLICK, copyToClipboard);
-  [$downloadDictButton, $downloadDictModalButton].on(CLICK, downloadJson);
-  $openModalButton.on(CLICK, modalButtonHandle);
+  return dictString;
+};
+
+const updateResult = (resultDict) => {
+  const resultButtonsGroup = getResultButtonsGroup();
+  let resultNoLinebreak = '';
+  let result = '';
+  let enableButtons = false;
+
+  if (resultDict) {
+    resultNoLinebreak = buildJsonStr(resultDict, null);
+    result = buildJsonStr(resultDict, { lineBreak: true, spaces: 4 });
+    enableButtons = true;
+  }
+  setResult(resultNoLinebreak, result);
+  setEnable(enableButtons, ...resultButtonsGroup);
+};
+
+const buildDict = (event) => {
+  if (!isValidEvent(event)) return;
+
+  const listValTrimmed = $('#dictbuilder-list-id').val().trim();
+  let resultDict = '';
+  if (listValTrimmed) {
+    resultDict = {};
+    const separator = separatorSelector();
+    let listDict = listValTrimmed.split(separator);
+    listDict = listDict.filter((item) => item); // Clean empty values
+    listDict = [...new Set(listDict)]; // Clean duplicated values
+
+    const keysDictSet = shuffle([...listDict]);
+    const valuesDictSet = shuffle([...listDict]);
+    keysDictSet.forEach((k, i) => (resultDict[k] = valuesDictSet[i]));
+    resultDict = { separator, dict };
+  }
+  updateResult(resultDict);
+};
+
+const loadDictionaryBuilderHandle = () => {
+  const DICT_BUILDER_EVENTS = `${KEY_DOWN} ${KEY_UP} ${CHANGE} ${CLICK}`;
+  $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
+  $('.copy-dict').on(CLICK, copyToClipboard);
+  $('.download-dict').on(CLICK, downloadJson);
+  $('#open-modal-button').on(CLICK, modalButtonHandle);
 };
 
 export default loadDictionaryBuilderHandle;

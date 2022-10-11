@@ -24,11 +24,11 @@
         </label>
         <div class="row" id="separator-word-id">
           <div class="col col-md-4 col-md-4 col-xl-4">
-            <select id="separator-list" class="form-select">
+            <select id="separator-list" class="form-select dict-builder change">
               <option value="">Caracter a caracter</option>
               <option value=" ">Espacio ( &nbsp; )</option>
               <option value=".">Punto ( . )</option>
-              <option value=":">Coma ( , )</option>
+              <option value=",">Coma ( , )</option>
               <option value=":">Dos puntos ( : )</option>
               <option value="*">Asterisco ( * )</option>
               <option value="customOption">Personalizado...</option>
@@ -38,7 +38,7 @@
             <input
               type="input"
               id="separator-custom"
-              class="form-control d-none"
+              class="form-control d-none dict-builder keyup"
               placeholder="Personalizado"
             />
           </div>
@@ -50,7 +50,7 @@
           <strong>¿Qué texto vas a usar para crear el diccionario?</strong>
         </label>
         <textarea
-          class="form-control"
+          class="form-control dict-builder text-area keyup"
           id="dictbuilder-list-id"
           rows="5"
         ></textarea>
@@ -62,7 +62,7 @@
         <button
           id="redo-dictbuilder-button"
           type="button"
-          class="btn btn-outline-dark json-btn-sm"
+          class="btn btn-outline-dark json-btn-sm dict-builder click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Rehacer diccionario"
@@ -90,7 +90,7 @@
         <button
           id="copy-dictbuilder-button"
           type="button"
-          class="btn btn-outline-dark json-btn-sm"
+          class="btn btn-outline-dark json-btn-sm copy-dict click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Copiar diccionario al cortapapeles"
@@ -101,7 +101,7 @@
         <button
           id="download-dictbuilder-button"
           type="button"
-          class="btn btn-outline-dark json-btn-sm"
+          class="btn btn-outline-dark json-btn-sm download-dict click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="Descargar diccionario"
@@ -109,9 +109,8 @@
         >
           <i class="bi bi-download"></i>
         </button>
-        <div>
-          <code class="dictbuilder-result-class" id="dictbuilder-result-id">
-          </code>
+        <div class="result-panel">
+          <samp class="text-result" id="dictbuilder-result-id"></samp>
           <textarea id="dictbuilder-textarea-result-id" hidden></textarea>
           <a
             style="display: none"
@@ -153,14 +152,14 @@
                 <button
                   id="copy-dictbuilder-modal-button"
                   type="button"
-                  class="btn btn-primary"
+                  class="btn btn-primary copy-dict click"
                 >
                   Copiar al cortapapeles &nbsp;<i class="bi bi-files"></i>
                 </button>
                 <button
                   id="download-dictbuilder-modal-button"
                   type="button"
-                  class="btn btn-primary"
+                  class="btn btn-primary download-dict click"
                 >
                   Descargar &nbsp;<i class="bi bi-box-arrow-up-right"></i>
                 </button>
