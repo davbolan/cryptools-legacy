@@ -13,6 +13,8 @@ import {
   ENTER_KEY,
   CUSTOM_OPTION,
   LINE_SEPARATOR,
+  MIN_LOOPS,
+  MAX_LOOPS,
 } from '../utils/constant.js';
 
 let editor;
@@ -31,7 +33,7 @@ const setResult = (resultNoLinebreak, result) => {
 };
 
 const shuffle = (list) => {
-  const loops = Math.random() * (10 - 2) + 2;
+  const loops = Math.random() * (MAX_LOOPS - MIN_LOOPS) + MIN_LOOPS; // Range from 2 to 10 loops
   for (let i = 0; i < loops; i++) {
     list = list.sort((a, b) => 0.5 - Math.random());
   }
@@ -94,9 +96,16 @@ const separatorSelector = () => {
 };
 
 const isValidEvent = (event) => {
-  const eventType = event.type;
-  const classnameElemList = event.currentTarget.className.split(' ');
-  return !!classnameElemList.find((className) => className === eventType);
+  const { type, keyCode, currentTarget } = event;
+  let isValid = true;
+  if ([KEY_UP, KEY_DOWN].includes(type) && keyCode === ENTER_KEY) {
+    event.preventDefault();
+    isValid = false;
+  }
+
+  const classnameElemList = currentTarget.className.split(' ');
+  isValid &&= classnameElemList.includes(type);
+  return isValid;
 };
 
 const buildJsonStr = (resultDict, options = {}) => {
@@ -132,24 +141,30 @@ const updateResult = (resultDict) => {
   setEnable(enableButtons, ...resultButtonsGroup);
 };
 
+const cleanText = (dictText) => {
+  dictText = dictText.replaceAll(LINE_SEPARATOR, '');
+  $('#dictbuilder-list-id').val(dictText);
+  return dictText.trim();
+};
+
 const buildDict = (event) => {
   if (!isValidEvent(event)) return;
-
-  const listValTrimmed = $('#dictbuilder-list-id').val().trim();
-  let resultDict = '';
-  if (listValTrimmed) {
-    resultDict = {};
+  const dictText = $('#dictbuilder-list-id').val();
+  const textCleaned = cleanText(dictText).trim();
+  let dict = '';
+  if (textCleaned) {
+    dict = {};
     const separator = separatorSelector();
-    let listDict = listValTrimmed.split(separator);
-    listDict = listDict.filter((item) => item); // Clean empty values
-    listDict = [...new Set(listDict)]; // Clean duplicated values
+    let listWords = textCleaned.split(separator);
+    listWords = listWords.filter((item) => item); // Clean empty values
+    listWords = [...new Set(listWords)]; // Clean duplicated values
 
-    const keysDictSet = shuffle([...listDict]);
-    const valuesDictSet = shuffle([...listDict]);
-    keysDictSet.forEach((k, i) => (resultDict[k] = valuesDictSet[i]));
-    resultDict = { separator, dict };
+    const keysDictSet = shuffle([...listWords]);
+    const valuesDictSet = shuffle([...listWords]);
+    keysDictSet.forEach((key, idx) => (dict[key] = valuesDictSet[idx]));
+    dict = { separator, dict };
   }
-  updateResult(resultDict);
+  updateResult(dict);
 };
 
 const loadDictionaryBuilderHandle = () => {
