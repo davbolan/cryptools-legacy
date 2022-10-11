@@ -26,6 +26,8 @@ export const ENTER_KEY = 13;
 export const MIN_LOOPS = 2;
 export const MAX_LOOPS = 10;
 
+export const ENTER_KEY = 13;
+
 // ERRORS
 export const ERROR = {
   INVALID_JSON_FORMAT:
