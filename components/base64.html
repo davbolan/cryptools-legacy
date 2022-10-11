@@ -34,15 +34,19 @@
         <label for="base64-text-id">
           <strong>¿Qué texto?</strong>
         </label>
-        <textarea class="form-control" id="base64-text-id" rows="5"></textarea>
+        <textarea
+          class="form-control text-area"
+          id="base64-text-id"
+          rows="5"
+        ></textarea>
       </div>
 
       <div id="base64-result-panel-id">
         <label for="base64-result-id">
           <strong>Resultado: </strong>
         </label>
-        <div>
-          <code class="base64-result-class" id="base64-result-id"></code>
+        <div class="result-panel">
+          <samp class="text-result" id="base64-result-id"></samp>
         </div>
       </div>
     </div>
