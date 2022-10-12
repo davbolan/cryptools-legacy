@@ -13,6 +13,8 @@ import {
   ENTER_KEY,
   CUSTOM_OPTION,
   LINE_SEPARATOR,
+  DOUBLE_QUOTE,
+  BACKSLASH,
   MIN_LOOPS,
   MAX_LOOPS,
 } from '../utils/constant.js';
@@ -98,13 +100,13 @@ const separatorSelector = () => {
 const isValidEvent = (event) => {
   const { type, keyCode, currentTarget } = event;
   let isValid = true;
+
   if ([KEY_UP, KEY_DOWN].includes(type) && keyCode === ENTER_KEY) {
     event.preventDefault();
     isValid = false;
   }
 
-  const classnameElemList = currentTarget.className.split(' ');
-  isValid &&= classnameElemList.includes(type);
+  isValid &&= currentTarget.classList.contains(type);
   return isValid;
 };
 
@@ -141,24 +143,35 @@ const updateResult = (resultDict) => {
   setEnable(enableButtons, ...resultButtonsGroup);
 };
 
-const cleanText = (dictText) => {
-  dictText = dictText.replaceAll(LINE_SEPARATOR, '');
-  $('#dictbuilder-list-id').val(dictText);
-  return dictText.trim();
+const deleteNotAllowedChars = (text) => {
+  return text
+    .deleteAll(LINE_SEPARATOR)
+    .deleteAll(DOUBLE_QUOTE)
+    .deleteAll(BACKSLASH);
+};
+const cleanInputChars = () => {
+  [$('#dictbuilder-list-id'), $('#separator-custom')].forEach(($elem) => {
+    let dictVal = deleteNotAllowedChars($elem.val());
+    $elem.val(dictVal);
+  });
+};
+
+const processListWords = (listWords) => {
+  listWords = listWords.deleteEmptyValues(); // Clean empty values
+  listWords = listWords.uniq(); // Clean duplicated values
+  return listWords;
 };
 
 const buildDict = (event) => {
   if (!isValidEvent(event)) return;
-  const dictText = $('#dictbuilder-list-id').val();
-  const textCleaned = cleanText(dictText).trim();
+  cleanInputChars();
+  const separator = separatorSelector();
+  const dictTextCleaned = $('#dictbuilder-list-id').val().trim();
   let dict = '';
-  if (textCleaned) {
+  if (dictTextCleaned) {
     dict = {};
-    const separator = separatorSelector();
-    let listWords = textCleaned.split(separator);
-    listWords = listWords.filter((item) => item); // Clean empty values
-    listWords = [...new Set(listWords)]; // Clean duplicated values
-
+    let listWords = dictTextCleaned.split(separator);
+    listWords = processListWords(listWords);
     const keysDictSet = shuffle([...listWords]);
     const valuesDictSet = shuffle([...listWords]);
     keysDictSet.forEach((key, idx) => (dict[key] = valuesDictSet[idx]));
