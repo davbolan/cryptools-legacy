@@ -6,7 +6,7 @@ const loadDeleterHandle = () => {
   const $resultElem = $('#deleter-result-id');
 
   const deleter = () => {
-    $resultElem.text($textElem.val().replaceAll($wordElem.val(), ''));
+    $resultElem.text($textElem.val().deleteAll($wordElem.val()));
   };
 
   [$wordElem, $textElem].on(KEY_UP, deleter);
