@@ -19,14 +19,13 @@ export const FOCUS = 'focus';
 export const CHAR_SEPARATOR = '';
 export const SPACE_SEPARATOR = ' ';
 export const LINE_SEPARATOR = '\n';
-
+export const DOUBLE_QUOTE = '"';
+export const BACKSLASH = '\\';
 export const ENTER_KEY = 13;
 
 // LOOPS
 export const MIN_LOOPS = 2;
 export const MAX_LOOPS = 10;
-
-export const ENTER_KEY = 13;
 
 // ERRORS
 export const ERROR = {
