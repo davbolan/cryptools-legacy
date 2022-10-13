@@ -1,4 +1,6 @@
 import moment from '../libs/moment/moment.js';
+import copyToClipboard from '../utils/copyclipboard.js';
+
 import {
   HIDE,
   DISABLED,
@@ -8,11 +10,9 @@ import {
   KEY_UP,
   KEY_DOWN,
   CHANGE,
-  FOCUS,
-  COPY,
   ENTER_KEY,
   CUSTOM_OPTION,
-  LINE_SEPARATOR,
+  SEPARATORS,
   DOUBLE_QUOTE,
   BACKSLASH,
   MIN_LOOPS,
@@ -21,12 +21,12 @@ import {
 
 let editor;
 
-const setVisible = (visible, ...elems) => {
-  elems.forEach((elem) => elem.toggleClass(HIDE, !visible));
+const setVisible = (visible, ...$elems) => {
+  $elems.forEach(($elem) => $elem.toggleClass(HIDE, !visible));
 };
 
-const setEnable = (enable, ...elems) => {
-  elems.forEach((elem) => elem.prop(DISABLED, !enable));
+const setEnable = (enable, ...$elems) => {
+  $elems.forEach(($elem) => $elem.prop(DISABLED, !enable));
 };
 
 const setResult = (resultNoLinebreak, result) => {
@@ -42,15 +42,8 @@ const shuffle = (list) => {
   return list;
 };
 
-const copyToClipboard = () => {
-  const $hiddenResultTextarea = $('#dictbuilder-textarea-result-id');
-  $(document).trigger(FOCUS);
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText($hiddenResultTextarea.val());
-  } else {
-    $hiddenResultTextarea.select();
-    document.execCommand(COPY);
-  }
+const copyResultToClipboard = () => {
+  copyToClipboard($('#dictbuilder-textarea-result-id'));
 };
 
 const downloadJson = () => {
@@ -145,7 +138,7 @@ const updateResult = (resultDict) => {
 
 const deleteNotAllowedChars = (text) => {
   return text
-    .deleteAll(LINE_SEPARATOR)
+    .deleteAll(SEPARATORS.LINE)
     .deleteAll(DOUBLE_QUOTE)
     .deleteAll(BACKSLASH);
 };
@@ -183,7 +176,7 @@ const buildDict = (event) => {
 const loadDictionaryBuilderHandle = () => {
   const DICT_BUILDER_EVENTS = `${KEY_DOWN} ${KEY_UP} ${CHANGE} ${CLICK}`;
   $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
-  $('.copy-dict').on(CLICK, copyToClipboard);
+  $('.copy-dict').on(CLICK, copyResultToClipboard);
   $('.download-dict').on(CLICK, downloadJson);
   $('#open-modal-button').on(CLICK, modalButtonHandle);
 };
