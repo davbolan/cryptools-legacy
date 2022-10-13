@@ -1,4 +1,6 @@
 import moment from '../libs/moment/moment.js';
+import copyToClipboard from '../utils/copyclipboard.js';
+
 import {
   HIDE,
   DISABLED,
@@ -8,8 +10,6 @@ import {
   KEY_UP,
   KEY_DOWN,
   CHANGE,
-  FOCUS,
-  COPY,
   ENTER_KEY,
   CUSTOM_OPTION,
   LINE_SEPARATOR,
@@ -42,15 +42,8 @@ const shuffle = (list) => {
   return list;
 };
 
-const copyToClipboard = () => {
-  const $hiddenResultTextarea = $('#dictbuilder-textarea-result-id');
-  $(document).trigger(FOCUS);
-  if (navigator.clipboard) {
-    navigator.clipboard.writeText($hiddenResultTextarea.val());
-  } else {
-    $hiddenResultTextarea.select();
-    document.execCommand(COPY);
-  }
+const copyResultToClipboard = () => {
+  copyToClipboard($('#dictbuilder-textarea-result-id'));
 };
 
 const downloadJson = () => {
@@ -183,7 +176,7 @@ const buildDict = (event) => {
 const loadDictionaryBuilderHandle = () => {
   const DICT_BUILDER_EVENTS = `${KEY_DOWN} ${KEY_UP} ${CHANGE} ${CLICK}`;
   $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
-  $('.copy-dict').on(CLICK, copyToClipboard);
+  $('.copy-dict').on(CLICK, copyResultToClipboard);
   $('.download-dict').on(CLICK, downloadJson);
   $('#open-modal-button').on(CLICK, modalButtonHandle);
 };
