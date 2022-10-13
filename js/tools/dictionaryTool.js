@@ -1,15 +1,14 @@
+import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
+import showError from '../errors/alertError.js';
 import {
   DISABLED,
   CLICK,
   CHANGE,
   KEY_UP,
   PASTE,
-  CHAR_SEPARATOR,
-  SPACE_SEPARATOR,
+  SEPARATORS,
   ERROR,
 } from '../utils/constant.js';
-
-import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
 
 const dictPanel = {
   inputId: '#dict-file-input',
@@ -79,18 +78,13 @@ const replaceWord = (word, newWord) => {
 };
 
 const parseSeparator = (separator) =>
-  separator || (separator === '' ? CHAR_SEPARATOR : SPACE_SEPARATOR);
+  separator || (separator === '' ? SEPARATOR.CHAR : SEPARATOR.SPACE);
 
 const parseDict = (dict) => {
   if (!dict) {
     throw new CryptoolsJsonError(ERROR.DICT_FIELD_MISSING);
   }
   return dict;
-};
-
-const showAlertError = (errorMsg) => {
-  $('#alert-msg').text(errorMsg);
-  $('#alert-component').fadeIn(150).delay(2500).fadeOut(150);
 };
 
 const processText = (dictJson, textToProcess) => {
@@ -123,7 +117,7 @@ const transformButtonHandle = () => {
     $dictResultPanel.text(textProcessed);
   } catch (err) {
     if (err instanceof CryptoolsJsonError) {
-      showAlertError(err.message);
+      showError(err.message);
     } else {
       throw err;
     }
