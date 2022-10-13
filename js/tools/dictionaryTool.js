@@ -1,3 +1,5 @@
+import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
+import showError from '../errors/alertError.js';
 import {
   DISABLED,
   CLICK,
@@ -8,8 +10,6 @@ import {
   SPACE_SEPARATOR,
   ERROR,
 } from '../utils/constant.js';
-
-import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
 
 const dictPanel = {
   inputId: '#dict-file-input',
@@ -88,11 +88,6 @@ const parseDict = (dict) => {
   return dict;
 };
 
-const showAlertError = (errorMsg) => {
-  $('#alert-msg').text(errorMsg);
-  $('#alert-component').fadeIn(150).delay(2500).fadeOut(150);
-};
-
 const processText = (dictJson, textToProcess) => {
   const dict = parseDict(dictJson.dict);
   const separator = parseSeparator(dictJson.separator);
@@ -123,7 +118,7 @@ const transformButtonHandle = () => {
     $dictResultPanel.text(textProcessed);
   } catch (err) {
     if (err instanceof CryptoolsJsonError) {
-      showAlertError(err.message);
+      showError(err.message);
     } else {
       throw err;
     }
