@@ -10,6 +10,7 @@
   word-break: break-all;
   white-space: pre-wrap;
   font-size: 12px;
+  background-color: #333d47;
 }
 
 .text-area {
@@ -17,12 +18,12 @@
   white-space: pre-wrap;
 }
 
-.json-btn-sm {
+.result-btn-sm {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border: none;
 }
-.json-btn-sm:disabled {
+.result-btn-sm:disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 
