@@ -29,6 +29,13 @@ export const JQUERY_EVENTS = {
 export const CHAR_SEPARATOR = '';
 export const SPACE_SEPARATOR = ' ';
 export const LINE_SEPARATOR = '\n';
+
+export const SEPARATORS = {
+  CHAR: '',
+  SPACE: ' ',
+  LINE: '\n',
+};
+
 export const DOUBLE_QUOTE = '"';
 export const BACKSLASH = '\\';
 export const ENTER_KEY = 13;

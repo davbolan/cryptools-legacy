@@ -6,8 +6,7 @@ import {
   CHANGE,
   KEY_UP,
   PASTE,
-  CHAR_SEPARATOR,
-  SPACE_SEPARATOR,
+  SEPARATORS,
   ERROR,
 } from '../utils/constant.js';
 
@@ -79,7 +78,7 @@ const replaceWord = (word, newWord) => {
 };
 
 const parseSeparator = (separator) =>
-  separator || (separator === '' ? CHAR_SEPARATOR : SPACE_SEPARATOR);
+  separator || (separator === '' ? SEPARATOR.CHAR : SEPARATOR.SPACE);
 
 const parseDict = (dict) => {
   if (!dict) {
