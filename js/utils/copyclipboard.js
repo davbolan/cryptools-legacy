@@ -1,6 +1,5 @@
 import CryptoolsCopypasteError from '../errors/CryptoolsCopypasteError.js';
-import showError from '../errors/alertError.js';
-import { COPY, ERROR, HIDE, FOCUS, SELECT, CONTENT_TYPES } from './constant.js';
+import { COPY, ERROR, HIDE, CONTENT_TYPES } from './constant.js';
 
 const getText = (elem) => {
   let text = '';
@@ -50,11 +49,7 @@ const alternativeCopy = (text) => {
 
 const copyToClipboard = (elem) => {
   const text = getText(elem);
-  try {
-    !navigator.clipboard ? mainCopy(text) : alternativeCopy(text);
-  } catch (err) {
-    showError(err.message);
-  }
+  !navigator.clipboard ? mainCopy(text) : alternativeCopy(text);
 };
 
 export default copyToClipboard;

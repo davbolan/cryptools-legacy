@@ -1,6 +1,6 @@
 import moment from '../libs/moment/moment.js';
 import copyToClipboard from '../utils/copyclipboard.js';
-
+import showError from '../errors/alertError.js';
 import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
 import {
   JSON_FILENAME_TEMPLATE,
@@ -34,7 +34,11 @@ const shuffle = (list) => {
 };
 
 const copyResultToClipboard = () => {
-  copyToClipboard($('#dictbuilder-textarea-result-id'));
+  try {
+    copyToClipboard($('#dictbuilder-textarea-result-id'));
+  } catch (err) {
+    showError(err.message);
+  }
 };
 
 const downloadJson = () => {

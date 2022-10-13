@@ -1,9 +1,14 @@
 import copyToClipboard from '../utils/copyclipboard.js';
+import showError from '../errors/alertError.js';
 import { setEnableComponents } from '../utils/utils.js';
 import { ENCODE, KEY_UP, CHANGE, DISABLED, CLICK } from '../utils/constant.js';
 
 const copyResultToClipboard = () => {
-  copyToClipboard($('#base64-result-id'));
+  try {
+    copyToClipboard($('#base64-result-id'));
+  } catch (err) {
+    showError(err.message);
+  }
 };
 
 const coderDecoder = () => {
