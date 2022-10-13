@@ -12,7 +12,7 @@ import {
   CHANGE,
   ENTER_KEY,
   CUSTOM_OPTION,
-  LINE_SEPARATOR,
+  SEPARATORS,
   DOUBLE_QUOTE,
   BACKSLASH,
   MIN_LOOPS,
@@ -21,12 +21,12 @@ import {
 
 let editor;
 
-const setVisible = (visible, ...elems) => {
-  elems.forEach((elem) => elem.toggleClass(HIDE, !visible));
+const setVisible = (visible, ...$elems) => {
+  $elems.forEach(($elem) => $elem.toggleClass(HIDE, !visible));
 };
 
-const setEnable = (enable, ...elems) => {
-  elems.forEach((elem) => elem.prop(DISABLED, !enable));
+const setEnable = (enable, ...$elems) => {
+  $elems.forEach(($elem) => $elem.prop(DISABLED, !enable));
 };
 
 const setResult = (resultNoLinebreak, result) => {
@@ -138,7 +138,7 @@ const updateResult = (resultDict) => {
 
 const deleteNotAllowedChars = (text) => {
   return text
-    .deleteAll(LINE_SEPARATOR)
+    .deleteAll(SEPARATORS.LINE)
     .deleteAll(DOUBLE_QUOTE)
     .deleteAll(BACKSLASH);
 };
