@@ -28,18 +28,22 @@ const mainCopy = (text) => {
   }
 };
 
+const ie11copy = (text) => {
+  try {
+    window.clipboardData.setData('Text', text);
+    return Promise.resolve();
+  } catch (err) {
+    throw new CryptoolsCopypasteError(ERROR.COPYPASTE_FAILED);
+  }
+};
 const alternativeCopy = (text) => {
   let $textareaTemp = $('<textarea>', { class: HIDE, text });
-
-  console.log($textareaTemp);
   $('body').append($textareaTemp);
   $textareaTemp.focus();
   $textareaTemp.select();
 
   try {
-    if (!document.execCommand(COPY)) {
-      throw '';
-    }
+    document.execCommand(COPY, true, $textareaTemp.val());
   } catch (err) {
     throw new CryptoolsCopypasteError(ERROR.COPYPASTE_FAILED);
   } finally {
@@ -49,7 +53,13 @@ const alternativeCopy = (text) => {
 
 const copyToClipboard = (elem) => {
   const text = getText(elem);
-  !navigator.clipboard ? mainCopy(text) : alternativeCopy(text);
+  if (navigator.clipboard) {
+    mainCopy(text);
+  } else if (window.clipboardData?.setData) {
+    ie11copy(text);
+  } else {
+    alternativeCopy(text);
+  }
 };
 
 export default copyToClipboard;
