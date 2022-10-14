@@ -26,9 +26,6 @@ export const JQUERY_EVENTS = {
   FOCUS,
   SELECT,
 };
-export const CHAR_SEPARATOR = '';
-export const SPACE_SEPARATOR = ' ';
-export const LINE_SEPARATOR = '\n';
 
 export const SEPARATORS = {
   CHAR: '',
@@ -40,7 +37,7 @@ export const DOUBLE_QUOTE = '"';
 export const BACKSLASH = '\\';
 export const ENTER_KEY = 13;
 
-export const CONTENT_TYPE = {
+export const CONTENT_TYPES = {
   TEXT: 'text',
   VAL: 'val',
 };

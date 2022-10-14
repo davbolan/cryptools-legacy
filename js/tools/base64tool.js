@@ -1,24 +1,23 @@
 import copyToClipboard from '../utils/copyclipboard.js';
+import showError from '../errors/alertError.js';
+import { setEnableComponents } from '../utils/utils.js';
 import { ENCODE, KEY_UP, CHANGE, DISABLED, CLICK } from '../utils/constant.js';
 
-const setEnable = (enable, ...$elems) => {
-  $elems.forEach(($elem) => $elem.prop(DISABLED, !enable));
-};
-
 const copyResultToClipboard = () => {
-  copyToClipboard($('#base64-result-id'));
+  try {
+    copyToClipboard($('#base64-result-id'));
+  } catch (err) {
+    showError(err.message);
+  }
 };
 
 const coderDecoder = () => {
   const $textElem = $('#base64-text-id');
   const $typeElem = $('#base64-type-id');
-  const $resultElem = $('#base64-result-id');
-
   const text = $textElem.val();
+  setEnableComponents(!!text, $('#copy-base64result-button'));
 
-  setEnable(!!text, $('#copy-base64result-button'));
-
-  $resultElem.text(
+  $('#base64-result-id').text(
     ENCODE === $typeElem.val() ? $.base64.encode(text) : $.base64.decode(text)
   );
 };

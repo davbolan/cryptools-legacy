@@ -1,9 +1,8 @@
 import moment from '../libs/moment/moment.js';
 import copyToClipboard from '../utils/copyclipboard.js';
-
+import showError from '../errors/alertError.js';
+import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
 import {
-  HIDE,
-  DISABLED,
   JSON_FILENAME_TEMPLATE,
   DATE_FORMAT,
   CLICK,
@@ -21,14 +20,6 @@ import {
 
 let editor;
 
-const setVisible = (visible, ...$elems) => {
-  $elems.forEach(($elem) => $elem.toggleClass(HIDE, !visible));
-};
-
-const setEnable = (enable, ...$elems) => {
-  $elems.forEach(($elem) => $elem.prop(DISABLED, !enable));
-};
-
 const setResult = (resultNoLinebreak, result) => {
   $('#dictbuilder-result-id').text(resultNoLinebreak);
   $('#dictbuilder-textarea-result-id').val(result);
@@ -43,7 +34,11 @@ const shuffle = (list) => {
 };
 
 const copyResultToClipboard = () => {
-  copyToClipboard($('#dictbuilder-textarea-result-id'));
+  try {
+    copyToClipboard($('#dictbuilder-textarea-result-id'));
+  } catch (err) {
+    showError(err.message);
+  }
 };
 
 const downloadJson = () => {
@@ -81,10 +76,10 @@ const separatorSelector = () => {
   let separatorValue = $('#separator-list').val();
   const $customSeparatorElem = $('#separator-custom');
   if (separatorValue !== CUSTOM_OPTION) {
-    setVisible(false, $customSeparatorElem);
+    setVisibleComponents(false, $customSeparatorElem);
     $customSeparatorElem.val('');
   } else {
-    setVisible(true, $customSeparatorElem);
+    setVisibleComponents(true, $customSeparatorElem);
     separatorValue = $customSeparatorElem.val();
   }
   return separatorValue;
@@ -133,7 +128,7 @@ const updateResult = (resultDict) => {
     enableButtons = true;
   }
   setResult(resultNoLinebreak, result);
-  setEnable(enableButtons, ...resultButtonsGroup);
+  setEnableComponents(enableButtons, ...resultButtonsGroup);
 };
 
 const deleteNotAllowedChars = (text) => {

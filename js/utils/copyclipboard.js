@@ -1,6 +1,5 @@
 import CryptoolsCopypasteError from '../errors/CryptoolsCopypasteError.js';
-import showError from '../errors/alertError.js';
-import { COPY, ERROR, HIDE, FOCUS, SELECT, CONTENT_TYPES } from './constant.js';
+import { COPY, ERROR, HIDE, CONTENT_TYPES } from './constant.js';
 
 const getText = (elem) => {
   let text = '';
@@ -29,18 +28,22 @@ const mainCopy = (text) => {
   }
 };
 
+const ie11copy = (text) => {
+  try {
+    window.clipboardData.setData('Text', text);
+    return Promise.resolve();
+  } catch (err) {
+    throw new CryptoolsCopypasteError(ERROR.COPYPASTE_FAILED);
+  }
+};
 const alternativeCopy = (text) => {
   let $textareaTemp = $('<textarea>', { class: HIDE, text });
-
-  console.log($textareaTemp);
   $('body').append($textareaTemp);
   $textareaTemp.focus();
   $textareaTemp.select();
 
   try {
-    if (!document.execCommand(COPY)) {
-      throw '';
-    }
+    document.execCommand(COPY, true, $textareaTemp.val());
   } catch (err) {
     throw new CryptoolsCopypasteError(ERROR.COPYPASTE_FAILED);
   } finally {
@@ -50,10 +53,12 @@ const alternativeCopy = (text) => {
 
 const copyToClipboard = (elem) => {
   const text = getText(elem);
-  try {
-    !navigator.clipboard ? mainCopy(text) : alternativeCopy(text);
-  } catch (err) {
-    showError(err.message);
+  if (navigator.clipboard) {
+    mainCopy(text);
+  } else if (window.clipboardData?.setData) {
+    ie11copy(text);
+  } else {
+    alternativeCopy(text);
   }
 };
 
