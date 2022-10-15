@@ -149,8 +149,22 @@
           <label for="dict-result-id">
             <strong>Resultado: </strong>
           </label>
+          <button
+            id="copy-dict-result-button"
+            type="button"
+            class="btn btn-outline-dark result-btn-sm click"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="Copiar resultado al cortapapeles"
+          >
+            <i class="bi bi-files"></i>
+          </button>
           <div class="result-panel">
-            <samp class="text-result" id="dict-result-id"></samp>
+            <samp
+              class="text-result"
+              id="dict-result-id"
+              data-content-type="text"
+            ></samp>
           </div>
         </div>
       </div>

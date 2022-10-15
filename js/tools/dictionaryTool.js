@@ -1,5 +1,6 @@
-import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
+import copyToClipboard from '../utils/copyclipboard.js';
 import showError from '../errors/alertError.js';
+import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
 import {
   ENCODE,
   DISABLED,
@@ -110,16 +111,11 @@ const processText = (dictJson, textToProcess) => {
   const separator = parseSeparator(dictJson.separator);
   const dictMap = getDictMapByOperation(dict);
   const textToProcessSplitted = textToProcess.split(separator);
-  let wordProcessedList = [];
-  let wordReplaced = '';
-
-  for (const word of textToProcessSplitted) {
-    wordReplaced = replaceWord(word, dictMap.get(word));
-    wordProcessedList.push(wordReplaced);
-  }
-
+  const wordProcessedList = textToProcessSplitted.map((word) => {
+  const wordProcessedList = textToProcessSplitted.map((word) =>
+    replaceWord(word, dictMap.get(word))
+  );
   const textProcessed = wordProcessedList.join(separator);
-
   return textProcessed;
 };
 
@@ -132,6 +128,7 @@ const transformButtonHandle = () => {
     const dictJson = getJson($dictTextPanel.val());
     const textToProcess = $inputTextPanel.val();
     const textProcessed = processText(dictJson, textToProcess);
+    console.log();
     $dictResultPanel.text(textProcessed);
   } catch (err) {
     if (err instanceof CryptoolsJsonError) {
@@ -142,14 +139,18 @@ const transformButtonHandle = () => {
   }
 };
 
-const loadButtonTransfomHandle = () => {
-  const $transformButton = $('#transform-button');
-  $transformButton.on(CLICK, transformButtonHandle);
+const copyResultToClipboard = () => {
+  try {
+    copyToClipboard($('#dict-result-id'));
+  } catch (err) {
+    showError(err.message);
+  }
 };
 
 const loadDictionaryHandle = () => {
   loadPanels();
-  loadButtonTransfomHandle();
+  $('#transform-button').on(CLICK, transformButtonHandle);
+  $('#copy-dict-result-button').on(CLICK, copyResultToClipboard);
 };
 
 export default loadDictionaryHandle;
