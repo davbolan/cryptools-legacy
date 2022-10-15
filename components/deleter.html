@@ -39,8 +39,22 @@
         <label for="deleter-result-id">
           <strong>Resultado: </strong>
         </label>
+        <button
+          id="copy-deleter-result-button"
+          type="button"
+          class="btn btn-outline-dark result-btn-sm copy-deleter-result click"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Copiar resultado al cortapapeles"
+        >
+          <i class="bi bi-files"></i>
+        </button>
         <div class="result-panel">
-          <samp class="text-result" id="deleter-result-id"></samp>
+          <samp
+            class="text-result"
+            id="deleter-result-id"
+            data-content-type="text"
+          ></samp>
         </div>
       </div>
     </div>
