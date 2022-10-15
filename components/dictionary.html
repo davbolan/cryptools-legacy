@@ -20,6 +20,42 @@
     <div class="accordion-body container">
       <!-- 1. Paneles -->
       <div class="row">
+        <div id="select-operation-panel-id" class="col-lg- mb-1">
+          <div class="row">
+            <label for="dict-list-id">
+              <strong>¿Quieres codificar o decodificar? </strong>
+            </label>
+            <div class="col">
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="flexRadioCoderDict"
+                  name="flexRadioDictOperation"
+                  class="form-check-input"
+                  value="encode"
+                  checked
+                />
+                <label class="form-check-label" for="flexRadioCoderDict">
+                  Codificar
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="flexRadioDecoderDict"
+                  name="flexRadioDictOperation"
+                  class="form-check-input"
+                  value="decode"
+                />
+                <label class="form-check-label" for="flexRadioDecoderDict">
+                  Decodificar
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div id="dict-list-panel-id" class="col-lg-6">
           <div class="row">
             <label for="dict-list-id">

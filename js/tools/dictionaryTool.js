@@ -1,6 +1,7 @@
 import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
 import showError from '../errors/alertError.js';
 import {
+  ENCODE,
   DISABLED,
   CLICK,
   CHANGE,
@@ -87,16 +88,33 @@ const parseDict = (dict) => {
   return dict;
 };
 
+const getCoderAndDecoderDict = (coderDict) => {
+  const decoderDict = {};
+  for (let key in coderDict) {
+    decoderDict[coderDict[key]] = key;
+  }
+
+  return { coderDict, decoderDict };
+};
+
+const getDictMapByOperation = (dict) => {
+  const { coderDict, decoderDict } = getCoderAndDecoderDict(dict);
+  const coderDictMap = new Map(Object.entries(coderDict));
+  const decoderDictMap = new Map(Object.entries(decoderDict));
+  const operation = $("input[name='flexRadioDictOperation']:checked").val();
+  return operation === ENCODE ? coderDictMap : decoderDictMap;
+};
+
 const processText = (dictJson, textToProcess) => {
   const dict = parseDict(dictJson.dict);
   const separator = parseSeparator(dictJson.separator);
-  const dictEntries = new Map(Object.entries(dict));
+  const dictMap = getDictMapByOperation(dict);
   const textToProcessSplitted = textToProcess.split(separator);
   let wordProcessedList = [];
   let wordReplaced = '';
 
   for (const word of textToProcessSplitted) {
-    wordReplaced = replaceWord(word, dictEntries.get(word));
+    wordReplaced = replaceWord(word, dictMap.get(word));
     wordProcessedList.push(wordReplaced);
   }
 
