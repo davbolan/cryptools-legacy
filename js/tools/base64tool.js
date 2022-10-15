@@ -1,7 +1,7 @@
 import copyToClipboard from '../utils/copyclipboard.js';
 import showError from '../errors/alertError.js';
 import { setEnableComponents } from '../utils/utils.js';
-import { ENCODE, KEY_UP, CHANGE, DISABLED, CLICK } from '../utils/constant.js';
+import { ENCODE, KEY_UP, CHANGE, CLICK } from '../utils/constant.js';
 
 const copyResultToClipboard = () => {
   try {

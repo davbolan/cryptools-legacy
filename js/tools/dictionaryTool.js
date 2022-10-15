@@ -6,7 +6,7 @@ import {
   CHANGE,
   KEY_UP,
   PASTE,
-  SEPARATORS,
+  SEPARATOR,
   ERROR,
 } from '../utils/constant.js';
 
@@ -24,7 +24,7 @@ const textPanel = {
 
 const loadInputFileHandle = ($inputEl, $targetEl) => {
   let file = $inputEl[0].files[0];
-  var reader = new FileReader();
+  let reader = new FileReader();
   reader.readAsText(file);
   reader.onload = (e) => {
     const result = e.target.result;
