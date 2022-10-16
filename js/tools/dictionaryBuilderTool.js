@@ -11,7 +11,7 @@ import {
   CHANGE,
   ENTER_KEY,
   CUSTOM_OPTION,
-  SEPARATORS,
+  SEPARATOR,
   DOUBLE_QUOTE,
   BACKSLASH,
   MIN_LOOPS,
@@ -133,7 +133,7 @@ const updateResult = (resultDict) => {
 
 const deleteNotAllowedChars = (text) => {
   return text
-    .deleteAll(SEPARATORS.LINE)
+    .deleteAll(SEPARATOR.LINE)
     .deleteAll(DOUBLE_QUOTE)
     .deleteAll(BACKSLASH);
 };

@@ -17,7 +17,7 @@ export const PASTE = 'paste';
 export const FOCUS = 'focus';
 export const SELECT = 'select';
 
-export const JQUERY_EVENTS = {
+export const JQUERY_EVENT = {
   CLICK,
   CHANGE,
   KEY_UP,
@@ -27,7 +27,7 @@ export const JQUERY_EVENTS = {
   SELECT,
 };
 
-export const SEPARATORS = {
+export const SEPARATOR = {
   CHAR: '',
   SPACE: ' ',
   LINE: '\n',

@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cryptools</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/bootstrap-icons/bootstrap-icons.css" />
@@ -41,11 +42,11 @@
   <body>
    
     <!-- 1. Header -->
-    <?php include 'components/nav.html';?>
+    <?php include 'components/navbar.html';?>
 
     <!-- 2. Content -->    
     <?php include 'components/alert.html';?>
-    <div class="container">
+    <div class="container mt-4">
       <div class="accordion" id="general-accordion">
         <?php include 'components/base64.html';?>
         <?php include 'components/deleter.html';?>
