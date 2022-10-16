@@ -1,7 +1,17 @@
+html {
+  overflow-y: scroll;
+}
+
+/* Header */
+.navbar-cryptools {
+  background: #003370;
+}
+
+/* Content */
 .result-panel {
   border: 1px solid #ced4da;
   border-radius: 0.25rem !important;
-  background-color: #1c2833;
+  background-color: #003370;
   color: #4fdee5;
   padding: 10px;
 }
@@ -10,7 +20,7 @@
   word-break: break-all;
   white-space: pre-wrap;
   font-size: 12px;
-  background-color: #333d47;
+  background-color: #002653;
 }
 
 .text-area {
