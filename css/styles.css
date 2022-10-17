@@ -2,11 +2,6 @@ html {
   overflow-y: scroll;
 }
 
-/* Header */
-.navbar-cryptools {
-  background: #003370;
-}
-
 /* Content */
 .result-panel {
   border: 1px solid #ced4da;
