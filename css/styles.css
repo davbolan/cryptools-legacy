@@ -1,3 +1,8 @@
+:root {
+  --ct-blue: #003370;
+  --ct-blue-variant: #002653;
+  --ct-blue-light: #add0fb;
+}
 html {
   overflow-y: scroll;
 }
@@ -6,8 +11,8 @@ html {
 .result-panel {
   border: 1px solid #ced4da;
   border-radius: 0.25rem !important;
-  background-color: #003370;
-  color: #4fdee5;
+  background-color: var(--ct-blue);
+  color: var(--ct-blue-light);
   padding: 10px;
 }
 
@@ -15,7 +20,7 @@ html {
   word-break: break-all;
   white-space: pre-wrap;
   font-size: 12px;
-  background-color: #002653;
+  background-color: var(--ct-blue-variant);
 }
 
 .text-area {
@@ -33,7 +38,7 @@ html {
 }
 
 .code {
-  background: #1c2833;
+  background: var(--ct-blue);
 }
 
 .wrap {

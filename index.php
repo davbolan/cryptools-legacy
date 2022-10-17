@@ -47,7 +47,7 @@
     <!--  _Header -->
 
     <!-- Content_ -->    
-    <div class="container mt-5 mb-5">
+    <div class="container my-5">
       <div class="accordion" id="general-accordion">
         <?php include 'components/base64.html'?>
         <?php include 'components/deleter.html'?>
@@ -56,6 +56,10 @@
       </div>
     </div>
     <!-- _Content -->    
+
+    <!-- footer_ -->
+    <?php include 'components/footer.html'?> 
+    <!-- _footer -->
 
     <?php include 'components/alert.html'?>
     

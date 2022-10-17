@@ -4,22 +4,31 @@ body {
 
 /* HEADER */
 .navbar-cryptools {
-  background: #003370;
+  background: var(--ct-blue);
+}
+
+/* FOOTER */
+.footer-cryptools {
+  background: var(--ct-blue);
+}
+
+.author-panel {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 /* GENERAL */
 .accordion-item {
-  background-color: #add0fb;
+  background-color: var(--ct-blue-light);
 }
 
 .btn-primary,
 .form-check-input:checked {
   color: #fff;
-  background-color: #003370;
-  border-color: #003370;
+  background-color: var(--ct-blue);
+  border-color: var(--ct-blue);
 }
 
 .btn-primary:hover {
-  background-color: #002451;
-  border-color: #002451;
+  background-color: var(--ct-blue-hover);
+  border-color: var(--ct-blue-hover);
 }
