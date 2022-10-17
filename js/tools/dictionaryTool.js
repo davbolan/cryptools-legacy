@@ -111,7 +111,6 @@ const processText = (dictJson, textToProcess) => {
   const separator = parseSeparator(dictJson.separator);
   const dictMap = getDictMapByOperation(dict);
   const textToProcessSplitted = textToProcess.split(separator);
-  const wordProcessedList = textToProcessSplitted.map((word) => {
   const wordProcessedList = textToProcessSplitted.map((word) =>
     replaceWord(word, dictMap.get(word))
   );

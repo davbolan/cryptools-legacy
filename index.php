@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/bootstrap-icons/bootstrap-icons.css" />
     <link rel="stylesheet" href="css/jsonviewer/jquery.json-viewer.css" />
+    <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/styles.css" />
 
     <!--  
@@ -41,21 +42,25 @@
 
   <body>
    
-    <!-- 1. Header -->
-    <?php include 'components/navbar.html';?>
+    <!-- Header_ -->
+    <?php include 'components/navbar.html'?>
+    <!--  _Header -->
 
-    <!-- 2. Content -->    
-    <?php include 'components/alert.html';?>
-    <div class="container mt-4">
+    <!-- Content_ -->    
+    <div class="container mt-5 mb-5">
       <div class="accordion" id="general-accordion">
-        <?php include 'components/base64.html';?>
-        <?php include 'components/deleter.html';?>
-        <?php include 'components/dictionaryBuilder.html';?>
-        <?php include 'components/dictionary.html';?>
+        <?php include 'components/base64.html'?>
+        <?php include 'components/deleter.html'?>
+        <?php include 'components/dictionaryBuilder.html'?>
+        <?php include 'components/dictionary.html'?>
       </div>
     </div>
+    <!-- _Content -->    
 
+    <?php include 'components/alert.html'?>
     
     <div style="text-align: right;position: fixed;z-index:9999999;bottom: 0;width: auto;right: 1%;cursor: pointer;line-height: 0;display:block !important;"><a title="Hosted on free web hosting 000webhost.com. Host your own website for FREE." target="_blank" href="https://www.000webhost.com/?utm_source=000webhostapp&amp;utm_campaign=000_logo&amp;utm_medium=website&amp;utm_content=footer_img"><img src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png" alt="www.000webhost.com"></a></div>
   </body>
-</html>
+   <script type="text/javascript">$('img[alt="www.000webhost.com"]').parent().parent().remove();</script>
+ </html>
+

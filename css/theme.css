@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* HEADER */
+.navbar-cryptools {
+  background: #003370;
+}
+
+/* GENERAL */
+.accordion-item {
+  background-color: #add0fb;
+}
+
+.btn-primary,
+.form-check-input:checked {
+  color: #fff;
+  background-color: #003370;
+  border-color: #003370;
+}
+
+.btn-primary:hover {
+  background-color: #002451;
+  border-color: #002451;
+}
