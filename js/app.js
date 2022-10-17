@@ -13,6 +13,7 @@ import {
   PROTOCOL,
   WWW,
 } from './utils/constant.js';
+const DEBUG = true;
 
 const initFooter = () => {
   const hostname = $(location).attr(HOSTNAME).delete(WWW);
@@ -43,6 +44,17 @@ const initApp = () => {
   initFooter();
   initTooltips();
   loadToolsHandles();
+  DEBUG && debug();
+};
+
+const debug = () => {
+  const dict =
+    'ola muy buenas pepe como estas, yo muy bien asi que adios me voy jose';
+  $('#text-content').text(dict);
+
+  const input =
+    '{"separator":"","dict":{"a":"A","e":"E","i":"I","o":"O","u":"U"}}';
+  $('#dict-json-content').text(input);
 };
 
 $(initApp);
