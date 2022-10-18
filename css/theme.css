@@ -1,3 +1,9 @@
+:root {
+  --ct-blue: #003370;
+  --ct-blue-hover: #002451;
+  --ct-blue-light: #add0fb;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
