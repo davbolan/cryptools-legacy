@@ -19,14 +19,14 @@
 
   <div class="text-center text-light p-3 author-panel">
     <div class="d-inline-block">
-      <img src="../assets/logo.png" width="45" class="me-2 mb-4" />
+      <img src="../assets/logo.png" width="45" class="me-2 mb-4" alt="logo" />
     </div>
     <div class="d-inline-block">
-      <span class="d-block"
-        ><a id="web-link" class="text-light ml-5" href="#"
-          >cryptools.com</a
-        ></span
-      >
+      <span class="d-block">
+        <a id="web-link" class="text-light ml-5" href="<?php echo $web_root ?>" target="_blank">
+          <?php echo $web_url ?>
+        </a>
+        </span>
       <span class="d-block">Created by: <strong>davbolan</strong></span>
     </div>
   </div>

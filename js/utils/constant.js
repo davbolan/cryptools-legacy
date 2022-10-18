@@ -46,14 +46,6 @@ export const CONTENT_TYPES = {
 export const MIN_LOOPS = 2;
 export const MAX_LOOPS = 10;
 
-// LOCATION
-export const LOCALHOST = 'localhost';
-export const HOSTNAME = 'hostname';
-export const PROTOCOL = 'protocol';
-export const HREF = 'href';
-export const PORT = 'port';
-export const WWW = 'www.';
-
 // ERRORS
 export const ERROR = {
   INVALID_JSON_FORMAT:
