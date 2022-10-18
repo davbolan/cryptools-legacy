@@ -1,8 +1,4 @@
-:root {
-  --ct-blue: #003370;
-  --ct-blue-variant: #002653;
-  --ct-blue-light: #add0fb;
-}
+
 html {
   overflow-y: scroll;
 }
@@ -47,6 +43,10 @@ html {
 
 .alert-icon {
   font-size: 20px;
+}
+
+.json-toggle {
+  display: none;
 }
 
 #alert-component {

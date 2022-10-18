@@ -1,8 +1,8 @@
 <div class="container my-5">
   <div class="accordion" id="general-accordion">
-  <?php include './base64.html'?>
-  <?php include './deleter.html'?>
-  <?php include './dictionaryBuilder.html'?>
-  <?php include './dictionary.html'?>
+    <?php include 'tools/base64.html'?>
+    <?php include 'tools/deleter.html'?>
+    <?php include 'tools/dictionaryBuilder.html'?>
+    <?php include 'tools/dictionary.html'?>
   </div>
-</div>
+</div> 

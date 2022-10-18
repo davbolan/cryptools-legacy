@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/bootstrap-icons/bootstrap-icons.css" />
     <link rel="stylesheet" href="css/jsonviewer/jquery.json-viewer.css" />
+    <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/styles.css" />
 
