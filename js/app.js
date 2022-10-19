@@ -21,7 +21,6 @@ const loadToolsHandles = () => {
 const initApp = () => {
   initTooltips();
   loadToolsHandles();
-  DEBUG && debug();
 };
 
 $(initApp);

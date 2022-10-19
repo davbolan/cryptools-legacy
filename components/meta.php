@@ -8,7 +8,7 @@ $metaOpenGraphText = <<<EOD
     { "name":       "description",          "content": "$web_description" },
     { "http-equiv": "Content-Language",     "content": "$web_lang>" },
     { "name":       "distribution",         "content": "global" },
-    { "name":       "Robots",               "content": "all" },  
+    { "name":       "Robots",               "content": "all" },
     { "property":   "og:type",              "content": "website" },
     { "property":   "og:title",             "content": "$web_title>" },
     { "property":   "og:site_name",         "content": "$web_title>" },
@@ -25,20 +25,20 @@ $metaOpenGraphText = <<<EOD
     }
   ]
   EOD;
- $metaOpenGraph = json_decode($metaOpenGraphText, true); 
+$metaOpenGraph = json_decode($metaOpenGraphText, true);
 ?>
 
 <title><?php echo $web_title; ?></title>
 
 <?php
  foreach ($metaOpenGraph as $jsonDataKey => $jsonMetaData) {
-  $meta = "<meta ";
-  foreach ($jsonMetaData as $tag => $tagValue) {
-   $meta .= " $tag=\"$tagValue\"";
+  $tags = "";
+  foreach ($jsonMetaData as $tag => $tagValue) 
+  {
+     $tags .= " $tag=\"$tagValue\"";
   }
-  $meta .=  "/>";
-  echo $meta, PHP_EOL;
-}  
+  echo "<meta $tags/>", PHP_EOL;
+}
 ?>
 
 <link rel="canonical" href="<?php echo $web_root; ?>" />
