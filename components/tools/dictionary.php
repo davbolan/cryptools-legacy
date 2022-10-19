@@ -152,7 +152,7 @@
           <button
             id="copy-dict-result-button"
             type="button"
-            class="btn btn-outline-dark result-btn-sm click"
+            class="btn btn-outline-ct result-btn-sm click"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Copiar resultado al cortapapeles"
