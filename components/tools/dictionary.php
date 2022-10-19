@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-controls="collapseDictAccordion"
     >
-      <h5>Dictionary</h5>
+      <h5><?php echo DICT_TITLE?></h5>
     </button>
   </h2>
   <div
@@ -23,7 +23,7 @@
         <div id="select-operation-panel-id" class="col-lg- mb-1">
           <div class="row">
             <label for="dict-list-id">
-              <strong>¿Quieres codificar o decodificar? </strong>
+              <strong><?php echo DICT_DO_YOU_WANT_ENCODE_OR_DECODE?> </strong>
             </label>
             <div class="col">
               <div class="form-check">
@@ -36,7 +36,7 @@
                   checked
                 />
                 <label class="form-check-label" for="flexRadioCoderDict">
-                  Codificar
+                  <?php echo DICT_ENCODE?>
                 </label>
               </div>
 
@@ -49,7 +49,7 @@
                   value="decode"
                 />
                 <label class="form-check-label" for="flexRadioDecoderDict">
-                  Decodificar
+                <?php echo DICT_DECODE?>
                 </label>
               </div>
             </div>
@@ -59,9 +59,8 @@
         <div id="dict-list-panel-id" class="col-lg-6">
           <div class="row">
             <label for="dict-list-id">
-              <strong
-                >Carga un diccionario desde un fichero (Formato JSON) o indícalo
-                manualmente
+              <strong>
+                <?php echo DICT_LOAD_JSON_OR_MANUAL?>
               </strong>
             </label>
           </div>
@@ -78,7 +77,7 @@
                 id="dict-file-button"
                 type="button"
               >
-                Cargar fichero &nbsp;<i class="bi bi bi-upload"></i>
+              <?php echo DICT_LOAD_JSON_BTN?> &nbsp;<i class="bi bi bi-upload"></i>
               </button>
             </div>
           </div>
@@ -94,10 +93,9 @@
         <div id="dict-text-panel-id" class="col-lg-6">
           <div class="row">
             <label for="dict-text-id">
-              <strong
-                >Carga el texto a tratar desde un fichero o indícalo
-                manualmente</strong
-              >
+              <strong>
+                <?php echo DICT_LOAD_INPUT_OR_MANUAL?>
+              </strong>
             </label>
           </div>
           <div class="row">
@@ -113,7 +111,7 @@
                 id="text-file-button"
                 type="button"
               >
-                Cargar texto &nbsp;<i class="bi bi bi-upload"></i>
+                <?php echo DICT_LOAD_INPUT_FILE_BTN?> &nbsp;<i class="bi bi bi-upload"></i>
               </button>
             </div>
           </div>
@@ -137,7 +135,7 @@
             type="button"
             disabled
           >
-            Transformar &nbsp;<i class="bi bi-hammer"></i>
+            <?php echo DICT_TRANSFORM_BTN?> &nbsp;<i class="bi bi-hammer"></i>
           </button>
         </div>
       </div>
@@ -147,15 +145,17 @@
       <div class="row mt-2">
         <div id="dict-result-panel-id">
           <label for="dict-result-id">
-            <strong>Resultado: </strong>
+            <strong>
+              <?php echo DICT_RESULT?>: 
+          </strong>
           </label>
           <button
             id="copy-dict-result-button"
             type="button"
-            class="btn btn-outline-dark result-btn-sm click"
+            class="btn btn-outline-ct result-btn-sm click"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="Copiar resultado al cortapapeles"
+            title="<?php echo DICT_COPY_TO_CLIPBOARD?>"
           >
             <i class="bi bi-files"></i>
           </button>
