@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-controls="collapseDictbuilderAccordion"
     >
-      <h5>Dictionary builder</h5>
+      <h5><?php echo BUILDER_TITLE?></h5>
     </button>
   </h2>
   <div
@@ -20,18 +20,18 @@
     <div class="accordion-body">
       <div id="separator-word-panel-id" class="col-md-6 col-md-6 col-xl-6">
         <label for="separator-word-id">
-          <strong>¿Que separador quieres usar?</strong>
+          <strong><?php echo BUILDER_WHAT_SEPARATOR?></strong>
         </label>
         <div class="row" id="separator-word-id">
           <div class="col col-md-4 col-md-4 col-xl-4">
             <select id="separator-list" class="form-select dict-builder change">
-              <option value="">Caracter a caracter</option>
-              <option value=" ">Espacio ( &nbsp; )</option>
-              <option value=".">Punto ( . )</option>
-              <option value=",">Coma ( , )</option>
-              <option value=":">Dos puntos ( : )</option>
-              <option value="*">Asterisco ( * )</option>
-              <option value="customOption">Personalizado...</option>
+              <option value=""><?php echo BUILDER_CHAR_TO_CHAR?></option>
+              <option value=""><?php echo BUILDER_SPACE?>( &nbsp; )</option>
+              <option value="."><?php echo BUILDER_DOT?>( . )</option>
+              <option value=","><?php echo BUILDER_COMMA?>( , )</option>
+              <option value=":"><?php echo BUILDER_COLON?>( : )</option>
+              <option value="*"><?php echo BUILDER_ASTERISK?>( * )</option>
+              <option value="customOption"><?php echo BUILDER_CUSTOM?>...</option>
             </select>
           </div>
           <div class="col col-md-4 col-md-4 col-xl-4">
@@ -39,7 +39,7 @@
               type="input"
               id="separator-custom"
               class="form-control d-none dict-builder keyup"
-              placeholder="Personalizado"
+              placeholder="<?php echo BUILDER_CUSTOM?>"
             />
           </div>
         </div>
@@ -47,7 +47,7 @@
 
       <div id="dictbuilder-list-panel-id">
         <label for="dictbuilder-list-id">
-          <strong>¿Qué texto vas a usar para crear el diccionario?</strong>
+          <strong><?php echo BUILDER_WHAT_TEXT_TO_USE?></strong>
         </label>
         <textarea
           class="form-control dict-builder text-area keyup"
@@ -57,7 +57,7 @@
       </div>
       <div id="dictbuilder-result-panel-id">
         <label for="dictbuilder-result-id">
-          <strong>Resultado: </strong>
+          <strong><?php echo BUILDER_RESULT?>: </strong>
         </label>
         <button
           id="redo-dictbuilder-button"
@@ -65,7 +65,7 @@
           class="btn btn-outline-ct result-btn-sm dict-builder click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="Rehacer diccionario"
+          title="<?php echo BUILDER_REDO_DICT?>"
           disabled
         >
           <i class="bi bi-arrow-repeat"></i>
@@ -73,7 +73,7 @@
         <div
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="Abrir en ventana"
+          title="<?php echo BUILDER_OPEN_WINDOW?>"
           class="wrap"
         >
           <button
@@ -93,7 +93,7 @@
           class="btn btn-outline-ct result-btn-sm copy-dict click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="Copiar diccionario al cortapapeles"
+          title="<?php echo BUILDER_COPY_TO_CLIPBOARD?>"
           disabled
         >
           <i class="bi bi-files"></i>
@@ -104,7 +104,7 @@
           class="btn btn-outline-ct result-btn-sm download-dict click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="Descargar diccionario"
+          title="<?php echo BUILDER_DOWNLOAD_DICT?>"
           disabled
         >
           <i class="bi bi-download"></i>
@@ -136,11 +136,11 @@
           <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5
+                <h5 
                   class="modal-title"
                   id="dictbuilder-json-result-modal-label"
                 >
-                  Resultado
+                <?php echo BUILDER_RESULT?>
                 </h5>
                 <button
                   type="button"
@@ -158,14 +158,14 @@
                   type="button"
                   class="btn btn-primary copy-dict click"
                 >
-                  Copiar al cortapapeles &nbsp;<i class="bi bi-files"></i>
+                <?php echo BUILDER_COPY_TO_CLIPBOARD?>&nbsp;<i class="bi bi-files"></i>
                 </button>
                 <button
                   id="download-dictbuilder-modal-button"
                   type="button"
                   class="btn btn-primary download-dict click"
                 >
-                  Descargar &nbsp;<i class="bi bi-box-arrow-up-right"></i>
+                <?php echo BUILDER_DOWNLOAD_DICT?>&nbsp;<i class="bi bi-box-arrow-up-right"></i>
                 </button>
               </div>
             </div>

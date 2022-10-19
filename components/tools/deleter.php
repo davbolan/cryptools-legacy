@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-controls="collapseDeleterAccordion"
     >
-      <h5>Deleter</h5>
+      <h5><?php echo DELETER_TITLE?></h5>
     </button>
   </h2>
   <div
@@ -20,14 +20,14 @@
     <div class="accordion-body">
       <div id="deleter-word-panel-id" class="col-md-5 col-md-4 col-xl-3">
         <label for="deleter-word-id">
-          <strong>¿Qué palabra o carácter quieres eliminar?</strong>
+          <strong><?php echo DELETER_WHAT_WORD_OR_CHAR?></strong>
         </label>
         <input type="input" class="form-control" id="deleter-word-id" />
       </div>
 
       <div id="deleter-text-panel-id">
         <label for="deleter-text-id">
-          <strong>¿En qué texto?</strong>
+          <strong><?php echo DELETER_WHAT_TEXT?></strong>
         </label>
         <textarea
           class="form-control text-area"
@@ -37,20 +37,20 @@
       </div>
       <div id="deleter-result-panel-id">
         <label for="deleter-result-id">
-          <strong>Resultado: </strong>
+          <strong><?php echo DELETER_RESULT?>: </strong>
         </label>
-        <button
+        <button 
           id="copy-deleter-result-button"
           type="button"
-          class="btn btn-outline-dark result-btn-sm click"
+          class="btn btn-outline-ct result-btn-sm click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="Copiar resultado al cortapapeles"
+          title="<?php echo DELETER_COPY_TO_CLIPBOARD?>"
         >
           <i class="bi bi-files"></i>
         </button>
         <div class="result-panel">
-          <samp
+          <samp 
             class="text-result"
             id="deleter-result-id"
             data-content-type="text"

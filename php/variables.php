@@ -1,12 +1,17 @@
 <?php
 
+include 'constants.php';
+
+define("DEBUG", false);
 function consoleLog($data)
 {
-    $output = $data;
-    if (is_array($output)) {
-        $output = implode(',', $output);
+    if(DEBUG){
+        $output = $data;
+        if (is_array($output)) {
+            $output = implode(',', $output);
+        }
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
     }
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 
 $isProd = !in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);
@@ -24,3 +29,4 @@ $web_description = "Application for processing encryption and obfuscation of tex
 $web_lang = "en";
 $web_fullLang = "en_EN";
 $web_logo = $web_root . "/assets/logo.png";
+?>
