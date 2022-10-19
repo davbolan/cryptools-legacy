@@ -31,6 +31,7 @@ define("BUILDER_COMMA",             "Coma");
 define("BUILDER_COLON",             "Dos puntos");
 define("BUILDER_ASTERISK",          "Asterisco");
 define("BUILDER_CUSTOM",            "Personalizado");
+define("BUILDER_SET_CUSTOM",        "Introduce separador...");
 define("BUILDER_REDO_DICT",         "Rehacer diccionario");
 define("BUILDER_OPEN_WINDOW",       "Abrir en ventana");
 define("BUILDER_COPY_TO_CLIPBOARD", "Copiar resultado al cortapapeles");

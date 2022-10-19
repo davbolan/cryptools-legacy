@@ -23,7 +23,7 @@
           <strong><?php echo BUILDER_WHAT_SEPARATOR?></strong>
         </label>
         <div class="row" id="separator-word-id">
-          <div class="col col-md-4 col-md-4 col-xl-4">
+          <div class="col-12 col-md-6 my-1">
             <select id="separator-list" class="form-select dict-builder change">
               <option value=""><?php echo BUILDER_CHAR_TO_CHAR?></option>
               <option value=""><?php echo BUILDER_SPACE?>( &nbsp; )</option>
@@ -31,15 +31,15 @@
               <option value=","><?php echo BUILDER_COMMA?>( , )</option>
               <option value=":"><?php echo BUILDER_COLON?>( : )</option>
               <option value="*"><?php echo BUILDER_ASTERISK?>( * )</option>
-              <option value="customOption"><?php echo BUILDER_CUSTOM?>...</option>
+              <option value="customOption"><?php echo BUILDER_CUSTOM?></option>
             </select>
           </div>
-          <div class="col col-md-4 col-md-4 col-xl-4">
+          <div class="col-12 col-md-6 my-1">
             <input
               type="input"
               id="separator-custom"
               class="form-control d-none dict-builder keyup"
-              placeholder="<?php echo BUILDER_CUSTOM?>"
+              placeholder="<?php echo BUILDER_SET_CUSTOM?>"
             />
           </div>
         </div>
