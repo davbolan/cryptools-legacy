@@ -3,6 +3,7 @@
 define("INTRO_PARARGRAPH_1", "Cryptools es un grupo de herramientas orientado a la ofuscación y encriptación de texto.");
 define("INTRO_PARARGRAPH_2", "Podrás desde transformar un texto a base64 hasta usar tu propio diccionario que reemplace las palabras o carácteres que tú quieras.");
 define("INTRO_PARARGRAPH_3", "¡No pierdas el diccionario si alguna vez quieres recuperar el texto encriptado!");
+define("CONTENT_TOOLS",      "Herramientas");
 
 
 define("B64_TITLE",                  "Base64 coder/decoder");
