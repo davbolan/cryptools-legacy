@@ -1,4 +1,9 @@
 <?php
+
+// GENERAL
+define("STEPS", "Pasos");
+
+
 // CONTENT
 define("CONTENT_INTRO", [
     "Cryptools es un grupo de herramientas orientado a la ofuscación y encriptación de texto.",
@@ -8,6 +13,15 @@ define("CONTENT_INTRO", [
 define("CONTENT_TOOLS",     "Herramientas");
 
 define("B64_TITLE",                  "Base64 coder/decoder");
+define("B64_INTRO", [
+    "¿Sabías que se puede usar la codificación base64 para ofuscar texto?",
+    "De estar forma, por ejemplo, podemos evitar miradas ajenas, pues cualquier persona que no sepa lo que es base64, lo que verá un 'churro' de carácteres.",
+    "También podemos evitar de esta forma que el texto o las palabras que 'oculta' salgan en búsquedas de fichero."
+]);
+define("B64_STEPS", [
+    "Elige que quieres hacer. Si codificar o decodificar",
+    "Introduce el texto que quieres transformar"
+]);
 define("B64_WHAT_DO_YOU_WANT_TO_DO", "¿Qué quieres hacer?");
 define("B64_ENCODE",                 "Codificar en base64");
 define("B64_DECODE",                 "Decodificar desde base64");
@@ -16,6 +30,7 @@ define("B64_RESULT",                 "Resultado");
 define("B64_COPY_TO_CLIPBOARD",      "Copiar resultado al cortapapeles");
 
 
+// DELETER
 define("DELETER_TITLE",             "Deleter");
 define("DELETER_WHAT_WORD_OR_CHAR", "¿Qué palabra o carácter quieres eliminar?");
 define("DELETER_WHAT_TEXT",         "¿Qué texto?");
@@ -23,6 +38,7 @@ define("DELETER_RESULT",            "Resultado");
 define("DELETER_COPY_TO_CLIPBOARD", "Copiar resultado al cortapapeles");
 
 
+// DICTIONARY BUILDER
 define("BUILDER_TITLE",             "Dictionary builder");
 define("BUILDER_WHAT_SEPARATOR",    "¿Que separador quieres usar?");
 define("BUILDER_WHAT_TEXT_TO_USE",  "¿Qué texto vas a usar para crear el diccionario?");
@@ -41,6 +57,7 @@ define("BUILDER_DOWNLOAD_DICT",     "Descargar diccionario");
 define("BUILDER_RESULT",            "Resultado");
 
 
+// DICTIONARY
 define("DICT_TITLE",                        "Dictionary");
 define("DICT_DO_YOU_WANT_ENCODE_OR_DECODE", "¿Quieres codificar o decodificar?");
 define("DICT_ENCODE",                       "Codificar");

@@ -15,7 +15,7 @@ const coderDecoder = () => {
   const $textElem = $('#base64-text-id');
   const $typeElem = $('#base64-type-id');
   const text = $textElem.val();
-  setEnableComponents(!!text, $('#copy-base64result-button'));
+  setEnableComponents(Boolean(text), $('#copy-base64result-button'));
 
   $('#base64-result-id').text(
     ENCODE === $typeElem.val() ? $.base64.encode(text) : $.base64.decode(text)
