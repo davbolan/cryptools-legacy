@@ -1,4 +1,4 @@
-import moment from '../libs/moment/moment.js';
+import moment from '../min/moment.min.js';
 import copyToClipboard from '../utils/copyclipboard.js';
 import showError from '../errors/alertError.js';
 import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';

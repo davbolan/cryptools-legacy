@@ -1,22 +1,10 @@
 <?php
 
-include 'constants.php';
-
 define("DEBUG", false);
-function consoleLog($data)
-{
-    if(DEBUG){
-        $output = $data;
-        if (is_array($output)) {
-            $output = implode(',', $output);
-        }
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-    }
-}
 
 $isProd = !in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);
 
-$web_prod_name = "crypruebas.000webhostapp.com";
+$web_prod_name = "cryptools.ovh";
 $web_dev_name = "localhost:8080";
 $web_url = $isProd ? $web_prod_name : $web_dev_name;
 

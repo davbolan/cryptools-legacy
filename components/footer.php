@@ -1,20 +1,18 @@
-<footer class="text-center text-white footer-cryptools">
-  <div class="container pt-4">
-    <section class="mb-4">
+<footer>
+<nav class="text-center text-white footer-cryptools">
+  <div class="container">
       <a
-        class="btn btn-link btn-lg text-light m-1 fs-2"
+        class="btn btn-link btn-lg text-light m-1 fs-3"
         href="https://www.linkedin.com/in/davbolan/"
         target="_blank"
         ><i class="bi bi-linkedin"></i>
       </a>
-
       <a
-        class="btn btn-link btn-lg text-light m-1 fs-2"
+        class="btn btn-link btn-lg text-light m-1 fs-3"
         href="https://github.com/davbolan/cryptools"
         target="_blank"
-        ><i class="bi bi-github"></i
-      ></a>
-    </section>
+        ><i class="bi bi-github"></i>
+      </a>
   </div>
 
   <div class="text-center text-light p-3 author-panel">
@@ -26,8 +24,9 @@
         <a id="web-link" class="text-light ml-5" href="<?php echo $web_root ?>" target="_blank">
           <?php echo $web_url ?>
         </a>
-        </span>
+      </span>
       <span class="d-block">Created by: <strong>davbolan</strong></span>
     </div>
   </div>
+</nav>
 </footer>
