@@ -5,6 +5,7 @@ body {
 /* HEADER */
 .navbar-cryptools {
   background: var(--ct-blue);
+  color: #fff;
 }
 
 /* FOOTER */
@@ -68,4 +69,4 @@ body {
 .tooltip-inner {
   color: #fff;
   background-color: var(--ct-blue-hover);
-}
+}
