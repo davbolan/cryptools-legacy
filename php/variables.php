@@ -1,18 +1,6 @@
 <?php
 
-include 'constants.php';
-
 define("DEBUG", false);
-function consoleLog($data)
-{
-    if(DEBUG){
-        $output = $data;
-        if (is_array($output)) {
-            $output = implode(',', $output);
-        }
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-    }
-}
 
 $isProd = !in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1']);
 

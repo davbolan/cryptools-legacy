@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<?php require './php/variables.php'?>
+<?php 
+  require './php/constants.php';
+  require './php/variables.php';
+  require './php/functions.php';
+?>
 <html lang="<?php echo $web_lang;?>">
   <head>
     <?php include 'components/meta.php'?>
