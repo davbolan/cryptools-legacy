@@ -18,12 +18,21 @@
     data-bs-parent="#general-accordion"
   >
     <div class="accordion-body">
+      <div id="base64-intro-panel-id">
+        <ul class="list-unstyled">
+          <?php echoParagraphs(B64_INTRO); ?>
+        </ul>
+        <strong><?php echo STEPS?>:</strong>
+        <ol>
+          <?php echoParagraphs(B64_STEPS); ?>
+        </ol>
+      </div>
       <div id="base64-type-panel-id" class="col-md-5 col-md-4 col-xl-3">
         <label for="base64-type-id"><strong><?php echo B64_WHAT_DO_YOU_WANT_TO_DO?></strong></label>
         <select
           id="base64-type-id"
           class="form-select"
-          aria-label="Default select example"
+          aria-label="what-to-do"
         >
           <option value="encode" selected><?php echo B64_ENCODE?></option>
           <option value="decode"><?php echo B64_DECODE?></option>
