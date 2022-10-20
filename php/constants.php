@@ -1,7 +1,7 @@
 <?php
 
 define("INTRO_PARARGRAPH_1", "Cryptools es un grupo de herramientas orientado a la ofuscación y encriptación de texto.");
-define("INTRO_PARARGRAPH_2", "Podrás desde transformar un texto a base64 hasta usar tu propio diccionario que reempleace las palabras o carácteres que tú quieras.");
+define("INTRO_PARARGRAPH_2", "Podrás desde transformar un texto a base64 hasta usar tu propio diccionario que reemplace las palabras o carácteres que tú quieras.");
 define("INTRO_PARARGRAPH_3", "¡No pierdas el diccionario si alguna vez quieres recuperar el texto encriptado!");
 
 
@@ -21,7 +21,7 @@ define("DELETER_RESULT",            "Resultado");
 define("DELETER_COPY_TO_CLIPBOARD", "Copiar resultado al cortapapeles");
 
 
-define("BUILDER_TITLE",              "Dictionary builder");
+define("BUILDER_TITLE",             "Dictionary builder");
 define("BUILDER_WHAT_SEPARATOR",    "¿Que separador quieres usar?");
 define("BUILDER_WHAT_TEXT_TO_USE",  "¿Qué texto vas a usar para crear el diccionario?");
 define("BUILDER_CHAR_TO_CHAR",      "Carácter a carácter");
