@@ -1,3 +1,4 @@
+<main>
 <div class="container my-5">
   <?php include 'intro.php'?>
   <h2 class="text-center"><?php echo CONTENT_TOOLS?></h2>
@@ -7,4 +8,5 @@
     <?php include 'tools/dictionaryBuilder.php'?>
     <?php include 'tools/dictionary.php'?>
   </div>
-</div> 
+</div>
+</main>

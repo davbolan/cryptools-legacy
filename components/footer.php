@@ -1,4 +1,5 @@
-<footer class="text-center text-white footer-cryptools">
+<footer>
+<nav class="text-center text-white footer-cryptools">
   <div class="container">
       <a
         class="btn btn-link btn-lg text-light m-1 fs-3"
@@ -27,4 +28,5 @@
       <span class="d-block">Created by: <strong>davbolan</strong></span>
     </div>
   </div>
+</nav>
 </footer>
