@@ -19,6 +19,11 @@ body {
 
 /* GENERAL */
 .accordion-item {
+  background-color: var(--ct-blue-super-light);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--ct-blue-variant);
   background-color: var(--ct-blue-light);
 }
 
@@ -34,7 +39,9 @@ body {
   border-color: var(--ct-blue-hover);
 }
 
-.btn-primary.disabled {
+.btn-primary:disabled,
+.btn-primary.disabled,
+.btn-primary:focus {
   color: #fff;
   background-color: var(--ct-blue-variant);
   border-color: var(--ct-blue-variant);
