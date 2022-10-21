@@ -127,7 +127,6 @@ const transformButtonHandle = () => {
     const dictJson = getJson($dictTextPanel.val());
     const textToProcess = $inputTextPanel.val();
     const textProcessed = processText(dictJson, textToProcess);
-    console.log();
     $dictResultPanel.text(textProcessed);
   } catch (err) {
     if (err instanceof CryptoolsJsonError) {

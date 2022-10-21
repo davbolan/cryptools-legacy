@@ -18,6 +18,15 @@
     data-bs-parent="#general-accordion"
   >
     <div class="accordion-body">
+     <div id="dictbuilder-intro-panel-id">
+        <ul class="list-unstyled">
+          <?php echoParagraphs(BUILDER_INTRO); ?>
+        </ul>
+        <strong><?php echo STEPS?>:</strong>
+        <ol>
+          <?php echoParagraphs(BUILDER_STEPS); ?>
+        </ol>
+      </div>
       <div id="separator-word-panel-id" class="col-md-6 col-md-6 col-xl-6">
         <label for="separator-word-id">
           <strong><?php echo BUILDER_WHAT_SEPARATOR?></strong>
@@ -26,11 +35,11 @@
           <div class="col-12 col-md-6 my-1">
             <select id="separator-list" class="form-select dict-builder change">
               <option value=""><?php echo BUILDER_CHAR_TO_CHAR?></option>
-              <option value=""><?php echo BUILDER_SPACE?>( &nbsp; )</option>
-              <option value="."><?php echo BUILDER_DOT?>( . )</option>
-              <option value=","><?php echo BUILDER_COMMA?>( , )</option>
-              <option value=":"><?php echo BUILDER_COLON?>( : )</option>
-              <option value="*"><?php echo BUILDER_ASTERISK?>( * )</option>
+              <option value=""><?php echo BUILDER_SPACE?> ( &nbsp; )</option>
+              <option value="."><?php echo BUILDER_DOT?> ( . )</option>
+              <option value=","><?php echo BUILDER_COMMA?> ( , )</option>
+              <option value=":"><?php echo BUILDER_COLON?> ( : )</option>
+              <option value="*"><?php echo BUILDER_ASTERISK?> ( * )</option>
               <option value="customOption"><?php echo BUILDER_CUSTOM?></option>
             </select>
           </div>
@@ -44,7 +53,6 @@
           </div>
         </div>
       </div>
-
       <div id="dictbuilder-list-panel-id">
         <label for="dictbuilder-list-id">
           <strong><?php echo BUILDER_WHAT_TEXT_TO_USE?></strong>
@@ -59,6 +67,7 @@
         <label for="dictbuilder-result-id">
           <strong><?php echo BUILDER_RESULT?>: </strong>
         </label>
+
         <button
           id="redo-dictbuilder-button"
           type="button"
