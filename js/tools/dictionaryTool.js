@@ -40,10 +40,9 @@ const loadButtonFileHandle = (fileInput) => fileInput.click();
 
 const loadTextareaHandle = () => {
   let allPanelsHaveContent = true;
-  $('.dict-panel').each((i, elem) => {
-    const val = elem.value.trim();
-    allPanelsHaveContent &&= !!val;
-  });
+  $('.dict-panel').each(
+    (i, elem) => (allPanelsHaveContent &&= Boolean(elem.value.trim()))
+  );
 
   $('#transform-button').prop(DISABLED, !allPanelsHaveContent);
 };
@@ -59,10 +58,7 @@ const loadPanel = (panel) => {
   $textTarget.on(KEY_UP__PASTE, loadTextareaHandle);
 };
 
-const loadPanels = () => {
-  loadPanel(dictPanel);
-  loadPanel(textPanel);
-};
+const loadPanels = () => [dictPanel, textPanel].forEach(loadPanel);
 
 const getJson = (jsonStr) => {
   let dictJson = {};

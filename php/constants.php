@@ -74,9 +74,20 @@ define("BUILDER_OPEN_WINDOW",       "Abrir en ventana");
 define("BUILDER_COPY_TO_CLIPBOARD", "Copiar resultado al cortapapeles");
 define("BUILDER_DOWNLOAD_DICT",     "Descargar diccionario");
 define("BUILDER_RESULT",            "Resultado");
+define("BUILDER_ADVISOR",           "¡Recuerda! ¡No pierdas tu diccionario y guardalo en un lugar seguro!");
 
 
 // DICTIONARY
+define("DICT_INTRO", [
+    "Con esta utilidad podras hacer usos de tu diccionario, ya sea con uno que ya tengas de antes, o alguno que indiques de forma manual.",
+    "Por supuesto, también necesitas el texto que quieras encriptar.",
+]);
+define("DICT_STEPS", [
+    "Adjunta un diccionario desde un fichero o escribelo manualmente",
+    "Introduce el texto que quieras encriptar",
+    "Pulsa el botón <samp>Transformar</samp>",
+    "También puedes ampliarlo para visualizar el mejor el resultado, incluso copiarlo o descargarlo."
+]);
 define("DICT_TITLE",                        "Dictionary");
 define("DICT_DO_YOU_WANT_ENCODE_OR_DECODE", "¿Quieres codificar o decodificar?");
 define("DICT_ENCODE",                       "Codificar");
