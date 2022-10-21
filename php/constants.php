@@ -44,6 +44,20 @@ define("DELETER_COPY_TO_CLIPBOARD", "Copiar resultado al cortapapeles");
 
 
 // DICTIONARY BUILDER
+define("BUILDER_INTRO", [
+    "Un diccionario se componen de un conjunto de claves, en la que cada una tiene asociada un valor.",
+    "Bajo este premisa y aprovechando su funcionamiento, podemos transformar un texto en uno completamente diferente.",
+    "De forma contraria, si queremos volver al texto original, solamente debemos intercambiar la clave (<samp>key</samp>) con su valor (<samp>value</samp>).",
+    "Con este utilidad, podrás crear facilmente un diccionario.",
+    "<strong>¡No pierdas tu diccionario o probablemente te resultará imposible recuperar en un futuro el contenido de tus textos encriptados!</strong>"
+
+]);
+define("BUILDER_STEPS", [
+    "Selecciona un separador predefinido o indica uno personalizado. ¡Incluso puedes usar palabras!",
+    "Introduce el texto, carácteres, números... que se usarán para crear el diccionario. ¡Mientras más mejor!",
+    "Si no te gusta el resultado, puedes rehacerlo con un <em>click</em>",
+    "También puedes ampliarlo para visualizar el mejor el resultado, incluso copiarlo o descargarlo."
+]);
 define("BUILDER_TITLE",             "Dictionary builder");
 define("BUILDER_WHAT_SEPARATOR",    "¿Que separador quieres usar?");
 define("BUILDER_WHAT_TEXT_TO_USE",  "¿Qué texto vas a usar para crear el diccionario?");
