@@ -33,7 +33,6 @@
         </label>
         <input type="input" class="form-control" id="deleter-word-id" />
       </div>
-
       <div id="deleter-text-panel-id">
         <label for="deleter-text-id">
           <strong><?php echo DELETER_WHAT_TEXT?></strong>
