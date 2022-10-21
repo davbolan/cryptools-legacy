@@ -36,6 +36,17 @@ html {
   white-space: pre-wrap;
 }
 
+.button-text {
+  background-color: transparent;
+  border: none;
+  color: var(--ct-blue-variant);
+  margin: 5px 0;
+  text-decoration: underline;
+}
+.button-text:hover {
+  color: var(--ct-blue-light-variant);
+}
+
 .result-btn-sm {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
@@ -45,7 +56,8 @@ html {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.code {
+.code,
+.json-editor-blackbord {
   background: var(--ct-blue);
 }
 
