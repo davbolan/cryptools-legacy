@@ -16,7 +16,10 @@ const deleter = () => {
   const textToProcess = $('#deleter-text-id').val();
   const textWithWordDeleted = textToProcess.deleteAll(wordToDelete);
 
-  setEnableComponents(!!textWithWordDeleted, $('#copy-deleter-result-button'));
+  setEnableComponents(
+    Boolean(textWithWordDeleted),
+    $('#copy-deleter-result-button')
+  );
 
   $('#deleter-result-id').text(textWithWordDeleted);
 };
