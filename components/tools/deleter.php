@@ -18,6 +18,15 @@
     data-bs-parent="#general-accordion"
   >
     <div class="accordion-body">
+      <div id="deleter-intro-panel-id">
+        <ul class="list-unstyled">
+          <?php echoParagraphs(DELETER_INTRO); ?>
+        </ul>
+        <strong><?php echo STEPS?>:</strong>
+        <ol>
+          <?php echoParagraphs(DELETER_STEPS); ?>
+        </ol>
+      </div>
       <div id="deleter-word-panel-id" class="col-md-5 col-md-4 col-xl-3">
         <label for="deleter-word-id">
           <strong><?php echo DELETER_WHAT_WORD_OR_CHAR?></strong>
