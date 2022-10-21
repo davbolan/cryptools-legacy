@@ -31,6 +31,11 @@ define("B64_COPY_TO_CLIPBOARD",      "Copiar resultado al cortapapeles");
 
 
 // DELETER
+define("DELETER_INTRO", [ "No hay mucho que explicar, una herramienta simple para eliminar lo que queramos de un texto." ]);
+define("DELETER_STEPS", [
+    "Introduce el carácter, palabra o texto que quieres eliminar.",
+    "Introduce el texto del que quieres eliminar"
+]);
 define("DELETER_TITLE",             "Deleter");
 define("DELETER_WHAT_WORD_OR_CHAR", "¿Qué palabra o carácter quieres eliminar?");
 define("DELETER_WHAT_TEXT",         "¿Qué texto?");
