@@ -20,6 +20,16 @@
     <div class="accordion-body container">
       <!-- 1. Paneles -->
       <div class="row">
+        <div id="dict-intro-panel-id">
+          <ul class="list-unstyled">
+            <?php echoParagraphs(DICT_INTRO); ?>
+          </ul>
+          <strong><?php echo STEPS?>:</strong>
+          <ol>
+            <?php echoParagraphs(DICT_STEPS); ?>
+          </ol>
+        </div>
+
         <div id="select-operation-panel-id" class="col-lg- mb-1">
           <div class="row">
             <label for="dict-list-id">
