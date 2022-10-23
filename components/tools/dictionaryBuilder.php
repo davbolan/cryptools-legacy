@@ -62,6 +62,7 @@
           id="dictbuilder-list-id"
           rows="5"
         ></textarea>
+        <button id="add-default-dict" class="button-text" ><?php echo BUILDER_ADD_DEFAULT_DICT?></button>
       </div>
       <div id="dictbuilder-result-panel-id">
         <label for="dictbuilder-result-id">
