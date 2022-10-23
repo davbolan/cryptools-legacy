@@ -16,6 +16,7 @@ import {
   BACKSLASH,
   MIN_LOOPS,
   MAX_LOOPS,
+  DEFAUL_DICT_CHAR_KEYS,
 } from '../utils/constant.js';
 
 let editor;
@@ -145,13 +146,13 @@ const cleanInputChars = () => {
 };
 
 const processListWords = (listWords) => {
-  listWords = listWords.deleteEmptyValues(); // Clean empty values
-  listWords = listWords.uniq(); // Clean duplicated values
+  listWords = listWords.deleteEmptyValues();
+  listWords = listWords.uniq();
   return listWords;
 };
 
 const buildDict = (event) => {
-  if (!isValidEvent(event)) return;
+  if (event && !isValidEvent(event)) return;
   cleanInputChars();
   const separator = separatorSelector();
   const dictTextCleaned = $('#dictbuilder-list-id').val().trim();
@@ -168,12 +169,20 @@ const buildDict = (event) => {
   updateResult(dict);
 };
 
+const addDefaultDict = () => {
+  const defaultText = DEFAUL_DICT_CHAR_KEYS;
+  $('#dictbuilder-list-id').val(defaultText);
+  $('#separator-list').val('');
+  buildDict(false);
+};
+
 const loadDictionaryBuilderHandle = () => {
   const DICT_BUILDER_EVENTS = `${KEY_DOWN} ${KEY_UP} ${CHANGE} ${CLICK}`;
   $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
   $('.copy-dict').on(CLICK, copyResultToClipboard);
   $('.download-dict').on(CLICK, downloadJson);
   $('#open-modal-button').on(CLICK, modalButtonHandle);
+  $('#add-default-dict').on(CLICK, addDefaultDict);
 };
 
 export default loadDictionaryBuilderHandle;
