@@ -134,6 +134,7 @@
             ><button id="result-download-button"></button>
           </a>
         </div>
+        <p id="dict-lost-advisor" class="text-danger fw-bold d-none"><?php echo BUILDER_LOST_DICT_ADVISOR?></p>
 
         <!-- Modal -->
         <div
@@ -146,7 +147,7 @@
           <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 
+                <h5
                   class="modal-title"
                   id="dictbuilder-json-result-modal-label"
                 >

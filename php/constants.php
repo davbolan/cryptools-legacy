@@ -75,7 +75,7 @@ define("BUILDER_COPY_TO_CLIPBOARD", "Copiar resultado al cortapapeles");
 define("BUILDER_DOWNLOAD_DICT",     "Descargar diccionario");
 define("BUILDER_RESULT",            "Resultado");
 define("BUILDER_ADD_DEFAULT_DICT",  "Crear diccionario por defecto...");
-define("BUILDER_ADVISOR",           "¡Recuerda! ¡No pierdas tu diccionario y guardalo en un lugar seguro!");
+define("BUILDER_LOST_DICT_ADVISOR", "¡Recuerda! ¡No pierdas tu diccionario y guardalo en un lugar seguro!");
 
 
 // DICTIONARY
