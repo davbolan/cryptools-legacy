@@ -122,14 +122,16 @@ const updateResult = (resultDict) => {
   let resultNoLinebreak = '';
   let result = '';
   let enableButtons = false;
+  let showAdvisor = false;
 
   if (resultDict) {
     resultNoLinebreak = buildJsonStr(resultDict, null);
     result = buildJsonStr(resultDict, { lineBreak: true, spaces: 4 });
-    enableButtons = true;
+    enableButtons = showAdvisor = true;
   }
   setResult(resultNoLinebreak, result);
   setEnableComponents(enableButtons, ...resultButtonsGroup);
+  setVisibleComponents(showAdvisor, $('#dict-lost-advisor'));
 };
 
 const deleteNotAllowedChars = (text) => {
