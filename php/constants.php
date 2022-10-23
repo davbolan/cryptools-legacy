@@ -19,7 +19,7 @@ define("B64_INTRO", [
     "También podemos evitar de esta forma que el texto o las palabras que 'oculta' salgan en búsquedas de fichero."
 ]);
 define("B64_STEPS", [
-    "Elige que quieres hacer. Si codificar o decodificar",
+    "Elige que operación en <samp>base64</samp> quieres hacer: codificar o decodificar",
     "Introduce el texto que quieres transformar"
 ]);
 define("B64_WHAT_DO_YOU_WANT_TO_DO", "¿Qué quieres hacer?");

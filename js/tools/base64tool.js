@@ -13,7 +13,7 @@ const copyResultToClipboard = () => {
 
 const coderDecoder = () => {
   const $textElem = $('#base64-text-id');
-  const $typeElem = $('#base64-type-id');
+  const $typeElem = $('input[name="flexRadioBase64Operation"]:checked');
   const text = $textElem.val();
   setEnableComponents(Boolean(text), $('#copy-base64result-button'));
 
@@ -24,7 +24,7 @@ const coderDecoder = () => {
 
 const loadBase64Handle = () => {
   $('#base64-text-id').on(KEY_UP, coderDecoder);
-  $('#base64-type-id').on(CHANGE, coderDecoder);
+  $('input[name="flexRadioBase64Operation"]').on(CHANGE, coderDecoder);
   $('#copy-base64result-button').on(CLICK, copyResultToClipboard);
 };
 

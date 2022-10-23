@@ -29,14 +29,28 @@
       </div>
       <div id="base64-type-panel-id" class="col-md-5 col-md-4 col-xl-3">
         <label for="base64-type-id"><strong><?php echo B64_WHAT_DO_YOU_WANT_TO_DO?></strong></label>
-        <select
-          id="base64-type-id"
-          class="form-select"
-          aria-label="what-to-do"
-        >
-          <option value="encode" selected><?php echo B64_ENCODE?></option>
-          <option value="decode"><?php echo B64_DECODE?></option>
-        </select>
+        <div class="form-check">
+          <input
+            type="radio"
+            id="flexRadioCoderBase64"
+            name="flexRadioBase64Operation"
+            class="form-check-input"
+            value="encode"
+            checked
+          />
+          <label class="form-check-label" for="flexRadioCoderBase64"><?php echo B64_ENCODE?></label>
+        </div>
+
+        <div class="form-check">
+          <input
+            type="radio"
+            id="flexRadioDecoderBase64"
+            name="flexRadioBase64Operation"
+            class="form-check-input"
+            value="decode"
+          />
+          <label class="form-check-label" for="flexRadioDecoderBase64"><?php echo B64_DECODE?></label>
+        </div>
       </div>
 
       <div id="base64-text-panel-id">
@@ -51,9 +65,7 @@
       </div>
 
       <div id="base64-result-panel-id">
-        <label for="base64-result-id">
-          <strong><?php echo B64_RESULT?>: </strong>
-        </label>
+        <label for="base64-result-id"><strong><?php echo B64_RESULT?>: </strong></label>
         <button
           id="copy-base64result-button"
           type="button"
