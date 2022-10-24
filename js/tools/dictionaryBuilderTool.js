@@ -103,10 +103,9 @@ const buildJsonStr = (resultDict, options = {}) => {
   let dictString = '';
 
   if (!options?.lineBreak) {
-    const items = [];
-    Object.entries(resultDict.dict).forEach(([key, value]) => {
-      items.push(`"${key}": "${value}"`);
-    });
+    const items = Object.entries(dict).map(
+      ([key, value]) => `"${key}": "${value}"`
+    );
     const itemsStr = items.join(', ');
 
     dictString = `{ "separator": "${resultDict.separator}", "dict": {${itemsStr}} }`;
