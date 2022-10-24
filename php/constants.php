@@ -8,6 +8,7 @@ define("STEPS", "Pasos");
 define("CONTENT_INTRO", [
     "Cryptools es un grupo de herramientas orientado a la ofuscación y encriptación de texto.",
     "Podrás desde transformar un texto a base64 hasta usar tu propio diccionario que reemplace las palabras o carácteres que tú quieras.",
+    "Combínalos como quieras para reforzar aún más el encriptado.",
     "¡No pierdas el diccionario si alguna vez quieres recuperar el texto encriptado!"
 ]);
 define("CONTENT_TOOLS",     "Herramientas");
@@ -15,7 +16,7 @@ define("CONTENT_TOOLS",     "Herramientas");
 define("B64_TITLE",                  "Base64 coder/decoder");
 define("B64_INTRO", [
     "¿Sabías que se puede usar la codificación base64 para ofuscar texto?",
-    "De estar forma, por ejemplo, podemos evitar miradas ajenas, pues cualquier persona que no sepa lo que es base64, lo que verá un 'churro' de carácteres.",
+    "De estar forma, por ejemplo, podemos evitar miradas ajenas, pues cualquier persona que no sepa lo que es base64, lo que verá un <em>churro</em> de carácteres.",
     "También podemos evitar de esta forma que el texto o las palabras que 'oculta' salgan en búsquedas de fichero."
 ]);
 define("B64_STEPS", [
