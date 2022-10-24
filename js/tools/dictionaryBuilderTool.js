@@ -99,16 +99,26 @@ const isValidEvent = (event) => {
   return isValid;
 };
 
+const buildFinalJsonStr = (keyValuesPairsList) => {
+  const jsonContent = keyValuesPairsList.join(', ');
+  return `{ ${jsonContent} }`;
+};
+
 const buildJsonStr = (resultDict, options = {}) => {
   let dictString = '';
 
   if (!options?.lineBreak) {
+    const { dict, separator } = resultDict;
     const items = Object.entries(dict).map(
       ([key, value]) => `"${key}": "${value}"`
     );
-    const itemsStr = items.join(', ');
 
-    dictString = `{ "separator": "${resultDict.separator}", "dict": {${itemsStr}} }`;
+    const itemsStr = items.join(', ');
+    const keyValuesPairsList = [`"dict": {${itemsStr}}`];
+    if (separator) {
+      keyValuesPairsList.unshift(`"separator": "${separator}"`);
+    }
+    dictString = buildFinalJsonStr(keyValuesPairsList);
   } else {
     dictString = JSON.stringify(resultDict, null, options?.spaces);
   }
