@@ -111,7 +111,7 @@
         <button
           id="download-dictbuilder-button"
           type="button"
-          class="btn btn-outline-ct result-btn-sm download-dict click"
+          class="btn btn-outline-ct result-btn-sm download-json-dict click"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="<?php echo BUILDER_DOWNLOAD_DICT?>"
@@ -174,7 +174,7 @@
                 <button
                   id="download-dictbuilder-modal-button"
                   type="button"
-                  class="btn btn-primary download-dict click"
+                  class="btn btn-primary download-json-dict click"
                 >
                 <?php echo BUILDER_DOWNLOAD_DICT?>&nbsp;<i class="bi bi-box-arrow-up-right"></i>
                 </button>

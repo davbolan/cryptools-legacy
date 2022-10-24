@@ -1,4 +1,5 @@
 export const JSON_FILENAME_TEMPLATE = 'dict_$date.json';
+export const OUTPUT_FILENAME_TEMPLATE = 'output_$date.txt';
 export const DATE_FORMAT = 'DDMMYY_HHmmss';
 export const ENCODE = 'encode';
 export const COPY = 'copy';

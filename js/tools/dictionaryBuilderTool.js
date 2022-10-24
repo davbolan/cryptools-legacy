@@ -182,7 +182,7 @@ const loadDictionaryBuilderHandle = () => {
   const DICT_BUILDER_EVENTS = `${KEY_DOWN} ${KEY_UP} ${CHANGE} ${CLICK}`;
   $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
   $('.copy-dict').on(CLICK, copyResultToClipboard);
-  $('.download-dict').on(CLICK, downloadJson);
+  $('.download-json-dict').on(CLICK, downloadJson);
   $('#open-modal-button').on(CLICK, modalButtonHandle);
   $('#add-default-dict').on(CLICK, addDefaultDict);
 };
