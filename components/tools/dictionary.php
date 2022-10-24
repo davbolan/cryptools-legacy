@@ -166,8 +166,20 @@
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="<?php echo DICT_COPY_TO_CLIPBOARD?>"
+            disabled
           >
             <i class="bi bi-files"></i>
+          </button>
+          <button
+          id="download-dict-result-button"
+          type="button"
+          class="btn btn-outline-ct result-btn-sm download-output-dict click"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="<?php echo DICT_DOWNLOAD_DICT?>"
+          disabled
+          >
+            <i class="bi bi-download"></i>
           </button>
           <div class="result-panel">
             <samp
@@ -175,6 +187,13 @@
               id="dict-result-id"
               data-content-type="text"
             ></samp>
+            <a
+            style="display: none"
+            id="output-dict-download-link"
+            href="#"
+            download="result.json"
+            ><button id="output-dict-download-button"></button>
+          </a>
           </div>
         </div>
       </div>

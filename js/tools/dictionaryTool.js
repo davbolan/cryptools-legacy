@@ -1,6 +1,8 @@
+import moment from '../min/moment.min.js';
 import copyToClipboard from '../utils/copyclipboard.js';
 import showError from '../errors/alertError.js';
 import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
+import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
 import {
   ENCODE,
   DISABLED,
@@ -10,6 +12,8 @@ import {
   PASTE,
   SEPARATOR,
   ERROR,
+  OUTPUT_FILENAME_TEMPLATE,
+  DATE_FORMAT,
 } from '../utils/constant.js';
 
 const dictPanel = {
@@ -114,7 +118,12 @@ const processText = (dictJson, textToProcess) => {
   return textProcessed;
 };
 
+const getResultButtonsGroup = () => {
+  return [$('#copy-dict-result-button'), $('#download-dict-result-button')];
+};
+
 const transformButtonHandle = () => {
+  const resultButtonsGroup = getResultButtonsGroup();
   const $dictTextPanel = $(dictPanel.contentId);
   const $inputTextPanel = $(textPanel.contentId);
   const $dictResultPanel = $('#dict-result-id');
@@ -124,7 +133,10 @@ const transformButtonHandle = () => {
     const textToProcess = $inputTextPanel.val();
     const textProcessed = processText(dictJson, textToProcess);
     $dictResultPanel.text(textProcessed);
+    setEnableComponents(true, ...resultButtonsGroup);
   } catch (err) {
+    setEnableComponents(false, ...resultButtonsGroup);
+
     if (err instanceof CryptoolsJsonError) {
       showError(err.message);
     } else {
@@ -141,10 +153,23 @@ const copyResultToClipboard = () => {
   }
 };
 
+const downloadResult = () => {
+  const result = $('#dict-result-id').text();
+  const href = 'data:text/plain;charset=UTF-8,' + encodeURIComponent(result);
+  const download = OUTPUT_FILENAME_TEMPLATE.replace(
+    '$date',
+    moment().format(DATE_FORMAT)
+  );
+
+  $('#output-dict-download-link').prop({ href, download });
+  $('#output-dict-download-button').click();
+};
+
 const loadDictionaryHandle = () => {
   loadPanels();
   $('#transform-button').on(CLICK, transformButtonHandle);
   $('#copy-dict-result-button').on(CLICK, copyResultToClipboard);
+  $('.download-output-dict').on(CLICK, downloadResult);
 };
 
 export default loadDictionaryHandle;
