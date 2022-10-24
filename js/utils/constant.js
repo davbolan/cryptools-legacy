@@ -62,5 +62,5 @@ export const ERROR = {
   DICT_FIELD_MISSING:
     "El diccionario Json introducido no tiene el campo 'dict'",
   COPYPASTE_FAILED:
-    'Ha habido un error al copiar al cortapapeles. Por favor, copie el texto manualmente con ctrl+C o cmd+C.',
+    'Ha habido un error al copiar al cortapapeles. Por favor, copie el texto manualmente con <CTRL + C> o <CMD + C>.',
 };
