@@ -100,5 +100,7 @@ define("DICT_LOAD_INPUT_FILE_BTN",          "Cargar texto");
 define("DICT_TRANSFORM_BTN",                "Transformar");
 define("DICT_RESULT",                       "Resultado");
 define("DICT_COPY_TO_CLIPBOARD",            "Copiar resultado al cortapapeles");
+define("DICT_DOWNLOAD_DICT",                "Descargar resultado");
+
 
 ?>
