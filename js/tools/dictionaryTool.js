@@ -79,8 +79,7 @@ const replaceWord = (word, newWord) => {
   return word.replace(word, newWord);
 };
 
-const parseSeparator = (separator) =>
-  separator || (separator === '' ? SEPARATOR.CHAR : SEPARATOR.SPACE);
+const parseSeparator = (separator) => separator || SEPARATOR.CHAR;
 
 const parseDict = (dict) => {
   if (!dict) {
