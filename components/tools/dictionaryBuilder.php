@@ -35,7 +35,7 @@
           <div class="col-12 col-md-6 my-1">
             <select id="separator-list" class="form-select dict-builder change">
               <option value=""><?php echo BUILDER_CHAR_TO_CHAR?></option>
-              <option value=""><?php echo BUILDER_SPACE?> ( &nbsp; )</option>
+              <option value=" "><?php echo BUILDER_SPACE?> ( &nbsp; )</option>
               <option value="."><?php echo BUILDER_DOT?> ( . )</option>
               <option value=","><?php echo BUILDER_COMMA?> ( , )</option>
               <option value=":"><?php echo BUILDER_COLON?> ( : )</option>
