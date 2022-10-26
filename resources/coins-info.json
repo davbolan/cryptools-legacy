@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Bitcoin",
+    "shortname": "BTC",
+    "address": "fake_1KX5ALaNnScSvW7xzdTW5HC3K2VNfvmzsj"
+  },
+  {
+    "name": "Ethereum",
+    "shortname": "ETH",
+    "address": "fake_0x32846d750aba05a63861e602d090f0d0f9f613b2"
+  },
+  {
+    "name": "BNB",
+    "shortname": "BNB",
+    "address": "fake_tbnb1ynmj2u00dsuc7urwulam0sd0qf8vfdxrqspcat"
+  },
+  {
+    "name": "Solana",
+    "shortname": "SOL",
+    "address": "fake_BrAbSh5KNK3UkggDryyVT22rbcEh4e2wbkQMDtMk6LfF"
+  },
+  {
+    "name": "Tether",
+    "shortname": "USDT",
+    "address": "fake_0xAaF5d9D01dAEBC14C92F40408c4056a571B714e7"
+  },
+  {
+    "name": "USD Coin",
+    "shortname": "USDC",
+    "address": "fake_0xAaF5d9D01dAEBC14C92F40408c4056a571B714e7"
+  },
+  {
+    "name": "Binance USD",
+    "shortname": "BUSD",
+    "address": "fake_0x4Fabb145d61652a948d72503023f6E7A621C7C53"
+  },
+  {
+    "name": "Tron",
+    "shortname": "TRX",
+    "address": "fake_TUY7Ku3vYQgpJ3ma1xB3evybHFANX8hx3x"
+  },
+  {
+    "name": "Polkadot",
+    "shortname": "DOT",
+    "address": "fake_1EUfCKZYgYRZMhVooRsELa7UC9XSBDybEy1FRvaXmNXnLum"
+  },
+  {
+    "name": "Litecoin",
+    "shortname": "LTC",
+    "address": "fake_02ad421205b66a8dd5c7e3871b2ad38d7b7598da31f449dad66bd18bfcfeb7eece"
+  },
+  {
+    "name": "Monero",
+    "shortname": "XMR",
+    "address": "fake_4AoQXKSMJveAkDRbokfD5xBv2GpCQxN8JQqf9HWo2rohLabPcdVkkm851nGexaL11wXeXANJmkVvoCerLkTRQmfNHPzwzoZ"
+  },
+  {
+    "name": "Raptoreum",
+    "shortname": "RTM",
+    "address": "fake_RSviCc3X1vyjarZ6LHv2fjdzgK5CTwhNxk"
+  }
+]
