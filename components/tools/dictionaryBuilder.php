@@ -1,5 +1,6 @@
 <div class="accordion-item">
   <h2 class="accordion-header" id="headingDictbuilderAccordion">
+  <?php include __ROOTPATH__.'/components/modals/builder-result.html'?>
     <button
       class="accordion-button collapsed"
       type="button"
