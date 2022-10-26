@@ -69,6 +69,10 @@ html {
   font-size: 20px;
 }
 
+body.modal-open {
+  padding-right: 0px !important;
+}
+
 .json-toggle {
   display: none;
 }
@@ -84,6 +88,10 @@ html {
 
 #alert-msg {
   margin: 0 auto;
+}
+
+.icon-links li {
+  margin: auto 0.75rem !important ;
 }
 
 .coin-cell {
