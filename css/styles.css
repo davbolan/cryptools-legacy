@@ -81,6 +81,7 @@ html {
   z-index: 50;
   display: none;
 }
+
 #alert-msg {
   margin: 0 auto;
 }
