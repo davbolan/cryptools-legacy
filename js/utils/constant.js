@@ -67,3 +67,9 @@ export const ERROR = {
   COPYPASTE_FAILED:
     'Ha habido un error al copiar al cortapapeles. Por favor, copie el texto manualmente con <CTRL + C> o <CMD + C>.',
 };
+
+// WARNING
+export const CONTENT_TYPE_MISSING =
+  `El elemento '%ELEM_ID%' el cual se quiere copiar su contenido no tiene el atributo 'data-content-type'.${SEPARATOR.LINE}` +
+  `Esto puede provocar problemas a la hora de copiar texto y esto puede no hacerse correctamente.${SEPARATOR.LINE}` +
+  `Los valores disponibles para 'data-content-type' son:${SEPARATOR.LINE}`;

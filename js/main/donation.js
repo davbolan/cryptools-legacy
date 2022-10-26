@@ -1,5 +1,7 @@
 import { CLICK, HIDDEN_BS_MODAL } from '../utils/constant.js';
-import { setVisibleComponents } from '../utils/utils.js';
+import showError from '../errors/alertError.js';
+import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
+import { setVisibleComponents, copyToClipboard } from '../utils/utils.js';
 
 let qrCode = undefined;
 
@@ -30,14 +32,13 @@ const setQRCoinName = (name) => {
 };
 
 const setQRCoinAddress = (address) => {
-  $('#qr-address').text(address);
+  $('#coin-address-text').text(address);
 };
 
 const setQRimage = (shortname, address) => {
   if (qrCode) qrCode.clear();
   const logo = `/assets/icons/crypto-currency/${shortname}.svg`;
   qrCode = initQRCode(address, logo);
-  $('#qr-img').qrcode();
 };
 
 const processQRElemsVisibility = (showQR) => {
@@ -60,9 +61,20 @@ const resetCoinInfoModal = () => {
   processQRElemsVisibility(!showQR);
 };
 
+const copyResultToClipboard = () => {
+  try {
+    copyToClipboard($('#coin-address-text'));
+  } catch (err) {
+    if (err instanceof CryptoolsCopypasteError) {
+      showError(err.message);
+    } else throw err;
+  }
+};
+
 const loadDonationHandle = () => {
   $('.coin-cell').on(CLICK, loadCoinInfo);
   $('#crypto-info-modal').on(HIDDEN_BS_MODAL, resetCoinInfoModal);
+  $('#coin-address-text').on(CLICK, copyResultToClipboard);
 };
 
 export default loadDonationHandle;
