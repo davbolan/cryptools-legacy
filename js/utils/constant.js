@@ -5,13 +5,13 @@ export const ENCODE = 'encode';
 export const COPY = 'copy';
 export const CUSTOM_OPTION = 'customOption';
 export const DEFAUL_DICT_CHAR_KEYS =
-  `abcdefghijklmnñopqrstuvwxyz` +
-  `ABCDEFGHIJKLMNÑOPQRSTUVWXYZ` +
-  `àèìòùáéíóúâêîôûäëïöü` +
-  `ÀÈÌÒÙÁÉÍÓÚÂÊÎÔÛÄËÏÖÜ` +
-  ` ` + // space
-  `0123456789` +
-  `çÇ#$&*.,:;+-/=%<>@^_()[]{}|~¨ªº€¬'´\`·¿?¡!`;
+  'abcdefghijklmnñopqrstuvwxyz' +
+  'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ' +
+  'àèìòùáéíóúâêîôûäëïöü' +
+  'ÀÈÌÒÙÁÉÍÓÚÂÊÎÔÛÄËÏÖÜ' +
+  ' ' + // space
+  '0123456789' +
+  "çÇ#$&*.,:;+-/=%<>@^_()[]{}|~¨ªº€¬'´`·¿?¡!";
 
 // CLASS
 export const HIDE = 'd-none';

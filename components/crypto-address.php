@@ -1,7 +1,6 @@
-<?php 
-
-$rowTemplate = file_get_contents(__ROOTPATH__.'/components/templates/row-coin-template.html');
-$jsonCoinsInfo = file_get_contents(__ROOTPATH__.'/resources/coins-info.json');
+<?php
+$rowTemplate = file_get_contents(ROOT_COMPONENTS_TEMPLATES_PATH.'/row-coin-template.html');
+$jsonCoinsInfo = file_get_contents(ROOT_RESOURCES_PATH.'/coins-info.json');
 $coinsData = json_decode($jsonCoinsInfo, true);
 $coinRows = array();
 foreach ($coinsData as $jsonDataKey => $jsonCoinData) {
