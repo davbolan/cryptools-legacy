@@ -85,3 +85,43 @@ html {
 #alert-msg {
   margin: 0 auto;
 }
+
+.coin-cell {
+  background-color: var(--ct-blue-super-light);
+}
+
+.coin-cell:hover {
+  background-color: var(--ct-blue-hover);
+}
+
+.coin-cell:hover * {
+  color: var(--ct-blue-super-light);
+}
+
+.coin-name {
+  font-size: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.coin-acronym {
+  font-size: 0.875em;
+  color: var(--ct-blue-hover);
+}
+
+.coin-address {
+  text-decoration: underline dotted;
+  word-break: break-all;
+}
+
+.coin-address:hover {
+  color: var(--ct-blue-light-variant);
+  cursor: pointer;
+}
+
+.qr-container {
+  height: 100px;
+}
+
+.qr-cell > div {
+  margin: 5px auto;
+}
