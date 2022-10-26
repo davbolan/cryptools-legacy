@@ -36,6 +36,9 @@ export const JQUERY_EVENT = {
   SELECT,
 };
 
+// BOOTSTRAP EVENTS
+export const HIDDEN_BS_MODAL = 'hidden.bs.modal';
+
 export const SEPARATOR = {
   CHAR: '',
   SPACE: ' ',

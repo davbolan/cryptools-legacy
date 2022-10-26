@@ -49,7 +49,7 @@
             data-bs-toggle="modal"
             data-bs-target="#crypto-info-modal"
           >
-          <?php echo DONATE_ME ?>
+          <?php echo DONATION_DONATE_ME ?>
           </span>
         </div>
       </div>

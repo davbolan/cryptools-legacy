@@ -1,3 +1,4 @@
+import loadDonationHandle from './main/donation.js';
 import {
   loadBase64Handle,
   loadDeleterHandle,
@@ -21,6 +22,7 @@ const loadToolsHandles = () => {
 const initApp = () => {
   initTooltips();
   loadToolsHandles();
+  loadDonationHandle();
 };
 
 $(initApp);

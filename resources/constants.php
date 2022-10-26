@@ -2,11 +2,13 @@
 
 // GENERAL
 define("STEPS", "Pasos");
-define("SELECT_CRYPTO", "Selecciona una criptomoneda...");
-define("COIN_ADDRESS", "Dirección de %COIN%");
-define("DO_YOU_WANT_DONATE", "¿Quieres donarme?");
-define("DONATE_ME", "Dóname");
-//define("COIN_ADDRESS", "%COIN% address");
+
+// DONATION
+define("DONATION_SELECT_CRYPTO", "Selecciona una criptomoneda...");
+define("DONATION_COIN_ADDRESS", "Dirección de %COIN%");
+define("DONATION_DO_YOU_WANT_DONATE", "¿Quieres donarme?");
+define("DONATION_DONATE_ME", "Dóname");
+//define("DONATION_COIN_ADDRESS", "%COIN% address");
 
 
 // CONTENT
