@@ -2,6 +2,8 @@
 
 // GENERAL
 define("STEPS", "Pasos");
+define("DO_YOU_WANT_DONATE", "¿Quieres donarme?");
+define("DONATE_ME", "Dóname");
 
 
 // CONTENT

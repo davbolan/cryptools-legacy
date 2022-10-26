@@ -42,6 +42,16 @@
             </ul>
           </div>
         </div>
+        <div class="offset-3 col-1 align-self-end">
+          <span
+            id="open-crypto-info-modal-button"
+            class="h5 color-ct-blue-super-light text-end"
+            data-bs-toggle="modal"
+            data-bs-target="#crypto-info-modal"
+          >
+          <?php echo DONATE_ME ?>
+          </span>
+        </div>
       </div>
     </div>
   </nav>
