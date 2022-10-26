@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<?php 
-  require './php/constants.php';
-  require './php/variables.php';
-  require './php/functions.php';
+<?php
+  define('__ROOTPATH__', __DIR__);
+  require __ROOTPATH__.'/resources/constants.php';
+  require __ROOTPATH__.'/php/variables.php';
+  require __ROOTPATH__.'/php/functions.php';
 ?>
 <html lang="<?php echo $web_lang;?>">
   <head>

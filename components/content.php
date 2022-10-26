@@ -1,6 +1,7 @@
 <main>
 <div class="container my-5">
-  <?php include 'intro.php'?>
+  <?php include 'intro.php'?>  
+  <?php include 'modals.html'?>
   <h2 class="text-center"><?php echo CONTENT_TOOLS?></h2>
   <div class="accordion" id="general-accordion">
     <?php include 'tools/base64.php'?>
