@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <?php
-  define('__ROOTPATH__', __DIR__);
-  require __ROOTPATH__.'/resources/constants.php';
-  require __ROOTPATH__.'/php/variables.php';
-  require __ROOTPATH__.'/php/functions.php';
+  define("ROOT_PATH", __DIR__);
+  require(ROOT_PATH.'/php/paths.php');
+  require ROOT_RESOURCES_PATH.'/constants.php';
+  require ROOT_PHP_PATH.'/variables.php';
+  require ROOT_PHP_PATH.'/functions.php';
 ?>
 <html lang="<?php echo $web_lang;?>">
   <head>
-    <?php include 'components/meta.php'?>
+    <?php require ROOT_COMPONENTS_PATH.'/meta.php'?>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css" />
     <link rel="stylesheet" href="css/bootstrap-icons/bootstrap-icons.min.css" />
@@ -32,9 +33,9 @@
   </head>
 
   <body>
-    <?php include 'components/navbar.html'?>
-    <?php include 'components/content.php'?>
-    <?php include 'components/footer.html'?>
-    <?php include 'components/alert.html'?>
+    <?php require ROOT_COMPONENTS_PATH.'/navbar.html'?>
+    <?php require ROOT_COMPONENTS_PATH.'/content.php'?>
+    <?php require ROOT_COMPONENTS_PATH.'/footer.html'?>
+    <?php require ROOT_COMPONENTS_PATH.'/alert.html'?>
   </body>
 </html>
