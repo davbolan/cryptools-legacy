@@ -1,18 +1,39 @@
 import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
-import { COPY, ERROR, HIDE, CONTENT_TYPES } from './constant.js';
+import {
+  COPY,
+  ERROR,
+  HIDE,
+  CONTENT_TYPES,
+  CONTENT_TYPE_MISSING,
+} from './constant.js';
+
+const showContentTypeMissingWarning = (elem) => {
+  const elemId = elem.attr('id');
+  const contentTypeMissing = CONTENT_TYPE_MISSING.replace('%ELEM_ID%', elemId)
+    .concat(`\t- ${CONTENT_TYPES.TEXT}\n`)
+    .concat(`\t- ${CONTENT_TYPES.VAL}\n`);
+  const warningMsg = getContentTypeMissingWarning(elem);
+  console.warn(warningMsg);
+};
 
 const getText = (elem) => {
   let text = '';
   if (elem instanceof jQuery) {
-    const contentType = elem.data('content-type');
+    const contentType = elem.data('content-type') ?? '';
+    let getElemContent = () => elem.text();
     switch (contentType) {
       case CONTENT_TYPES.TEXT:
-        text = elem.text();
+        getElemContent = () => elem.text();
         break;
       case CONTENT_TYPES.VAL:
-        text = elem.val();
+        getElemContent = () => elem.val();
+        break;
+      default:
+        showContentTypeMissingWarning(elem);
+
         break;
     }
+    text = getElemContent();
   } else {
     text = elem;
   }

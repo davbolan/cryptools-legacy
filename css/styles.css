@@ -69,6 +69,10 @@ html {
   font-size: 20px;
 }
 
+body.modal-open {
+  padding-right: 0px !important;
+}
+
 .json-toggle {
   display: none;
 }
@@ -78,10 +82,54 @@ html {
   top: 0;
   left: 7.5%;
   width: 85%;
-  z-index: 50;
+  z-index: 5000;
   display: none;
 }
 
 #alert-msg {
   margin: 0 auto;
+}
+
+.icon-links li {
+  margin: auto 0.75rem !important ;
+}
+
+.coin-cell {
+  background-color: var(--ct-blue-super-light);
+}
+
+.coin-cell:hover {
+  background-color: var(--ct-blue-hover);
+}
+
+.coin-cell:hover * {
+  color: var(--ct-blue-super-light);
+}
+
+.coin-name {
+  font-size: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.coin-acronym {
+  font-size: 0.875em;
+  color: var(--ct-blue-hover);
+}
+
+.coin-address {
+  text-decoration: underline dotted;
+  word-break: break-all;
+}
+
+.coin-address:hover {
+  color: var(--ct-blue-light-variant);
+  cursor: pointer;
+}
+
+.qr-container {
+  height: 100px;
+}
+
+.qr-cell > div {
+  margin: 5px auto;
 }

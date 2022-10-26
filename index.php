@@ -20,6 +20,7 @@
     <script type="text/javascript" src="js/min/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/min/jquery.base64.min.js"></script> 
     <script type="text/javascript" src="js/min/jquery.json-editor.min.js"></script> 
+    <script type="text/javascript" src="js/min/easy.qrcode.min.js"></script> 
     <!--
     <script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/libs/bootstrap/bootstrap.bundle.js"></script>
@@ -33,7 +34,7 @@
   <body>
     <?php include 'components/navbar.html'?>
     <?php include 'components/content.php'?>
-    <?php include 'components/footer.php'?>
+    <?php include 'components/footer.html'?>
     <?php include 'components/alert.html'?>
   </body>
 </html>
