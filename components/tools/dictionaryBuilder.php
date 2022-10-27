@@ -59,7 +59,7 @@
           <strong><?php echo BUILDER_WHAT_TEXT_TO_USE?></strong>
         </label>
         <textarea
-          class="form-control dict-builder text-area keyup"
+          class="form-control dict-builder text-area keyup with-scrollbar"
           id="dictbuilder-list-id"
           rows="5"
         ></textarea>
@@ -120,7 +120,7 @@
         >
           <i class="bi bi-download"></i>
         </button>
-        <div class="result-panel">
+        <div class="result-panel with-scrollbar">
           <samp class="text-result" id="dictbuilder-result-id"></samp>
           <textarea
             id="dictbuilder-textarea-result-id"

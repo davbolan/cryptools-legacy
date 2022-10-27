@@ -93,7 +93,7 @@
           </div>
           <div class="mt-2">
             <textarea
-              class="form-control mt-2 dict-panel text-area"
+              class="form-control mt-2 dict-panel text-area with-scrollbar"
               id="dict-json-content"
               rows="7"
             ></textarea>
@@ -127,7 +127,7 @@
           </div>
           <div class="mt-2">
             <textarea
-              class="form-control dict-panel"
+              class="form-control dict-panel with-scrollbar"
               id="text-content"
               rows="7"
             ></textarea>
@@ -181,7 +181,7 @@
           >
             <i class="bi bi-download"></i>
           </button>
-          <div class="result-panel">
+          <div class="result-panel with-scrollbar">
             <samp
               class="text-result"
               id="dict-result-id"

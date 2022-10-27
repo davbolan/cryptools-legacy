@@ -38,7 +38,7 @@
           <strong><?php echo DELETER_WHAT_TEXT?></strong>
         </label>
         <textarea
-          class="form-control text-area"
+          class="form-control text-area with-scrollbar"
           id="deleter-text-id"
           rows="5"
         ></textarea>
@@ -57,7 +57,7 @@
         >
           <i class="bi bi-files"></i>
         </button>
-        <div class="result-panel">
+        <div class="result-panel  with-scrollbar">
           <samp 
             class="text-result"
             id="deleter-result-id"
