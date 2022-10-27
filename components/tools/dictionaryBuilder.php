@@ -65,7 +65,7 @@
           <strong><?php echo BUILDER_WHAT_TEXT_TO_USE?></strong>
         </label>
         <textarea
-          class="form-control dict-builder text-area with-scrollbar"
+          class="form-control dict-builder text-area keyup with-scrollbar"
           id="dictbuilder-list-id"
           rows="5"
           data-event-type="keyup"

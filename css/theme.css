@@ -26,7 +26,10 @@ body {
   color: var(--ct-blue-hover);
 }
 
-/* SCROLLBARS */
+/*
+ *  SCROLLBARS
+ */
+
 .with-scrollbar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
   background-color: var(--ct-blue-super-light);
