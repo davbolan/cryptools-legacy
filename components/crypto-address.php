@@ -25,7 +25,7 @@ $coinRowsStr = implode("", $coinRows)
         </div>
         <div id="qr-img" class="d-flex justify-content-center qr-container my-2"></div>
         <div class="d-flex justify-content-center">
-          <samp id="coin-address-text" class="color-ct-blue coin-address">
+          <samp id="coin-address-text" class="color-ct-blue coin-address" data-content-type="text">
             Coin address
           </samp>
         </div>

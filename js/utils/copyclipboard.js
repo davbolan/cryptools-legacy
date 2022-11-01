@@ -12,8 +12,7 @@ const showContentTypeMissingWarning = (elem) => {
   const contentTypeMissing = CONTENT_TYPE_MISSING.replace('%ELEM_ID%', elemId)
     .concat(`\t- ${CONTENT_TYPES.TEXT}\n`)
     .concat(`\t- ${CONTENT_TYPES.VAL}\n`);
-  const warningMsg = getContentTypeMissingWarning(elem);
-  console.warn(warningMsg);
+  console.warn(contentTypeMissing);
 };
 
 const getText = (elem) => {
