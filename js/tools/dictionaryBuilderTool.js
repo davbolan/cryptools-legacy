@@ -16,8 +16,9 @@ import {
   BACKSLASH,
   MIN_LOOPS,
   MAX_LOOPS,
-  DEFAUL_DICT_CHAR_KEYS,
 } from '../utils/constant.js';
+
+import DEFAUL_DICT_CHAR_KEYS from '../utils/chars.js';
 
 let editor;
 
