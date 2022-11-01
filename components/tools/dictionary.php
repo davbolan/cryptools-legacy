@@ -18,7 +18,7 @@
     data-bs-parent="#general-accordion"
     data-tool="dictionary"
   >
-    <div class="accordion-body container">
+    <div class="accordion-body container-fluid">
       <!-- 1. Paneles -->
       <div class="row">
         <div id="dict-intro-panel-id">

@@ -1,19 +1,6 @@
 import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
-import {
-  COPY,
-  ERROR,
-  HIDE,
-  CONTENT_TYPES,
-  CONTENT_TYPE_MISSING,
-} from './constant.js';
-
-const showContentTypeMissingWarning = (elem) => {
-  const elemId = elem.attr('id');
-  const contentTypeMissing = CONTENT_TYPE_MISSING.replace('%ELEM_ID%', elemId)
-    .concat(`\t- ${CONTENT_TYPES.TEXT}\n`)
-    .concat(`\t- ${CONTENT_TYPES.VAL}\n`);
-  console.warn(contentTypeMissing);
-};
+import { COPY, ERROR, HIDE, CONTENT_TYPES } from './constant.js';
+import { showContentTypeMissingWarning } from './utils.js';
 
 const getText = (elem) => {
   let text = '';
