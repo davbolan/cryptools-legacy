@@ -55,6 +55,7 @@
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="<?php echo DELETER_COPY_TO_CLIPBOARD?>"
+          disabled
         >
           <i class="bi bi-files"></i>
         </button>
