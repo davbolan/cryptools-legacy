@@ -18,7 +18,7 @@ import {
   MAX_LOOPS,
 } from '../utils/constant.js';
 
-import DEFAUL_DICT_CHAR_KEYS from '../utils/chars.js';
+import DEFAULT_DICT, { BASIC_DICT, EXTENDED_DICT } from '../utils/chars.js';
 
 let editor;
 
@@ -181,9 +181,20 @@ const buildDict = (event) => {
   updateResult(dict);
 };
 
-const addDefaultDict = () => {
-  const defaultText = DEFAUL_DICT_CHAR_KEYS;
-  $('#dictbuilder-list-id').val(defaultText);
+const getDefaultDict = (defaultDictButton) => {
+  const { dictType } = defaultDictButton.dataset;
+  const dictTypes = {
+    BASIC: BASIC_DICT,
+    EXTENDED: EXTENDED_DICT,
+  };
+  const defaultText = dictTypes[dictType] ?? DEFAULT_DICT;
+  return defaultText;
+};
+
+const addDefaultDict = (event) => {
+  const defaultDictButton = getDefaultDict(event.currentTarget);
+
+  $('#dictbuilder-list-id').val(defaultDictButton);
   $('#separator-list').val('');
   buildDict(false);
 };
@@ -194,7 +205,7 @@ const loadDictionaryBuilderHandle = () => {
   $('.copy-dict').on(CLICK, copyResultToClipboard);
   $('.download-json-dict').on(CLICK, downloadJson);
   $('#open-modal-button').on(CLICK, modalButtonHandle);
-  $('#add-default-dict').on(CLICK, addDefaultDict);
+  $('.default-dict').on(CLICK, addDefaultDict);
 };
 
 export default loadDictionaryBuilderHandle;
