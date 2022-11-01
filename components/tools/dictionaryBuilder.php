@@ -17,6 +17,7 @@
     class="accordion-collapse collapse"
     aria-labelledby="headingDictbuilderAccordion"
     data-bs-parent="#general-accordion"
+    data-tool="builder"
   >
     <div class="accordion-body">
      <div id="dictbuilder-intro-panel-id">

@@ -16,6 +16,7 @@
     class="accordion-collapse collapse"
     aria-labelledby="headingBase64Accordion"
     data-bs-parent="#general-accordion"
+    data-tool="base64"
   >
     <div class="accordion-body">
       <div id="base64-intro-panel-id">

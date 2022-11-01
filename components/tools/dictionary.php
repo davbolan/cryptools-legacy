@@ -16,6 +16,7 @@
     class="accordion-collapse collapse"
     aria-labelledby="headingDictAccordion"
     data-bs-parent="#general-accordion"
+    data-tool="dictionary"
   >
     <div class="accordion-body container">
       <!-- 1. Paneles -->

@@ -16,6 +16,7 @@
     class="accordion-collapse collapse"
     aria-labelledby="headingDeleterAccordion"
     data-bs-parent="#general-accordion"
+    data-tool="deleter"
   >
     <div class="accordion-body">
       <div id="deleter-intro-panel-id">
