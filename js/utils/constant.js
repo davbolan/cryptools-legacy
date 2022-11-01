@@ -4,14 +4,6 @@ export const DATE_FORMAT = 'DDMMYY_HHmmss';
 export const ENCODE = 'encode';
 export const COPY = 'copy';
 export const CUSTOM_OPTION = 'customOption';
-export const DEFAUL_DICT_CHAR_KEYS =
-  'abcdefghijklmnñopqrstuvwxyz' +
-  'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ' +
-  'àèìòùáéíóúâêîôûäëïöü' +
-  'ÀÈÌÒÙÁÉÍÓÚÂÊÎÔÛÄËÏÖÜ' +
-  ' ' + // space
-  '0123456789' +
-  "çÇ#$&*.,:;+-/=%<>@^_()[]{}|~¨ªº€¬'´`·¿?¡!";
 
 // CLASS
 export const HIDE = 'd-none';
@@ -72,4 +64,4 @@ export const ERROR = {
 export const CONTENT_TYPE_MISSING =
   `El elemento '%ELEM_ID%' el cual se quiere copiar su contenido no tiene el atributo 'data-content-type'.${SEPARATOR.LINE}` +
   `Esto puede provocar problemas a la hora de copiar texto y esto puede no hacerse correctamente.${SEPARATOR.LINE}` +
-  `Los valores disponibles para 'data-content-type' son:${SEPARATOR.LINE}`;
+  `Los valores disponibles para 'data-content-type' son: ${SEPARATOR.LINE}`;

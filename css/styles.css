@@ -22,6 +22,8 @@ html {
   background-color: var(--ct-blue);
   color: var(--ct-blue-light);
   padding: 10px;
+  overflow-y: scroll;
+  max-height: 15rem;
 }
 
 .text-result {
@@ -56,9 +58,14 @@ html {
   color: rgba(0, 0, 0, 0.3);
 }
 
+.default-dict {
+  padding: 0;
+  margin: 0 0.25rem 0 0.25rem;
+}
+
 .code,
 .json-editor-blackbord {
-  background: var(--ct-blue);
+  background: var(--ct-blue) !important;
 }
 
 .wrap {
@@ -123,7 +130,7 @@ body.modal-open {
 
 .coin-address:hover {
   color: var(--ct-blue-light-variant);
-  cursor: pointer;
+  cursor: copy;
 }
 
 .qr-container {

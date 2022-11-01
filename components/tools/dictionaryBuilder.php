@@ -17,6 +17,7 @@
     class="accordion-collapse collapse"
     aria-labelledby="headingDictbuilderAccordion"
     data-bs-parent="#general-accordion"
+    data-tool="builder"
   >
     <div class="accordion-body">
      <div id="dictbuilder-intro-panel-id">
@@ -59,11 +60,11 @@
           <strong><?php echo BUILDER_WHAT_TEXT_TO_USE?></strong>
         </label>
         <textarea
-          class="form-control dict-builder text-area keyup"
+          class="form-control dict-builder text-area keyup with-scrollbar"
           id="dictbuilder-list-id"
           rows="5"
         ></textarea>
-        <button id="add-default-dict" class="button-text" ><?php echo BUILDER_ADD_DEFAULT_DICT?></button>
+        <?php include ROOT_COMPONENTS_UI_PATH.'/default-dict.php'?>
       </div>
       <div id="dictbuilder-result-panel-id">
         <label for="dictbuilder-result-id">
@@ -120,7 +121,7 @@
         >
           <i class="bi bi-download"></i>
         </button>
-        <div class="result-panel">
+        <div class="result-panel with-scrollbar">
           <samp class="text-result" id="dictbuilder-result-id"></samp>
           <textarea
             id="dictbuilder-textarea-result-id"

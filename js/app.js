@@ -1,4 +1,5 @@
 import loadDonationHandle from './main/donation.js';
+import loadURLHandle from './main/url.js';
 import {
   loadBase64Handle,
   loadDeleterHandle,
@@ -12,7 +13,7 @@ const initTooltips = () => {
   });
 };
 
-const loadToolsHandles = () => {
+const loadToolsHandle = () => {
   loadBase64Handle();
   loadDeleterHandle();
   loadDictionaryBuilderHandle();
@@ -21,8 +22,9 @@ const loadToolsHandles = () => {
 
 const initApp = () => {
   initTooltips();
-  loadToolsHandles();
+  loadToolsHandle();
   loadDonationHandle();
+  loadURLHandle();
 };
 
 $(initApp);

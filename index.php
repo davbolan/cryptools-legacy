@@ -6,7 +6,7 @@
   require ROOT_PHP_PATH.'/variables.php';
   require ROOT_PHP_PATH.'/functions.php';
 ?>
-<html lang="<?php echo $web_lang;?>">
+<html lang="<?php echo $web_lang;?>" class="with-scrollbar">
   <head>
     <?php require ROOT_COMPONENTS_PATH.'/meta.php'?>
     <link rel="icon" type="image/x-icon" href="favicon.ico">

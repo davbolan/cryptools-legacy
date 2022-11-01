@@ -16,6 +16,7 @@
     class="accordion-collapse collapse"
     aria-labelledby="headingBase64Accordion"
     data-bs-parent="#general-accordion"
+    data-tool="base64"
   >
     <div class="accordion-body">
       <div id="base64-intro-panel-id">
@@ -28,7 +29,9 @@
         </ol>
       </div>
       <div id="base64-type-panel-id" class="col-md-5 col-md-4 col-xl-3">
-        <label for="base64-type-id"><strong><?php echo B64_WHAT_DO_YOU_WANT_TO_DO?></strong></label>
+        <label for="base64-type-id"
+          ><strong><?php echo B64_WHAT_DO_YOU_WANT_TO_DO?></strong></label
+        >
         <div class="form-check">
           <input
             type="radio"
@@ -38,7 +41,9 @@
             value="encode"
             checked
           />
-          <label class="form-check-label" for="flexRadioCoderBase64"><?php echo B64_ENCODE?></label>
+          <label class="form-check-label" for="flexRadioCoderBase64"
+            ><?php echo B64_ENCODE?></label
+          >
         </div>
 
         <div class="form-check">
@@ -49,7 +54,9 @@
             class="form-check-input"
             value="decode"
           />
-          <label class="form-check-label" for="flexRadioDecoderBase64"><?php echo B64_DECODE?></label>
+          <label class="form-check-label" for="flexRadioDecoderBase64"
+            ><?php echo B64_DECODE?></label
+          >
         </div>
       </div>
 
@@ -58,14 +65,16 @@
           <strong><?php echo B64_WHAT_TEXT?></strong>
         </label>
         <textarea
-          class="form-control text-area"
+          class="form-control text-area with-scrollbar"
           id="base64-text-id"
           rows="5"
         ></textarea>
       </div>
 
       <div id="base64-result-panel-id">
-        <label for="base64-result-id"><strong><?php echo B64_RESULT?>: </strong></label>
+        <label for="base64-result-id"
+          ><strong><?php echo B64_RESULT?>: </strong></label
+        >
         <button
           id="copy-base64result-button"
           type="button"
@@ -76,7 +85,7 @@
         >
           <i class="bi bi-files"></i>
         </button>
-        <div class="result-panel">
+        <div class="result-panel with-scrollbar">
           <samp
             class="text-result"
             id="base64-result-id"

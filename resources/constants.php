@@ -1,5 +1,4 @@
 <?php
-
 // GENERAL
 define("STEPS", "Pasos");
 
@@ -82,8 +81,13 @@ define("BUILDER_OPEN_WINDOW",       "Abrir en ventana");
 define("BUILDER_COPY_TO_CLIPBOARD", "Copiar resultado al cortapapeles");
 define("BUILDER_DOWNLOAD_DICT",     "Descargar diccionario");
 define("BUILDER_RESULT",            "Resultado");
-define("BUILDER_ADD_DEFAULT_DICT",  "Crear diccionario por defecto...");
 define("BUILDER_LOST_DICT_ADVISOR", "¡Recuerda! ¡No pierdas tu diccionario y guardalo en un lugar seguro!");
+define("BUILDER_ADD_DEFAULT_DICT",[
+    "Crear diccionario por defecto ",
+    "básico ",
+    "o ",
+    "extendido"
+]);
 
 
 // DICTIONARY
@@ -109,6 +113,4 @@ define("DICT_TRANSFORM_BTN",                "Transformar");
 define("DICT_RESULT",                       "Resultado");
 define("DICT_COPY_TO_CLIPBOARD",            "Copiar resultado al cortapapeles");
 define("DICT_DOWNLOAD_DICT",                "Descargar resultado");
-
-
 ?>
