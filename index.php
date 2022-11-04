@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
   define("ROOT_PATH", __DIR__);
-  require(ROOT_PATH.'/php/paths.php');
+  require ROOT_PATH.'/php/variables.php';
+  require ROOT_PATH.'/php/paths.php';
   require ROOT_RESOURCES_PATH.'/constants.php';
-  require ROOT_PHP_PATH.'/variables.php';
   require ROOT_PHP_PATH.'/functions.php';
 ?>
 <html lang="<?php echo $web_lang;?>" class="with-scrollbar">
