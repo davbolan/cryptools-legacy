@@ -3,6 +3,17 @@
 $config = include ROOT_PATH.'/resources/config/config.php' ;
 
 define("DEBUG",  $config->debug);
+define("CT_EMAIL", $config->ctEmail);
+
+define("EMPTY_EMAIL",         "EMPTY_EMAIL");
+define("EMPTY_NAME",          "EMPTY_NAME");
+define("EMPTY_MSG",           "EMPTY_MSG");
+define("INVALID_EMAIL",       "INVALID_EMAIL");
+define("VALID_EMAIL",         "VALID_EMAIL");
+define("TEMP_EMAIL",          "TEMP_EMAIL");
+define("TOO_SHORT_MSG",       "TOO_SHORT_MSG");
+define("MAYBE_SPAMMER",       "MAYBE_SPAMMER");
+define("ERROR_SENDING_EMAIL", "ERROR_SENDING_EMAIL");
 
 define("WEB_HOST", $config->host);
 define("WEB_ROOT",  $config->root);

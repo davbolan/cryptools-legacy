@@ -113,4 +113,15 @@ define("DICT_TRANSFORM_BTN",                "Transformar");
 define("DICT_RESULT",                       "Resultado");
 define("DICT_COPY_TO_CLIPBOARD",            "Copiar resultado al cortapapeles");
 define("DICT_DOWNLOAD_DICT",                "Descargar resultado");
+
+// CONTACT
+define("EMPTY_NAME_TEXT",    "Nombre vacio");
+define("EMPTY_EMAIL_TEXT",   "Email vacio");
+define("EMPTY_MSG_TEXT",     "Mensaje vacio");
+define("TOO_SHORT_MSG_TEXT", "Mensaje demasiado corto");
+define("VALID_EMAIL_TEXT",   "Email enviado correctamente");
+define("INVALID_EMAIL_TEXT", "Email inválido");
+define("TEMP_EMAIL_TEXT",    "Email temporal");
+
+
 ?>
