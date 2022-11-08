@@ -110,7 +110,7 @@ function cleanBadHeads($message) {
     "cc:"
   );
 
-  foreach ($badHeads as  $badHead) {
+  foreach ($badHeads as $badHead) {
     if (str_contains($message, $badHead)) {
       $maybeSpammer = buildMaybeSpammer($badHead);
       $message = str_replace($badHead, $maybeSpammer , $message);
@@ -126,10 +126,10 @@ function checkValidMessage($message) {
 function getEmailHeaders($sourceEmail, $targetEmail) {
     $mandatoryHeader = array (
         "MIME-Version" => "1.0",
-        "Content-type" => "text/html; charset=\"utf-8\"",
+        "Content-type" => "text/html; charset=utf-8",
         "From"         => $sourceEmail,
-        "To"           => $targetEmail,
-        "Reply-To"     => $sourceEmail
+        //"To"           => $targetEmail
+        //"Reply-To"     => $sourceEmail
     );
 
     $headers = "";
@@ -168,10 +168,10 @@ function buildEmail($emailHTML, $emailVars) {
 
 function getHTMLEmailTemplate() {
 
-  $emailTemplate = <<<EMAILTEMPLATE
-  <html>
+  $emailTemplate =
+  "<html>
     <head>
-      <meta charset="utf-8" />
+      <meta charset='utf-8' />
       <title>Email de {NAME}</title>
     </head>
     <style>
@@ -191,9 +191,9 @@ function getHTMLEmailTemplate() {
       }
     </style>
     <body>
-      <div class="content">
+      <div class='content'>
         <p><strong>Datos de la persona: </strong></p>
-        <ul style="list-style-type: none">
+        <ul style='list-style-type: none'>
           <li><strong>Nombre:</strong> {NAME}</li>
           <li><strong>Email:</strong> {EMAIL}</li>
           <li><strong>Mensaje:</strong></li>
@@ -201,8 +201,7 @@ function getHTMLEmailTemplate() {
         <p>{MESSAGE}</p>
       </div>
     </body>
-  </html>
-  EMAILTEMPLATE;
+  </html>";
 
   return $emailTemplate;
 }
@@ -211,21 +210,21 @@ function supressWarning() {
   return error_reporting(E_ALL ^ E_WARNING);
 }
 
-function restoreWarning($errLevel ) {
+function restoreWarning($errLevel) {
   error_reporting($errLevel);
 }
 
 function sendEmail ($targetEmail, $subject, $message, $headers) {
   DEBUG("targetEmail:\r\n$targetEmail\r\n subject:\r\n$subject\r\n message:\r\n$message\r\nheaders:\r\n$headers\r\n");
   $errLevel = supressWarning();
-  $success = mail($targetEmail, $subject,  $message, $headers);
+  $success = mail($targetEmail, $subject, $message, $headers);
   restoreWarning($errLevel);
   return $success;
 }
 
 function sendEmailToAdmin($targetEmail, $name, $clientMsg) {
   $sourceEmail = CT_EMAIL;
-  $subject  = "Correo enviado desde Cryptools.ovh";
+  $subject = "Correo enviado desde Cryptools.ovh";
   $emailHTML = getEmailBody($targetEmail, $name, $clientMsg);
   $headers = getEmailHeaders($sourceEmail, $targetEmail);
   DEBUG(withLn( $emailHTML));
