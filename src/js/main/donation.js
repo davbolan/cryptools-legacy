@@ -1,5 +1,5 @@
-import { CLICK, HIDDEN_BS_MODAL } from '../utils/constant.js';
-import showError from '../errors/alertError.js';
+import { CLICK, DANGER, HIDDEN_BS_MODAL } from '../utils/constant.js';
+import showAlert from '../main/alert.js';
 import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
 import { setVisibleComponents, copyToClipboard } from '../utils/utils.js';
 
@@ -66,7 +66,7 @@ const copyResultToClipboard = () => {
     copyToClipboard($('#coin-address-text'));
   } catch (err) {
     if (err instanceof CryptoolsCopypasteError) {
-      showError(err.message);
+      showAlert(err.message, DANGER);
     } else throw err;
   }
 };
