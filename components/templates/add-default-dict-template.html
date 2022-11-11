@@ -1,13 +1,14 @@
-<div class="d-flex align-items-end">
-  <span>{ADD_DEFAULT}</span>
-  <button class="btn btn-link button-text default-dict" data-dict-type="BASIC">
-    {BASIC}
-  </button>
-  <span>{OR}</span>
-  <button
-    class="btn btn-link button-text default-dict"
-    data-dict-type="EXTENDED"
+<div class="d-flex align-items-end gap-1">
+  <span class="">{ADD_DEFAULT}</span>
+  <span
+    class="default-dict badge ct-bg-info text-dark cursor-pointer"
+    data-dict-type="BASIC"
+    >{BASIC}</span
   >
-    {EXTENDED}
-  </button>
+  <span>{OR}</span>
+  <span
+    class="default-dict badge ct-bg-info text-dark cursor-pointer"
+    data-dict-type="EXTENDED"
+    >{EXTENDED}</span
+  >
 </div>
