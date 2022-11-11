@@ -59,8 +59,8 @@
         >
           <i class="bi bi-files"></i>
         </button>
-        <div class="result-panel with-scrollbar">
-          <samp
+        <div class="result-panel  with-scrollbar">
+          <samp 
             class="text-result"
             id="deleter-result-id"
             data-content-type="text"
