@@ -1,25 +1,24 @@
-import moment from '../min/moment.min.js';
-import copyToClipboard from '../utils/copyclipboard.js';
 import Alert from '../main/alert.js';
-import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
-import {
-  JSON_FILENAME_TEMPLATE,
-  DATE_FORMAT,
-  CLICK,
-  KEY_UP,
-  KEY_DOWN,
-  CHANGE,
-  ENTER_KEY,
-  CUSTOM_OPTION,
-  SEPARATOR,
-  DOUBLE_QUOTE,
-  BACKSLASH,
-  MIN_LOOPS,
-  MAX_LOOPS,
-  DANGER,
-} from '../utils/constant.js';
-
+import moment from '../min/moment.min.js';
 import DEFAULT_DICT, { BASIC_DICT, EXTENDED_DICT } from '../utils/chars.js';
+import {
+  BACKSLASH,
+  CHANGE,
+  CLICK,
+  CUSTOM_OPTION,
+  DANGER,
+  DATE_FORMAT,
+  DOUBLE_QUOTE,
+  ENTER_KEY,
+  JSON_FILENAME_TEMPLATE,
+  KEY_DOWN,
+  KEY_UP,
+  MAX_LOOPS,
+  MIN_LOOPS,
+  SEPARATOR,
+} from '../utils/constant.js';
+import copyToClipboard from '../utils/copyclipboard.js';
+import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
 
 let editor;
 
@@ -97,8 +96,7 @@ const isValidEvent = (event) => {
     isValid = false;
   }
 
-  isValid &&= currentTarget.classList.contains(type);
-  return isValid;
+  return isValid && type === currentTarget.dataset.eventType;
 };
 
 const buildFinalJsonStr = (keyValuesPairsList) => {
@@ -177,7 +175,7 @@ const buildDict = (event) => {
     const keysDictSet = shuffle([...listWords]);
     const valuesDictSet = shuffle([...listWords]);
     keysDictSet.forEach((key, idx) => (dict[key] = valuesDictSet[idx]));
-    dict = { separator, dict };
+    dict = Boolean(separator) ? { separator, dict } : { dict };
   }
   updateResult(dict);
 };

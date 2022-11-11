@@ -1,21 +1,21 @@
-import moment from '../min/moment.min.js';
-import copyToClipboard from '../utils/copyclipboard.js';
-import Alert from '../main/alert.js';
 import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
-import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
+import Alert from '../main/alert.js';
+import moment from '../min/moment.min.js';
 import {
-  ENCODE,
-  DISABLED,
-  CLICK,
   CHANGE,
+  CLICK,
+  DANGER,
+  DATE_FORMAT,
+  DISABLED,
+  ENCODE,
+  ERROR,
   KEY_UP,
+  OUTPUT_FILENAME_TEMPLATE,
   PASTE,
   SEPARATOR,
-  ERROR,
-  OUTPUT_FILENAME_TEMPLATE,
-  DATE_FORMAT,
-  DANGER,
 } from '../utils/constant.js';
+import copyToClipboard from '../utils/copyclipboard.js';
+import { setEnableComponents } from '../utils/utils.js';
 
 const dictPanel = {
   inputId: '#dict-file-input',

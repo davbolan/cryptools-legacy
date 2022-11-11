@@ -20,7 +20,7 @@
     data-tool="builder"
   >
     <div class="accordion-body">
-     <div id="dictbuilder-intro-panel-id">
+      <div id="dictbuilder-intro-panel-id">
         <ul class="list-unstyled">
           <?php echoParagraphs(BUILDER_INTRO); ?>
         </ul>
@@ -35,7 +35,11 @@
         </label>
         <div class="row" id="separator-word-id">
           <div class="col-12 col-md-6 my-1">
-            <select id="separator-list" class="form-select dict-builder change">
+            <select
+              id="separator-list"
+              class="form-select dict-builder"
+              data-event-type="change"
+            >
               <option value=""><?php echo BUILDER_CHAR_TO_CHAR?></option>
               <option value=" "><?php echo BUILDER_SPACE?> ( &nbsp; )</option>
               <option value="."><?php echo BUILDER_DOT?> ( . )</option>
@@ -49,8 +53,9 @@
             <input
               type="input"
               id="separator-custom"
-              class="form-control d-none dict-builder keyup"
+              class="form-control d-none dict-builder"
               placeholder="<?php echo BUILDER_SET_CUSTOM?>"
+              data-event-type="keyup"
             />
           </div>
         </div>
@@ -60,9 +65,10 @@
           <strong><?php echo BUILDER_WHAT_TEXT_TO_USE?></strong>
         </label>
         <textarea
-          class="form-control dict-builder text-area keyup with-scrollbar"
+          class="form-control dict-builder text-area with-scrollbar"
           id="dictbuilder-list-id"
           rows="5"
+          data-event-type="keyup"
         ></textarea>
         <?php include ROOT_COMPONENTS_UI_PATH.'/default-dict.php'?>
       </div>
@@ -74,10 +80,11 @@
         <button
           id="redo-dictbuilder-button"
           type="button"
-          class="btn btn-outline-ct result-btn-sm dict-builder click"
+          class="btn btn-outline-ct result-btn-sm dict-builder"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="<?php echo BUILDER_REDO_DICT?>"
+          data-event-type="click"
           disabled
         >
           <i class="bi bi-arrow-repeat"></i>
@@ -102,10 +109,11 @@
         <button
           id="copy-dictbuilder-button"
           type="button"
-          class="btn btn-outline-ct result-btn-sm copy-dict click"
+          class="btn btn-outline-ct result-btn-sm copy-dict"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="<?php echo BUILDER_COPY_TO_CLIPBOARD?>"
+          data-event-type="click"
           disabled
         >
           <i class="bi bi-files"></i>
@@ -113,10 +121,11 @@
         <button
           id="download-dictbuilder-button"
           type="button"
-          class="btn btn-outline-ct result-btn-sm download-json-dict click"
+          class="btn btn-outline-ct result-btn-sm download-json-dict"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="<?php echo BUILDER_DOWNLOAD_DICT?>"
+          data-event-type="click"
           disabled
         >
           <i class="bi bi-download"></i>
@@ -136,7 +145,9 @@
             ><button id="result-download-button"></button>
           </a>
         </div>
-        <p id="dict-lost-advisor" class="text-danger fw-bold d-none"><?php echo BUILDER_LOST_DICT_ADVISOR?></p>
+        <p id="dict-lost-advisor" class="text-danger fw-bold d-none">
+          <?php echo BUILDER_LOST_DICT_ADVISOR?>
+        </p>
       </div>
     </div>
   </div>

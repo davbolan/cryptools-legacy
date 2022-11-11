@@ -1,11 +1,11 @@
-import copyToClipboard from './copyclipboard.js';
 import {
-  HIDE,
-  DISABLED,
   CONTENT_TYPES,
   CONTENT_TYPE_MISSING,
+  DISABLED,
   ELEM_ID_TEMPLATE,
+  HIDE,
 } from './constant.js';
+import copyToClipboard from './copyclipboard.js';
 
 const setVisibleComponents = (visible, ...$elems) => {
   $elems.forEach(($elem) => $elem.toggleClass(HIDE, !visible));
