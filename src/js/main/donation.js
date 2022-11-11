@@ -1,5 +1,10 @@
-import { CLICK, DANGER, HIDDEN_BS_MODAL } from '../utils/constant.js';
-import showAlert from '../main/alert.js';
+import {
+  CLICK,
+  COIN_TEMPLATE,
+  DANGER,
+  HIDDEN_BS_MODAL,
+} from '../utils/constant.js';
+import Alert from '../main/alert.js';
 import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
 import { setVisibleComponents, copyToClipboard } from '../utils/utils.js';
 
@@ -22,7 +27,7 @@ const initQRCode = (text, logo) => {
 
 const getCoinAddressLabel = (coinName) => {
   const template = $('#coin-name-template').text();
-  const coinAdressLabel = template.replace('%COIN%', coinName);
+  const coinAdressLabel = template.replace(COIN_TEMPLATE, coinName);
   return coinAdressLabel;
 };
 
@@ -66,7 +71,7 @@ const copyResultToClipboard = () => {
     copyToClipboard($('#coin-address-text'));
   } catch (err) {
     if (err instanceof CryptoolsCopypasteError) {
-      showAlert(err.message, DANGER);
+      Alert(err.message, DANGER);
     } else throw err;
   }
 };
