@@ -26,9 +26,14 @@ const showContentTypeMissingWarning = (elem) => {
   console.warn(contentTypeMissing);
 };
 
+const encodeBase64 = (text) => btoa(encodeURIComponent(text));
+const decodeBase64 = (text) => decodeURIComponent(atob(text));
+
 export {
   copyToClipboard,
   setEnableComponents,
   setVisibleComponents,
   showContentTypeMissingWarning,
+  encodeBase64,
+  decodeBase64,
 };

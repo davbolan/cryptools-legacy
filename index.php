@@ -19,13 +19,11 @@
 
     <script type="text/javascript" src="src/js/min/jquery.min.js"></script>
     <script type="text/javascript" src="src/js/min/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="src/js/min/jquery.base64.min.js"></script> 
     <script type="text/javascript" src="src/js/min/jquery.json-editor.min.js"></script> 
     <script type="text/javascript" src="src/js/min/easy.qrcode.min.js"></script> 
     <!--
     <script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/libs/bootstrap/bootstrap.bundle.js"></script>
-    <script type="text/javascript" src="js/libs/jquery/base64/jquery.base64.js"></script>
     <script type="text/javascript" src="js/libs/jquery/jsonViewer/jquery.json-editor.js"></script>
     -->
     <script type="module" src="src/js/utils/prototypes.js"></script>
