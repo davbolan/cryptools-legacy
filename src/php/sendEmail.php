@@ -8,26 +8,23 @@ require ROOT_PHP_PATH . '/variables.php';
 
 session_start();
 
-$keyname    = "name";
-$keyEmail   = "email";
+$keyname = "name";
+$keyEmail = "email";
 $keyMessage = "message";
 
-$name          = getParam($keyname    , false);
-$targetEmail   = getParam($keyEmail   , false);
-$clientMessage = getParam($keyMessage , true);
+$name = getParam($keyname, false);
+$targetEmail = getParam($keyEmail, false);
+$clientMessage = getParam($keyMessage, true);
 
 if (empty($name)) {
   $name = EMPTY_NAME;
-}
-else if (empty($targetEmail)) {
+} else if (empty($targetEmail)) {
   $targetEmail = EMPTY_EMAIL;
-}
-else if (empty($clientMessage)) {
+} else if (empty($clientMessage)) {
   $clientMessage = EMPTY_MSG;
-}
-else {
-    $targetEmail = checkValidEmail($targetEmail);
-    $clientMessage = checkValidMessage($clientMessage);
+} else {
+  $targetEmail = checkValidEmail($targetEmail);
+  $clientMessage = checkValidMessage($clientMessage);
 }
 
 $ERRORS = array(
@@ -38,14 +35,11 @@ $ERRORS = array(
 
 if (in_array($name, $ERRORS[$keyname])) {
   returnResponse(false, $name);
-}
-else if (in_array($targetEmail, $ERRORS[$keyEmail])) {
+} else if (in_array($targetEmail, $ERRORS[$keyEmail])) {
   returnResponse(false, $targetEmail);
-}
-else if (in_array($clientMessage, $ERRORS[$keyMessage])) {
+} else if (in_array($clientMessage, $ERRORS[$keyMessage])) {
   returnResponse(false, $clientMessage);
-}
-else {
+} else {
   $success = sendEmailToAdmin($targetEmail, $name, $clientMessage);
   $response = $success ? VALID_EMAIL : ERROR_SENDING_EMAIL;
   returnResponse($success, $response);
@@ -54,7 +48,7 @@ else {
 
 function getParam($paramName, $clean) {
   if (isset($_REQUEST[$paramName])) {
-    return $clean ? cleanString($_REQUEST[$paramName] ) : $_REQUEST[$paramName];
+    return $clean ? cleanString($_REQUEST[$paramName]) : $_REQUEST[$paramName];
   }
   return '';
 }
@@ -64,8 +58,7 @@ function checkValidEmail($email) {
 
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $email = INVALID_EMAIL;
-  }
-  else{
+  } else {
     $email = checkTempMail($email);
   }
   return $email;
@@ -74,7 +67,7 @@ function checkValidEmail($email) {
 function checkTempMail($email) {
   $tempEmailsFilePath = ROOT_RESOURCES_PATH . '/temp-emails.txt';
   $result = $email;
-  $domain = explode('@', $email ) [1];
+  $domain = explode('@', $email)[1];
   $blacklist = file($tempEmailsFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
   if (in_array($domain, $blacklist)) {
@@ -107,31 +100,32 @@ function cleanBadHeads($message) {
   foreach ($badHeads as $badHead) {
     if (str_contains($message, $badHead)) {
       $maybeSpammer = buildMaybeSpammer($badHead);
-      $message = str_replace($badHead, $maybeSpammer , $message);
+      $message = str_replace($badHead, $maybeSpammer, $message);
     }
   }
   return $message;
 }
 
 function checkValidMessage($message) {
-  return strlen($message ) < 10 ? TOO_SHORT_MSG : cleanBadHeads($message);
+  return strlen($message) < 10 ? TOO_SHORT_MSG : cleanBadHeads($message);
 }
 
 function getEmailHeaders($sourceEmail, $targetEmail) {
-    $mandatoryHeader = array (
-        "MIME-Version" => "1.0",
-        "Content-type" => "text/html; charset=utf-8",
-        "From"         => $sourceEmail,
-        //"To"           => $targetEmail
-        //"Reply-To"     => $sourceEmail
-    );
+  $mandatoryHeader = array(
+    "MIME-Version" => "1.0",
+    "Content-type" => "text/html; charset=utf-8",
+    "From"         => $sourceEmail,
+    //"To"           => $targetEmail
+    //"Reply-To"     => $sourceEmail
 
-    $headers = "";
-    foreach ($mandatoryHeader as $headerName => $headerValue) {
-      $headers .= withLn("$headerName: $headerValue");
-    }
+  );
 
-    DEBUG(withLn($headers));
+  $headers = "";
+  foreach ($mandatoryHeader as $headerName => $headerValue) {
+    $headers .= withLn("$headerName: $headerValue");
+  }
+
+  DEBUG(withLn($headers));
 
   return $headers;
 }
@@ -153,7 +147,7 @@ function getEmailVars($targetEmail, $name, $message) {
 
 function buildEmail($emailHTML, $emailVars) {
   foreach ($emailVars as $varName => $varValue) {
-    if (strlen($varName ) > 2 && trim($varName ) != "") {
+    if (strlen($varName) > 2 && trim($varName) != "") {
       $emailHTML = str_replace($varName, $varValue, $emailHTML);
     }
   }
@@ -208,7 +202,7 @@ function restoreWarning($errLevel) {
   error_reporting($errLevel);
 }
 
-function sendEmail ($targetEmail, $subject, $message, $headers) {
+function sendEmail($targetEmail, $subject, $message, $headers) {
   DEBUG("targetEmail:\r\n$targetEmail\r\n subject:\r\n$subject\r\n message:\r\n$message\r\nheaders:\r\n$headers\r\n");
   $errLevel = supressWarning();
   $success = mail($targetEmail, $subject, $message, $headers);
@@ -221,7 +215,7 @@ function sendEmailToAdmin($targetEmail, $name, $clientMsg) {
   $subject = "Correo enviado desde Cryptools.ovh";
   $emailHTML = getEmailBody($targetEmail, $name, $clientMsg);
   $headers = getEmailHeaders($sourceEmail, $targetEmail);
-  DEBUG(withLn( $emailHTML));
+  DEBUG(withLn($emailHTML));
   return sendEmail($targetEmail, $subject, $emailHTML, $headers);
 }
 
@@ -232,7 +226,7 @@ function cleanString($string) {
   return $string;
 }
 
-function getCodeMessage ($code) {
+function getCodeMessage($code) {
   $code .= "_TXT";
   return defined($code) ? constant($code) : ERROR_SENDING_EMAIL_TXT;
 }
@@ -244,7 +238,7 @@ function returnResponse($success, $code) {
     "message" => getCodeMessage($code)
   );
 
-  if(!$success){
+  if (!$success) {
     http_response_code(400);
   }
   header("Content-type: application/json; charset=utf-8");
@@ -253,11 +247,11 @@ function returnResponse($success, $code) {
 }
 
 function withLn($string) {
-  return $string."\r\n";
+  return $string . "\r\n";
 }
 
 function DEBUG($msg) {
-  if(DEBUG){
+  if (DEBUG) {
     echo $msg;
   }
 }
