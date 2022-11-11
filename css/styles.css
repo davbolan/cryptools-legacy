@@ -140,3 +140,19 @@ body.modal-open {
 .qr-cell > div {
   margin: 5px auto;
 }
+
+.required:after {
+  content: '*';
+  color: var(--ct-error);
+}
+
+.form-msg-error {
+  font-size: 0.75rem;
+  color: var(--ct-error);
+  margin: 0px 0px 0px 9px;
+}
+
+.form-error,
+.form-error:focus {
+  border-color: var(--ct-error);
+}

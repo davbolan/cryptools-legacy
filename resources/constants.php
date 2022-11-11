@@ -115,13 +115,22 @@ define("DICT_COPY_TO_CLIPBOARD",            "Copiar resultado al cortapapeles");
 define("DICT_DOWNLOAD_DICT",                "Descargar resultado");
 
 // CONTACT
-define("EMPTY_NAME_TEXT",    "Nombre vacio");
-define("EMPTY_EMAIL_TEXT",   "Email vacio");
-define("EMPTY_MSG_TEXT",     "Mensaje vacio");
-define("TOO_SHORT_MSG_TEXT", "Mensaje demasiado corto");
-define("VALID_EMAIL_TEXT",   "Email enviado correctamente");
-define("INVALID_EMAIL_TEXT", "Email inválido");
-define("TEMP_EMAIL_TEXT",    "Email temporal");
+define("CONTACT",              "Contacto");
+define("CONTACT_NAME",         "Nombre");
+define("CONTACT_EMAIL",        "Correo electrónico");
+define("CONTACT_MESSAGE",      "Mensaje");
+define("CONTACT_WHO_ARE_YOU",  "¿Quién eres?");
+define("CONTACT_YOUR_MESSAGE", "Introduce tu consulta...");
+define("CONTACT_SEND_MESSAGE", "Enviar mensaje");
+
+define("EMPTY_NAME_TXT",          "El nombre está vacio");
+define("EMPTY_EMAIL_TXT",         "El email está vacio");
+define("EMPTY_MSG_TXT",           "El mensaje está vacio");
+define("INVALID_EMAIL_TXT",       "Formato de correo inválido");
+define("TEMP_EMAIL_TXT",          "No se permite el uso de correos temporales");
+define("TOO_SHORT_MSG_TXT",       "Mensaje demasiado corto. La longitud mínima son 10 carácteres");
+define("VALID_EMAIL_TXT",         "Email enviado correctamente");
+define("ERROR_SENDING_EMAIL_TXT", "Ha habido un error al enviar el email");
 
 
 ?>

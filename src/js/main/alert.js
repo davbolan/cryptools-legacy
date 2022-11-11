@@ -1,9 +1,9 @@
-import { DANGER } from '../utils/constant.js';
+import { DANGER, SUCCESS } from '../utils/constant.js';
 const FADE_IN = 300;
 const DELAY = 2500;
 const FADE_OUT = 300;
 
-const alertTypes = [DANGER];
+const alertTypes = [DANGER, SUCCESS];
 const DEFAULT_TYPE = DANGER;
 
 const dictTypes = (() => {
@@ -12,6 +12,11 @@ const dictTypes = (() => {
   dict[DANGER] = {
     class: 'alert-' + DANGER,
     icon: 'bi-exclamation-triangle-fill',
+  };
+
+  dict[SUCCESS] = {
+    class: 'alert-' + SUCCESS,
+    icon: 'bi-check-lg',
   };
 
   return dict;

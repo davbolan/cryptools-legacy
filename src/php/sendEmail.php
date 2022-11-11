@@ -1,31 +1,26 @@
 <?php
-$ROOT_PATH = str_replace('\\', '/', __DIR__);
-$pathParts = explode('/', $ROOT_PATH);
-array_pop($pathParts);
-$ROOT_PATH = implode('/', $pathParts);
+$ROOT_PATH = str_replace('\\', '/', dirname(__DIR__, 2));
 define("ROOT_PATH", $ROOT_PATH);
-define("FROM_FILE", true);
 
-require ROOT_PATH . '/php/paths.php';
+require ROOT_PATH . '/src/php/paths.php';
 require ROOT_RESOURCES_PATH . '/constants.php';
 require ROOT_PHP_PATH . '/variables.php';
 
 session_start();
 
-
-$keyEmail   = "email";
 $keyname    = "name";
+$keyEmail   = "email";
 $keyMessage = "message";
 
-$targetEmail   = getParam($keyEmail   , false);
 $name          = getParam($keyname    , false);
+$targetEmail   = getParam($keyEmail   , false);
 $clientMessage = getParam($keyMessage , true);
 
-if (empty($targetEmail)) {
-  $targetEmail = EMPTY_EMAIL;
-}
-else if (empty($name)) {
+if (empty($name)) {
   $name = EMPTY_NAME;
+}
+else if (empty($targetEmail)) {
+  $targetEmail = EMPTY_EMAIL;
 }
 else if (empty($clientMessage)) {
   $clientMessage = EMPTY_MSG;
@@ -35,18 +30,17 @@ else {
     $clientMessage = checkValidMessage($clientMessage);
 }
 
-
 $ERRORS = array(
-  $keyEmail   => [INVALID_EMAIL, TEMP_EMAIL, EMPTY_EMAIL],
   $keyname    => [EMPTY_NAME],
+  $keyEmail   => [INVALID_EMAIL, TEMP_EMAIL, EMPTY_EMAIL],
   $keyMessage => [TOO_SHORT_MSG, EMPTY_MSG]
 );
 
-if (in_array($targetEmail, $ERRORS[$keyEmail])) {
-  returnResponse(false, $targetEmail);
-}
-else if (in_array($name, $ERRORS[$keyname])) {
+if (in_array($name, $ERRORS[$keyname])) {
   returnResponse(false, $name);
+}
+else if (in_array($targetEmail, $ERRORS[$keyEmail])) {
+  returnResponse(false, $targetEmail);
 }
 else if (in_array($clientMessage, $ERRORS[$keyMessage])) {
   returnResponse(false, $clientMessage);
@@ -169,39 +163,39 @@ function buildEmail($emailHTML, $emailVars) {
 function getHTMLEmailTemplate() {
 
   $emailTemplate =
-  "<html>
-    <head>
-      <meta charset='utf-8' />
-      <title>Email de {NAME}</title>
-    </head>
-    <style>
-      html {
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      li {
-        margin: 10px 0 10px 0;
-      }
-      .content {
-        max-width: 600px;
-        min-width: 100px;
-        background-color: #fff;
-        padding: 20px;
-        margin: auto;
-        border: solid 1px #000;
-      }
-    </style>
-    <body>
-      <div class='content'>
-        <p><strong>Datos de la persona: </strong></p>
-        <ul style='list-style-type: none'>
-          <li><strong>Nombre:</strong> {NAME}</li>
-          <li><strong>Email:</strong> {EMAIL}</li>
-          <li><strong>Mensaje:</strong></li>
-        </ul>
-        <p>{MESSAGE}</p>
-      </div>
-    </body>
-  </html>";
+"<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Email de {NAME}</title>
+  </head>
+  <style>
+    html {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    li {
+      margin: 10px 0 10px 0;
+    }
+    .content {
+      max-width: 600px;
+      min-width: 100px;
+      background-color: #fff;
+      padding: 20px;
+      margin: auto;
+      border: solid 1px #000;
+    }
+  </style>
+  <body>
+    <div class='content'>
+      <p><strong>Datos de la persona: </strong></p>
+      <ul style='list-style-type: none'>
+        <li><strong>Nombre:</strong> {NAME}</li>
+        <li><strong>Email:</strong> {EMAIL}</li>
+        <li><strong>Mensaje:</strong></li>
+      </ul>
+      <p>{MESSAGE}</p>
+    </div>
+  </body>
+</html>";
 
   return $emailTemplate;
 }
@@ -238,12 +232,21 @@ function cleanString($string) {
   return $string;
 }
 
-function returnResponse($success, $message) {
+function getCodeMessage ($code) {
+  $code .= "_TXT";
+  return defined($code) ? constant($code) : ERROR_SENDING_EMAIL_TXT;
+}
+
+function returnResponse($success, $code) {
   $jsonResponse = array(
     "success" => $success,
-    "message" => $message
+    "code"    => $code,
+    "message" => getCodeMessage($code)
   );
 
+  if(!$success){
+    http_response_code(400);
+  }
   header("Content-type: application/json; charset=utf-8");
   echo json_encode($jsonResponse);
   //exit();

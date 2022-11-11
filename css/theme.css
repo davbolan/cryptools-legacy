@@ -26,10 +26,7 @@ body {
   color: var(--ct-blue-hover);
 }
 
-/*
- *  SCROLLBARS
- */
-
+/* SCROLLBARS */
 .with-scrollbar::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
   background-color: var(--ct-blue-super-light);
@@ -120,4 +117,17 @@ body {
 .tooltip-inner {
   color: #fff;
   background-color: var(--ct-blue-hover);
+}
+
+/* ALERT */
+.alert-danger {
+  background-color: var(--ct-error);
+  color: var(--ct-error-dark);
+  border-color: var(--ct-error-dark);
+}
+
+.alert-success {
+  background-color: var(--ct-success);
+  color: var(--ct-success-dark);
+  border-color: var(--ct-success-dark);
 }
