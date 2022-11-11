@@ -59,6 +59,10 @@ html {
   color: rgba(0, 0, 0, 0.3);
 }
 
+.result-error {
+  color: var(--ct-error-light);
+}
+
 .code,
 .json-editor-blackbord {
   background: var(--ct-blue) !important;

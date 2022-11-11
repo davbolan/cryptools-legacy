@@ -34,7 +34,7 @@ define("B64_DECODE",                 "Decodificar desde base64");
 define("B64_WHAT_TEXT",              "¿Qué texto?");
 define("B64_RESULT",                 "Resultado");
 define("B64_COPY_TO_CLIPBOARD",      "Copiar resultado al cortapapeles");
-
+define("B64_ERROR_DECODE",           "Error: no es posible realizar la decodificación con los carácteres introducidos. Revísalo para poder continuar.");
 
 // DELETER
 define("DELETER_INTRO", [ "No hay mucho que explicar, una herramienta simple para eliminar lo que queramos de un texto." ]);

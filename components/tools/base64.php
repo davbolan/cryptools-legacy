@@ -92,6 +92,9 @@
             id="base64-result-id"
             data-content-type="text"
           ></samp>
+          <span id="decode-base64-error" class="result-error small d-none">
+            <?php echo B64_ERROR_DECODE ?>
+          </span>
         </div>
       </div>
     </div>

@@ -26,6 +26,26 @@ body {
   color: var(--ct-blue-hover);
 }
 
+.color-ct-error {
+  color: var(--ct-error);
+}
+
+.color-ct-error-ligth {
+  color: var(--ct-error-ligth);
+}
+
+.color-ct-error-dark {
+  color: var(--ct-error-dark);
+}
+
+.color-ct-success {
+  color: var(--ct-success);
+}
+
+.color-ct-success-dark {
+  color: var(--ct-success-dark);
+}
+
 /*
  *  SCROLLBARS
  */
