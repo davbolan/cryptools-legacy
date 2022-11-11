@@ -97,8 +97,7 @@ const isValidEvent = (event) => {
     isValid = false;
   }
 
-  isValid &&= currentTarget.classList.contains(type);
-  return isValid;
+  return isValid && type === currentTarget.dataset.eventType;
 };
 
 const buildFinalJsonStr = (keyValuesPairsList) => {

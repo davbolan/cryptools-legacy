@@ -60,7 +60,7 @@
                   value="decode"
                 />
                 <label class="form-check-label" for="flexRadioDecoderDict">
-                <?php echo DICT_DECODE?>
+                  <?php echo DICT_DECODE?>
                 </label>
               </div>
             </div>
@@ -88,7 +88,8 @@
                 id="dict-file-button"
                 type="button"
               >
-              <?php echo DICT_LOAD_JSON_BTN?> &nbsp;<i class="bi bi bi-upload"></i>
+                <?php echo DICT_LOAD_JSON_BTN?>
+                &nbsp;<i class="bi bi bi-upload"></i>
               </button>
             </div>
           </div>
@@ -122,7 +123,8 @@
                 id="text-file-button"
                 type="button"
               >
-                <?php echo DICT_LOAD_INPUT_FILE_BTN?> &nbsp;<i class="bi bi bi-upload"></i>
+                <?php echo DICT_LOAD_INPUT_FILE_BTN?>
+                &nbsp;<i class="bi bi bi-upload"></i>
               </button>
             </div>
           </div>
@@ -156,14 +158,12 @@
       <div class="row mt-2">
         <div id="dict-result-panel-id">
           <label for="dict-result-id">
-            <strong>
-              <?php echo DICT_RESULT?>: 
-          </strong>
+            <strong> <?php echo DICT_RESULT?>: </strong>
           </label>
           <button
             id="copy-dict-result-button"
             type="button"
-            class="btn btn-outline-ct result-btn-sm click"
+            class="btn btn-outline-ct result-btn-sm"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="<?php echo DICT_COPY_TO_CLIPBOARD?>"
@@ -172,13 +172,13 @@
             <i class="bi bi-files"></i>
           </button>
           <button
-          id="download-dict-result-button"
-          type="button"
-          class="btn btn-outline-ct result-btn-sm download-output-dict click"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="<?php echo DICT_DOWNLOAD_DICT?>"
-          disabled
+            id="download-dict-result-button"
+            type="button"
+            class="btn btn-outline-ct result-btn-sm download-output-dict"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title="<?php echo DICT_DOWNLOAD_DICT?>"
+            disabled
           >
             <i class="bi bi-download"></i>
           </button>
@@ -189,12 +189,12 @@
               data-content-type="text"
             ></samp>
             <a
-            style="display: none"
-            id="output-dict-download-link"
-            href="#"
-            download="result.json"
-            ><button id="output-dict-download-button"></button>
-          </a>
+              style="display: none"
+              id="output-dict-download-link"
+              href="#"
+              download="result.json"
+              ><button id="output-dict-download-button"></button>
+            </a>
           </div>
         </div>
       </div>

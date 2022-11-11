@@ -78,7 +78,7 @@
         <button
           id="copy-base64result-button"
           type="button"
-          class="btn btn-outline-ct result-btn-sm click"
+          class="btn btn-outline-ct result-btn-sm"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="<?php echo B64_COPY_TO_CLIPBOARD?>"

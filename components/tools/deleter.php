@@ -48,10 +48,10 @@
         <label for="deleter-result-id">
           <strong><?php echo DELETER_RESULT?>: </strong>
         </label>
-        <button 
+        <button
           id="copy-deleter-result-button"
           type="button"
-          class="btn btn-outline-ct result-btn-sm click"
+          class="btn btn-outline-ct result-btn-sm"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="<?php echo DELETER_COPY_TO_CLIPBOARD?>"
@@ -59,8 +59,8 @@
         >
           <i class="bi bi-files"></i>
         </button>
-        <div class="result-panel  with-scrollbar">
-          <samp 
+        <div class="result-panel with-scrollbar">
+          <samp
             class="text-result"
             id="deleter-result-id"
             data-content-type="text"
