@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-controls="collapseDictAccordion"
     >
-      <h5><?php echo DICT_TITLE?></h5>
+      <span class="h5"><?php echo DICT_TITLE?></span>
     </button>
   </h2>
   <div
