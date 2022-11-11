@@ -31,6 +31,7 @@ html {
   white-space: pre-wrap;
   font-size: 12px;
   background-color: var(--ct-blue-variant);
+  padding: 5px 0px;
 }
 
 .text-area {
