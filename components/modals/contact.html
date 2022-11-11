@@ -1,0 +1,87 @@
+<div
+  class="modal"
+  id="contact-modal"
+  tabindex="-1"
+  aria-labelledby="contact-modal-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contact-modal-label">
+          <?php echo CONTACT?>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body with-scrollbar">
+        <div class="container">
+          <form id="form-contact">
+            <div class="mb-2">
+              <label for="name-input" class="form-label required">
+                <?php echo CONTACT_NAME?></label
+              >
+              <input
+                id="name-input"
+                type="text"
+                class="form-control contact-field"
+                name="name"
+                placeholder="<?php echo CONTACT_WHO_ARE_YOU?>"
+              />
+              <div id="name-error" class="form-text form-msg-error invisible">
+                Error in name
+              </div>
+            </div>
+            <div class="mb-2">
+              <label for="email-input" class="form-label required"
+                ><?php echo CONTACT_EMAIL?></label
+              >
+              <input
+                id="email-input"
+                type="text"
+                class="form-control contact-field"
+                name="email"
+                placeholder="mail@domain.com"
+              />
+              <div id="email-error" class="form-text form-msg-error invisible">
+                Error in email
+              </div>
+            </div>
+            <div class="mb-2">
+              <label for="message-input" class="form-label required"
+                ><?php echo CONTACT_MESSAGE?></label
+              >
+              <textarea
+                id="message-input"
+                class="form-control text-area contact-field"
+                name="message"
+                placeholder="<?php echo CONTACT_YOUR_MESSAGE?>"
+                rows="7"
+              ></textarea>
+              <div
+                id="message-error"
+                class="form-text form-msg-error invisible"
+              >
+                Error in message
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          id="send-email-btn"
+          type="submit"
+          form="form-contact"
+          class="btn btn-primary"
+        >
+          <?php echo CONTACT_SEND_MESSAGE?>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

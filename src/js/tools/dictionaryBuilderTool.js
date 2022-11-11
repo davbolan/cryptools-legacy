@@ -1,6 +1,6 @@
 import moment from '../min/moment.min.js';
 import copyToClipboard from '../utils/copyclipboard.js';
-import showError from '../errors/alertError.js';
+import Alert from '../main/alert.js';
 import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
 import {
   JSON_FILENAME_TEMPLATE,
@@ -16,6 +16,7 @@ import {
   BACKSLASH,
   MIN_LOOPS,
   MAX_LOOPS,
+  DANGER,
 } from '../utils/constant.js';
 
 import DEFAULT_DICT, { BASIC_DICT, EXTENDED_DICT } from '../utils/chars.js';
@@ -39,7 +40,7 @@ const copyResultToClipboard = () => {
   try {
     copyToClipboard($('#dictbuilder-textarea-result-id'));
   } catch (err) {
-    showError(err.message);
+    Alert(err.message, DANGER);
   }
 };
 

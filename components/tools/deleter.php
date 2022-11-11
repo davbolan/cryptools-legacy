@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-controls="collapseDeleterAccordion"
     >
-      <h5><?php echo DELETER_TITLE?></h5>
+      <span class="h5"><?php echo DELETER_TITLE?></span>
     </button>
   </h2>
   <div

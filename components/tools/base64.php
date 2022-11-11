@@ -8,7 +8,7 @@
       aria-expanded="false"
       aria-controls="collapseBase64Accordion"
     >
-      <h5><?php echo B64_TITLE?></h5>
+      <span class="h5"><?php echo B64_TITLE?></span>
     </button>
   </h2>
   <div

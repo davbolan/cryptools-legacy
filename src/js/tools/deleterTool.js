@@ -1,13 +1,13 @@
 import copyToClipboard from '../utils/copyclipboard.js';
-import showError from '../errors/alertError.js';
+import Alert from '../main/alert.js';
 import { setEnableComponents } from '../utils/utils.js';
-import { KEY_UP, CLICK } from '../utils/constant.js';
+import { KEY_UP, CLICK, DANGER } from '../utils/constant.js';
 
 const copyResultToClipboard = () => {
   try {
     copyToClipboard($('#deleter-result-id'));
   } catch (err) {
-    showError(err.message);
+    Alert(err.message, DANGER);
   }
 };
 

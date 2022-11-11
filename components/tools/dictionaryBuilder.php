@@ -1,6 +1,5 @@
 <div class="accordion-item">
   <h2 class="accordion-header" id="headingDictbuilderAccordion">
-  <?php include ROOT_COMPONENTS_MODALS_PATH.'/builder-result.html'?>
     <button
       class="accordion-button collapsed"
       type="button"
@@ -9,9 +8,10 @@
       aria-expanded="false"
       aria-controls="collapseDictbuilderAccordion"
     >
-      <h5><?php echo BUILDER_TITLE?></h5>
+      <span class="h5"><?php echo BUILDER_TITLE?></span>
     </button>
   </h2>
+  <?php include ROOT_COMPONENTS_MODALS_PATH.'/builder-result.html'?>
   <div
     id="collapseDictbuilderAccordion"
     class="accordion-collapse collapse"

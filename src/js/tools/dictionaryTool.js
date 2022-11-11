@@ -1,6 +1,6 @@
 import moment from '../min/moment.min.js';
 import copyToClipboard from '../utils/copyclipboard.js';
-import showError from '../errors/alertError.js';
+import Alert from '../main/alert.js';
 import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
 import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
 import {
@@ -14,6 +14,7 @@ import {
   ERROR,
   OUTPUT_FILENAME_TEMPLATE,
   DATE_FORMAT,
+  DANGER,
 } from '../utils/constant.js';
 
 const dictPanel = {
@@ -137,7 +138,7 @@ const transformButtonHandle = () => {
     setEnableComponents(false, ...resultButtonsGroup);
 
     if (err instanceof CryptoolsJsonError) {
-      showError(err.message);
+      Alert(err.message, DANGER);
     } else {
       throw err;
     }
@@ -148,7 +149,7 @@ const copyResultToClipboard = () => {
   try {
     copyToClipboard($('#dict-result-id'));
   } catch (err) {
-    showError(err.message);
+    Alert(err.message, DANGER);
   }
 };
 

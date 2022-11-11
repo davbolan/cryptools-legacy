@@ -1,6 +1,9 @@
 
 
 <?php
+$web_title = WEB_TITLE;
+$web_root = WEB_ROOT;
+$path_logo = PATH_LOGO;
 $metaOpenGraphText = <<<EOD
   [
     { "charset": "utf-8" },
@@ -12,7 +15,7 @@ $metaOpenGraphText = <<<EOD
     { "property":   "og:type",              "content": "website" },
     { "property":   "og:title",             "content": "$web_title>" },
     { "property":   "og:site_name",         "content": "$web_title>" },
-    { "property":   "og:image",             "content": "$web_logo>" },
+    { "property":   "og:image",             "content": "$path_logo>" },
     { "property":   "og:description",       "content": "$web_description>" },
     { "property":   "og:url",               "content": "$web_root>" },
     { "property":   "og:locale",            "content": "$web_fullLang>" },
@@ -20,7 +23,7 @@ $metaOpenGraphText = <<<EOD
     { "property":   "twitter:description",  "content": "$web_description>" },
     { "property":   "twitter:title",        "content": "$web_title>" },
     { "property":   "twitter:site",         "content": "@Daviletor" },
-    { "property":   "twitter:image",        "content": "$web_logo>" },
+    { "property":   "twitter:image",        "content": "$path_logo>" },
     { "property":   "twitter:creator",      "content": "@Daviletor"
     }
   ]
@@ -29,7 +32,6 @@ $metaOpenGraph = json_decode($metaOpenGraphText, true);
 ?>
 
 <title><?php echo $web_title; ?></title>
-
 <?php
  foreach ($metaOpenGraph as $jsonDataKey => $jsonMetaData) {
   $tags = "";

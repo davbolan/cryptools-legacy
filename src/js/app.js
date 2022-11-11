@@ -1,4 +1,5 @@
 import loadDonationHandle from './main/donation.js';
+import loadContactHandle from './main/contact.js';
 import loadURLHandle from './main/url.js';
 import {
   loadBase64Handle,
@@ -25,6 +26,7 @@ const initApp = () => {
   loadToolsHandle();
   loadDonationHandle();
   loadURLHandle();
+  loadContactHandle();
 };
 
 $(initApp);
