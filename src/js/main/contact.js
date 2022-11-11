@@ -55,7 +55,7 @@ const formFieldsSettings = {
     validations: [
       {
         validation: checkMinLength,
-        params: [3],
+        params: [10],
         error: MIN_LENGHT_REQUIRED,
       },
     ],
