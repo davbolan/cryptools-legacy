@@ -58,11 +58,6 @@ html {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.default-dict {
-  padding: 0;
-  margin: 0 0.25rem 0 0.25rem;
-}
-
 .code,
 .json-editor-blackbord {
   background: var(--ct-blue) !important;
@@ -155,4 +150,8 @@ body.modal-open {
 .form-error,
 .form-error:focus {
   border-color: var(--ct-error);
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
