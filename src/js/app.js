@@ -1,5 +1,5 @@
-import loadDonationHandle from './main/donation.js';
 import loadContactHandle from './main/contact.js';
+import loadDonationHandle from './main/donation.js';
 import loadURLHandle from './main/url.js';
 import {
   loadBase64Handle,

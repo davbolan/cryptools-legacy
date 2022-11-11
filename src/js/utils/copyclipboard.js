@@ -1,5 +1,5 @@
 import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
-import { COPY, ERROR, HIDE, CONTENT_TYPES } from './constant.js';
+import { CONTENT_TYPES, COPY, ERROR, HIDE } from './constant.js';
 import { showContentTypeMissingWarning } from './utils.js';
 
 const getText = (elem) => {
