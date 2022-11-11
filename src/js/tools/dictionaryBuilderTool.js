@@ -176,7 +176,7 @@ const buildDict = (event) => {
     const keysDictSet = shuffle([...listWords]);
     const valuesDictSet = shuffle([...listWords]);
     keysDictSet.forEach((key, idx) => (dict[key] = valuesDictSet[idx]));
-    dict = { separator, dict };
+    dict = Boolean(separator) ? { separator, dict } : { dict };
   }
   updateResult(dict);
 };
