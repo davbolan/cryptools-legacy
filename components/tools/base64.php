@@ -8,7 +8,9 @@
       aria-expanded="false"
       aria-controls="collapseBase64Accordion"
     >
-      <span class="h5"><?php echo B64_TITLE?></span>
+      <span class="h5">
+        <?php echo B64_TITLE ?>
+      </span>
     </button>
   </h2>
   <div
@@ -20,17 +22,20 @@
   >
     <div class="accordion-body">
       <div id="base64-intro-panel-id">
+        <i class="icon-BNB"></i>
         <ul class="list-unstyled">
           <?php echoParagraphs(B64_INTRO); ?>
         </ul>
-        <strong><?php echo STEPS?>:</strong>
+        <strong> <?php echo STEPS ?>: </strong>
         <ol>
           <?php echoParagraphs(B64_STEPS); ?>
         </ol>
       </div>
       <div id="base64-type-panel-id" class="col-md-5 col-md-4 col-xl-3">
         <label for="base64-type-id"
-          ><strong><?php echo B64_WHAT_DO_YOU_WANT_TO_DO?></strong></label
+          ><strong>
+            <?php echo B64_WHAT_DO_YOU_WANT_TO_DO ?>
+          </strong></label
         >
         <div class="form-check">
           <input
@@ -41,9 +46,9 @@
             value="encode"
             checked
           />
-          <label class="form-check-label" for="flexRadioCoderBase64"
-            ><?php echo B64_ENCODE?></label
-          >
+          <label class="form-check-label" for="flexRadioCoderBase64">
+            <?php echo B64_ENCODE ?>
+          </label>
         </div>
 
         <div class="form-check">
@@ -54,15 +59,17 @@
             class="form-check-input"
             value="decode"
           />
-          <label class="form-check-label" for="flexRadioDecoderBase64"
-            ><?php echo B64_DECODE?></label
-          >
+          <label class="form-check-label" for="flexRadioDecoderBase64">
+            <?php echo B64_DECODE ?>
+          </label>
         </div>
       </div>
 
       <div id="base64-text-panel-id">
         <label for="base64-text-id">
-          <strong><?php echo B64_WHAT_TEXT?></strong>
+          <strong>
+            <?php echo B64_WHAT_TEXT ?>
+          </strong>
         </label>
         <textarea
           class="form-control text-area with-scrollbar"
@@ -73,7 +80,7 @@
 
       <div id="base64-result-panel-id">
         <label for="base64-result-id"
-          ><strong><?php echo B64_RESULT?>: </strong></label
+          ><strong> <?php echo B64_RESULT ?>: </strong></label
         >
         <button
           id="copy-base64result-button"
@@ -81,7 +88,7 @@
           class="btn btn-outline-ct result-btn-sm"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
-          title="<?php echo B64_COPY_TO_CLIPBOARD?>"
+          title="<?php echo B64_COPY_TO_CLIPBOARD ?>"
           disabled
         >
           <i class="bi bi-files"></i>

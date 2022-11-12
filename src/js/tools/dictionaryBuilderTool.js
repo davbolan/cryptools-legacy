@@ -1,5 +1,6 @@
 import Alert from '../main/alert.js';
 import moment from '../min/moment.min.js';
+/* import moment from 'https://cdn.jsdelivr.net/npm/moment@2.29.4/dist/moment.min.js'; */
 import DEFAULT_DICT, { BASIC_DICT, EXTENDED_DICT } from '../utils/chars.js';
 import {
   BACKSLASH,
