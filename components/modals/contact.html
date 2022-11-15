@@ -9,7 +9,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="contact-modal-label">
-          <?php echo CONTACT?>
+          <?php echo $i18n["CONTACT"]?>
         </h5>
         <button
           type="button"
@@ -23,14 +23,14 @@
           <form id="form-contact">
             <div class="mb-2">
               <label for="name-input" class="form-label required">
-                <?php echo CONTACT_NAME?></label
+                <?php echo $i18n["CONTACT_NAME"]?></label
               >
               <input
                 id="name-input"
                 type="text"
                 class="form-control contact-field"
                 name="name"
-                placeholder="<?php echo CONTACT_WHO_ARE_YOU?>"
+                placeholder="<?php echo $i18n["CONTACT_WHO_ARE_YOU"]?>"
               />
               <div id="name-error" class="form-text form-msg-error invisible">
                 Error in name
@@ -38,7 +38,7 @@
             </div>
             <div class="mb-2">
               <label for="email-input" class="form-label required"
-                ><?php echo CONTACT_EMAIL?></label
+                ><?php echo $i18n["CONTACT_EMAIL"]?></label
               >
               <input
                 id="email-input"
@@ -53,13 +53,13 @@
             </div>
             <div class="mb-2">
               <label for="message-input" class="form-label required"
-                ><?php echo CONTACT_MESSAGE?></label
+                ><?php echo $i18n["CONTACT_MESSAGE"]?></label
               >
               <textarea
                 id="message-input"
                 class="form-control text-area contact-field"
                 name="message"
-                placeholder="<?php echo CONTACT_YOUR_MESSAGE?>"
+                placeholder="<?php echo $i18n["CONTACT_YOUR_MESSAGE"]?>"
                 rows="7"
               ></textarea>
               <div
@@ -79,7 +79,7 @@
           form="form-contact"
           class="btn btn-primary"
         >
-          <?php echo CONTACT_SEND_MESSAGE?>
+          <?php echo $i18n["CONTACT_SEND_MESSAGE"]?>
         </button>
       </div>
     </div>

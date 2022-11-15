@@ -5,6 +5,7 @@ require ROOT_PATH . '/src/php/variables.php';
 require ROOT_PATH . '/src/php/paths.php';
 require ROOT_RESOURCES_PATH . '/constants.php';
 require ROOT_PHP_PATH . '/functions.php';
+require ROOT_RESOURCES_I18N . '/es.php';
 ?>
 <html lang="<?php echo $web_lang; ?>" class="with-scrollbar">
   <head>

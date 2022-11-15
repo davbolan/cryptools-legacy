@@ -228,7 +228,7 @@ function cleanString($string) {
 
 function getCodeMessage($code) {
   $code .= "_TXT";
-  return defined($code) ? constant($code) : ERROR_SENDING_EMAIL_TXT;
+  return defined($code) ? constant($code) : ($i18n["CONTACT_ERROR_SENDING_EMAIL_TXT"]);
 }
 
 function returnResponse($success, $code) {

@@ -21,7 +21,7 @@ $coinRowsStr = implode("", $coinRows)
       <div id="qr-cell" class="row d-none qr-cell">
         <div class="d-flex justify-content-center">
           <span id="coin-name-template" class="d-none">
-            <?php echo DONATION_COIN_ADDRESS ?>
+            <?php echo $i18n["DONATION_COIN_ADDRESS"] ?>
           </span>
           <span id="coin-name">Coin address</span>
         </div>
@@ -34,7 +34,7 @@ $coinRowsStr = implode("", $coinRows)
       </div>
       <div id="qr-label-cell" class="d-flex justify-content-center mt-4 ">
         <p class="h4 text-justify color-ct-blue-light-variant fw-light fst-italic">
-          <?php echo DONATION_SELECT_CRYPTO ?>
+          <?php echo $i18n["DONATION_SELECT_CRYPTO"] ?>
         </p>
       </div>
     </div>
