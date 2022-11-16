@@ -9,7 +9,7 @@ const loadLocationChangeHandle = () => {
   if (location.hash) {
     elemIdentifier = location.hash;
   } else if (location.pathname) {
-    const toolName = location.pathname.slice(1);
+    const toolName = location.pathname.split('/').slice(-1)[0];
     elemIdentifier = `[data-tool="${toolName}"]`;
   }
 

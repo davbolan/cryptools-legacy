@@ -159,3 +159,14 @@ body {
   color: var(--ct-success-dark);
   border-color: var(--ct-success-dark);
 }
+
+/* LANGUAGE SELECTOR*/
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--ct-blue-light);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--ct-blue);
+}
