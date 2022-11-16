@@ -1,21 +1,53 @@
+html {
+  overflow-y: scroll;
+}
+
+.navbar-brand {
+  display: flex;
+}
+
+.navbar-title,
+.navbar-title:hover {
+  border-left: solid 2px #fff;
+  margin-left: 20px;
+  padding: 4px 0 4px 20px;
+  color: #fff;
+  font-family: monospace;
+}
+
+/* Content */
 .result-panel {
   border: 1px solid #ced4da;
   border-radius: 0.25rem !important;
-  background-color: #1c2833;
-  color: #4fdee5;
+  background-color: var(--ct-blue);
+  color: var(--ct-blue-light);
   padding: 10px;
+  overflow-y: scroll;
+  max-height: 15rem;
 }
 
 .text-result {
   word-break: break-all;
   white-space: pre-wrap;
   font-size: 12px;
-  background-color: #333d47;
+  background-color: var(--ct-blue-variant);
+  padding: 5px 0px;
 }
 
 .text-area {
   word-break: break-all;
   white-space: pre-wrap;
+}
+
+.button-text {
+  background-color: transparent;
+  border: none;
+  color: var(--ct-blue-variant);
+  margin: 5px 0;
+  text-decoration: underline;
+}
+.button-text:hover {
+  color: var(--ct-blue-light-variant);
 }
 
 .result-btn-sm {
@@ -27,8 +59,13 @@
   color: rgba(0, 0, 0, 0.3);
 }
 
-.code {
-  background: #1c2833;
+.result-error {
+  color: var(--ct-error-light);
+}
+
+.code,
+.json-editor-blackbord {
+  background: var(--ct-blue) !important;
 }
 
 .wrap {
@@ -39,14 +76,95 @@
   font-size: 20px;
 }
 
+body.modal-open {
+  padding-right: 0px !important;
+}
+
+.json-toggle {
+  display: none;
+}
+
 #alert-component {
   position: fixed;
   top: 0;
   left: 7.5%;
   width: 85%;
-  z-index: 50;
+  z-index: 5000;
   display: none;
 }
+
 #alert-msg {
   margin: 0 auto;
+}
+
+.icon-links li {
+  margin: auto 0.75rem !important ;
+}
+
+.coin-cell {
+  background-color: var(--ct-blue-super-light);
+}
+
+.coin-cell:hover {
+  background-color: var(--ct-blue-hover);
+}
+
+.coin-cell:hover * {
+  color: var(--ct-blue-super-light);
+}
+
+.coin-name {
+  font-size: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.coin-acronym {
+  font-size: 0.875em;
+  color: var(--ct-blue-hover);
+}
+
+.coin-address {
+  text-decoration: underline dotted;
+  word-break: break-all;
+}
+
+.coin-address:hover {
+  color: var(--ct-blue-light-variant);
+  cursor: copy;
+}
+
+.qr-container {
+  height: 100px;
+}
+
+.qr-cell > div {
+  margin: 5px auto;
+}
+
+.required:after {
+  content: '*';
+  color: var(--ct-error);
+}
+
+.form-msg-error {
+  font-size: 0.75rem;
+  color: var(--ct-error);
+  margin: 0px 0px 0px 9px;
+}
+
+.form-error,
+.form-error:focus {
+  border-color: var(--ct-error);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.lang-selector {
+  margin-right: 1%;
+}
+
+.dropdown-lang-menu {
+  min-width: 100px;
 }

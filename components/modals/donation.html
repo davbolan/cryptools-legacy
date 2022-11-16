@@ -1,0 +1,26 @@
+<div
+  class="modal"
+  id="crypto-info-modal"
+  tabindex="-1"
+  aria-labelledby="crypto-info-modal-label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="crypto-info-modal-label">
+          <?php echo $i18n["DONATION_DO_YOU_WANT_DONATE"]?>
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body with-scrollbar">
+        <?php require ROOT_COMPONENTS_UI_PATH.'/crypto-address.php'; ?>
+      </div>
+    </div>
+  </div>
+</div>
