@@ -3,18 +3,21 @@ $ROOT_PATH = str_replace('\\', '/', dirname(__DIR__, 2));
 define("ROOT_PATH", $ROOT_PATH);
 
 require ROOT_PATH . '/src/php/paths.php';
-require ROOT_RESOURCES_PATH . '/constants.php';
 require ROOT_PHP_PATH . '/variables.php';
-
 session_start();
 
-$keyname = "name";
+$keyLang = "lang";
+$keyName = "name";
 $keyEmail = "email";
 $keyMessage = "message";
 
-$name = getParam($keyname, false);
+$lang = getParam($keyLang, false);
+$name = getParam($keyName, false);
 $targetEmail = getParam($keyEmail, false);
 $clientMessage = getParam($keyMessage, true);
+
+require ROOT_I18N_PATH . "/loader.php";
+setCodeMessageConstants($i18n);
 
 if (empty($name)) {
   $name = EMPTY_NAME;
@@ -28,12 +31,12 @@ if (empty($name)) {
 }
 
 $ERRORS = array(
-  $keyname    => [EMPTY_NAME],
-  $keyEmail   => [INVALID_EMAIL, TEMP_EMAIL, EMPTY_EMAIL],
+  $keyName => [EMPTY_NAME],
+  $keyEmail => [INVALID_EMAIL, TEMP_EMAIL, EMPTY_EMAIL],
   $keyMessage => [TOO_SHORT_MSG, EMPTY_MSG]
 );
 
-if (in_array($name, $ERRORS[$keyname])) {
+if (in_array($name, $ERRORS[$keyName])) {
   returnResponse(false, $name);
 } else if (in_array($targetEmail, $ERRORS[$keyEmail])) {
   returnResponse(false, $targetEmail);
@@ -45,15 +48,27 @@ if (in_array($name, $ERRORS[$keyname])) {
   returnResponse($success, $response);
 }
 
-
-function getParam($paramName, $clean) {
+function setCodeMessageConstants($i18n)
+{
+  define("EMPTY_NAME_TXT", $i18n["EMPTY_NAME_TXT"]);
+  define("EMPTY_EMAIL_TXT", $i18n["EMPTY_EMAIL_TXT"]);
+  define("EMPTY_MSG_TXT", $i18n["EMPTY_MSG_TXT"]);
+  define("INVALID_EMAIL_TXT", $i18n["INVALID_EMAIL_TXT"]);
+  define("TEMP_EMAIL_TXT", $i18n["TEMP_EMAIL_TXT"]);
+  define("TOO_SHORT_MSG_TXT", $i18n["TOO_SHORT_MSG_TXT"]);
+  define("VALID_EMAIL_TXT", $i18n["VALID_EMAIL_TXT"]);
+  define("CONTACT_ERROR_SENDING_EMAIL_TXT", $i18n["CONTACT_ERROR_SENDING_EMAIL_TXT"]);
+}
+function getParam($paramName, $clean)
+{
   if (isset($_REQUEST[$paramName])) {
     return $clean ? cleanString($_REQUEST[$paramName]) : $_REQUEST[$paramName];
   }
   return '';
 }
 
-function checkValidEmail($email) {
+function checkValidEmail($email)
+{
   $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -64,7 +79,8 @@ function checkValidEmail($email) {
   return $email;
 }
 
-function checkTempMail($email) {
+function checkTempMail($email)
+{
   $tempEmailsFilePath = ROOT_RESOURCES_PATH . '/temp-emails.txt';
   $result = $email;
   $domain = explode('@', $email)[1];
@@ -76,14 +92,16 @@ function checkTempMail($email) {
   return $result;
 }
 
-function buildMaybeSpammer($badHead) {
+function buildMaybeSpammer($badHead)
+{
   $template = "<strong style='color:red;'>[[MAYBE_SPAMMER: {BASE64}]]</strong>";
   $badHeadB64 = base64_encode($badHead);
   $maebyBeSpammerHTML = str_replace("{BASE64}", $badHeadB64, $template);
   return $maebyBeSpammerHTML;
 }
 
-function cleanBadHeads($message) {
+function cleanBadHeads($message)
+{
   $badHeads = array(
     "Content-Type:",
     "MIME-Version:",
@@ -106,15 +124,17 @@ function cleanBadHeads($message) {
   return $message;
 }
 
-function checkValidMessage($message) {
+function checkValidMessage($message)
+{
   return strlen($message) < 10 ? TOO_SHORT_MSG : cleanBadHeads($message);
 }
 
-function getEmailHeaders($sourceEmail, $targetEmail) {
+function getEmailHeaders($sourceEmail, $targetEmail)
+{
   $mandatoryHeader = array(
     "MIME-Version" => "1.0",
     "Content-type" => "text/html; charset=utf-8",
-    "From"         => $sourceEmail,
+    "From" => $sourceEmail,
     //"To"           => $targetEmail
     //"Reply-To"     => $sourceEmail
 
@@ -130,22 +150,25 @@ function getEmailHeaders($sourceEmail, $targetEmail) {
   return $headers;
 }
 
-function getEmailBody($targetEmail, $name, $message) {
+function getEmailBody($targetEmail, $name, $message)
+{
   $emailHTML = getHTMLEmailTemplate();
   $emailVars = getEmailVars($targetEmail, $name, $message);
   $emailHTML = buildEmail($emailHTML, $emailVars);
   return $emailHTML;
 }
 
-function getEmailVars($targetEmail, $name, $message) {
+function getEmailVars($targetEmail, $name, $message)
+{
   return array(
-    "{EMAIL}"   => $targetEmail,
-    "{NAME}"    => $name,
+    "{EMAIL}" => $targetEmail,
+    "{NAME}" => $name,
     "{MESSAGE}" => $message,
   );
 }
 
-function buildEmail($emailHTML, $emailVars) {
+function buildEmail($emailHTML, $emailVars)
+{
   foreach ($emailVars as $varName => $varValue) {
     if (strlen($varName) > 2 && trim($varName) != "") {
       $emailHTML = str_replace($varName, $varValue, $emailHTML);
@@ -154,10 +177,11 @@ function buildEmail($emailHTML, $emailVars) {
   return $emailHTML;
 }
 
-function getHTMLEmailTemplate() {
+function getHTMLEmailTemplate()
+{
 
   $emailTemplate =
-"<html>
+    "<html>
   <head>
     <meta charset='utf-8' />
     <title>Email de {NAME}</title>
@@ -194,15 +218,18 @@ function getHTMLEmailTemplate() {
   return $emailTemplate;
 }
 
-function supressWarning() {
+function supressWarning()
+{
   return error_reporting(E_ALL ^ E_WARNING);
 }
 
-function restoreWarning($errLevel) {
+function restoreWarning($errLevel)
+{
   error_reporting($errLevel);
 }
 
-function sendEmail($targetEmail, $subject, $message, $headers) {
+function sendEmail($targetEmail, $subject, $message, $headers)
+{
   DEBUG("targetEmail:\r\n$targetEmail\r\n subject:\r\n$subject\r\n message:\r\n$message\r\nheaders:\r\n$headers\r\n");
   $errLevel = supressWarning();
   $success = mail($targetEmail, $subject, $message, $headers);
@@ -210,7 +237,8 @@ function sendEmail($targetEmail, $subject, $message, $headers) {
   return $success;
 }
 
-function sendEmailToAdmin($targetEmail, $name, $clientMsg) {
+function sendEmailToAdmin($targetEmail, $name, $clientMsg)
+{
   $sourceEmail = CT_EMAIL;
   $subject = "Correo enviado desde Cryptools.ovh";
   $emailHTML = getEmailBody($targetEmail, $name, $clientMsg);
@@ -219,22 +247,25 @@ function sendEmailToAdmin($targetEmail, $name, $clientMsg) {
   return sendEmail($targetEmail, $subject, $emailHTML, $headers);
 }
 
-function cleanString($string) {
+function cleanString($string)
+{
   $string = trim($string);
   $string = stripslashes($string);
   $string = htmlspecialchars($string);
   return $string;
 }
 
-function getCodeMessage($code) {
+function getCodeMessage($code)
+{
   $code .= "_TXT";
-  return defined($code) ? constant($code) : ($i18n["CONTACT_ERROR_SENDING_EMAIL_TXT"]);
+  return defined($code) ? constant($code) : CONTACT_ERROR_SENDING_EMAIL_TXT;
 }
 
-function returnResponse($success, $code) {
+function returnResponse($success, $code)
+{
   $jsonResponse = array(
     "success" => $success,
-    "code"    => $code,
+    "code" => $code,
     "message" => getCodeMessage($code)
   );
 
@@ -246,11 +277,13 @@ function returnResponse($success, $code) {
   //exit();
 }
 
-function withLn($string) {
+function withLn($string)
+{
   return $string . "\r\n";
 }
 
-function DEBUG($msg) {
+function DEBUG($msg)
+{
   if (DEBUG) {
     echo $msg;
   }

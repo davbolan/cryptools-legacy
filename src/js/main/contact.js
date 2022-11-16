@@ -68,8 +68,12 @@ const emailAjaxSettings = {
   data: '',
 };
 
+const buildLangParam = () => {
+  return `lang=${LANGUAGE}&`;
+};
+
 const setEmailPostData = () => {
-  emailAjaxSettings.data = $('#form-contact').serialize();
+  emailAjaxSettings.data = buildLangParam() + $('#form-contact').serialize();
 };
 
 const formatError = (name, params, error) => {
@@ -123,8 +127,8 @@ const sendEmailCallbacks = {
     Alert(data.message, SUCCESS);
     closeContactModal();
   },
-  FAIL: ({ responseJSON: data }) => {
-    Alert(data.message, DANGER);
+  FAIL: (result) => {
+    Alert(result?.responseJSON?.message, DANGER);
   },
   ALWAYS: () => {
     $('#send-email-btn').prop(DISABLED, false);

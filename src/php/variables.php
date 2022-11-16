@@ -1,8 +1,8 @@
 <?php
 
-$config = include ROOT_PATH.'/resources/config/config.php' ;
+$config = include ROOT_PATH . '/resources/config/config.php';
 
-define("DEBUG",  $config->debug);
+define("DEBUG", $config->debug);
 define("CT_EMAIL", $config->ctEmail);
 
 $default_lang = "en";
@@ -10,19 +10,30 @@ if (!isset($lang)) {
     $lang = $default_lang;
 }
 
-define("TEMP_EMAIL",          "TEMP_EMAIL");
-define("TOO_SHORT_MSG",       "TOO_SHORT_MSG");
-define("MAYBE_SPAMMER",       "MAYBE_SPAMMER");
+define("EMPTY_EMAIL", "EMPTY_EMAIL");
+define("EMPTY_NAME", "EMPTY_NAME");
+define("EMPTY_MSG", "EMPTY_MSG");
+define("INVALID_EMAIL", "INVALID_EMAIL");
+define("VALID_EMAIL", "VALID_EMAIL");
+define("TEMP_EMAIL", "TEMP_EMAIL");
+define("TOO_SHORT_MSG", "TOO_SHORT_MSG");
+define("MAYBE_SPAMMER", "MAYBE_SPAMMER");
 define("ERROR_SENDING_EMAIL", "ERROR_SENDING_EMAIL");
 
-define("WEB_HOST", $config->host);
-define("WEB_ROOT",  $config->root);
+$host = $_SERVER["HTTP_HOST"];
+$requestUri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http");
+$root = "$protocol://$host";
 
-define("WEB_TITLE",  $config->appName);
-define("APP_NAME",  $config->appName);
+define("WEB_HOST", $host);
+define("WEB_ROOT", $root);
+define("WEB_URL", $requestUri);
+
+define("WEB_TITLE", $config->appName);
+define("APP_NAME", $config->appName);
 
 $web_description = "Application for processing encryption and obfuscation of text. You can use base64 or your own dictionary.";
 $web_fullLang = "en_EN";
-define("PATH_LOGO", WEB_ROOT."/assets/logo.png");
+define("PATH_LOGO", WEB_ROOT . "/assets/logo.png");
 
 ?>
