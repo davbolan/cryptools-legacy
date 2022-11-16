@@ -17,4 +17,13 @@ function echoParagraphs($paragraphs)
   }
 }
 
+function replace($subject, $arr)
+{
+  foreach ($arr as $clave => $valor) {
+    $subject = str_replace($clave, $valor, $subject);
+  }
+  return $subject;
+}
+
+
 ?>

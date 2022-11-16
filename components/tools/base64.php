@@ -28,7 +28,12 @@
         </ul>
         <strong> <?php echo $i18n["STEPS"] ?>: </strong>
         <ol>
-          <?php echoParagraphs($i18n["B64_STEPS"]); ?>
+          <?php echoParagraphs(
+            replace(
+              $i18n["B64_STEPS"],
+              array("{base64}" => "<span class=\"badge ct-bg-info text-dark\">base64</span>")
+            )
+          ); ?>
         </ol>
       </div>
       <div id="base64-type-panel-id" class="col-md-5 col-md-4 col-xl-3">

@@ -1,6 +1,6 @@
 <?php
 define('ROOT_RESOURCES_PATH', ROOT_PATH . '/resources');
-define('ROOT_RESOURCES_I18N', ROOT_RESOURCES_PATH . '/i18n');
+define('ROOT_I18N_PATH', ROOT_PATH . '/i18n');
 define('ROOT_PHP_PATH', ROOT_PATH . '/src/php');
 define('ROOT_COMPONENTS_PATH', ROOT_PATH . '/components');
 define('ROOT_COMPONENTS_TEMPLATES_PATH', ROOT_COMPONENTS_PATH . '/templates');
