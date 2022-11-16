@@ -8,7 +8,9 @@
       aria-expanded="false"
       aria-controls="collapseDictAccordion"
     >
-      <span class="h5"><?php echo DICT_TITLE?></span>
+      <span class="h5">
+        <?php echo $i18n["DICT_TITLE"] ?>
+      </span>
     </button>
   </h2>
   <div
@@ -23,18 +25,20 @@
       <div class="row">
         <div id="dict-intro-panel-id">
           <ul class="list-unstyled">
-            <?php echoParagraphs(DICT_INTRO); ?>
+            <?php echoParagraphs($i18n["DICT_INTRO"]); ?>
           </ul>
-          <strong><?php echo STEPS?>:</strong>
+          <strong> <?php echo $i18n["STEPS"] ?>: </strong>
           <ol>
-            <?php echoParagraphs(DICT_STEPS); ?>
+            <?php echoParagraphs($i18n["DICT_STEPS"]); ?>
           </ol>
         </div>
 
         <div id="select-operation-panel-id" class="col-lg- mb-1">
           <div class="row">
             <label for="dict-list-id">
-              <strong><?php echo DICT_DO_YOU_WANT_ENCODE_OR_DECODE?> </strong>
+              <strong>
+                <?php echo $i18n["DICT_DO_YOU_WANT_ENCODE_OR_DECODE"] ?>
+              </strong>
             </label>
             <div class="col">
               <div class="form-check">
@@ -47,7 +51,7 @@
                   checked
                 />
                 <label class="form-check-label" for="flexRadioCoderDict">
-                  <?php echo DICT_ENCODE?>
+                  <?php echo $i18n["DICT_ENCODE"] ?>
                 </label>
               </div>
 
@@ -60,7 +64,7 @@
                   value="decode"
                 />
                 <label class="form-check-label" for="flexRadioDecoderDict">
-                  <?php echo DICT_DECODE?>
+                  <?php echo $i18n["DICT_DECODE"] ?>
                 </label>
               </div>
             </div>
@@ -71,7 +75,7 @@
           <div class="row">
             <label for="dict-list-id">
               <strong>
-                <?php echo DICT_LOAD_JSON_OR_MANUAL?>
+                <?php echo $i18n["DICT_LOAD_JSON_OR_MANUAL"] ?>
               </strong>
             </label>
           </div>
@@ -88,7 +92,7 @@
                 id="dict-file-button"
                 type="button"
               >
-                <?php echo DICT_LOAD_JSON_BTN?>
+                <?php echo $i18n["DICT_LOAD_JSON_BTN"] ?>
                 &nbsp;<i class="bi bi bi-upload"></i>
               </button>
             </div>
@@ -106,7 +110,7 @@
           <div class="row">
             <label for="dict-text-id">
               <strong>
-                <?php echo DICT_LOAD_INPUT_OR_MANUAL?>
+                <?php echo $i18n["DICT_LOAD_INPUT_OR_MANUAL"] ?>
               </strong>
             </label>
           </div>
@@ -123,7 +127,7 @@
                 id="text-file-button"
                 type="button"
               >
-                <?php echo DICT_LOAD_INPUT_FILE_BTN?>
+                <?php echo $i18n["DICT_LOAD_INPUT_FILE_BTN"] ?>
                 &nbsp;<i class="bi bi bi-upload"></i>
               </button>
             </div>
@@ -148,7 +152,8 @@
             type="button"
             disabled
           >
-            <?php echo DICT_TRANSFORM_BTN?> &nbsp;<i class="bi bi-hammer"></i>
+            <?php echo $i18n["DICT_TRANSFORM_BTN"] ?>
+            &nbsp;<i class="bi bi-hammer"></i>
           </button>
         </div>
       </div>
@@ -158,7 +163,7 @@
       <div class="row mt-2">
         <div id="dict-result-panel-id">
           <label for="dict-result-id">
-            <strong> <?php echo DICT_RESULT?>: </strong>
+            <strong> <?php echo $i18n["DICT_RESULT"] ?>: </strong>
           </label>
           <button
             id="copy-dict-result-button"
@@ -166,7 +171,7 @@
             class="btn btn-outline-ct result-btn-sm"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="<?php echo DICT_COPY_TO_CLIPBOARD?>"
+            title="<?php echo $i18n['DICT_COPY_TO_CLIPBOARD'] ?>"
             disabled
           >
             <i class="bi bi-files"></i>
@@ -177,7 +182,7 @@
             class="btn btn-outline-ct result-btn-sm download-output-dict"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
-            title="<?php echo DICT_DOWNLOAD_DICT?>"
+            title="<?php echo $i18n['DICT_DOWNLOAD_DICT'] ?>"
             disabled
           >
             <i class="bi bi-download"></i>

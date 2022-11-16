@@ -6,7 +6,7 @@ function consoleLog($data)
     if (is_array($output)) {
       $output = implode(',', $output);
     }
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    echo "<script>console.log('Debug Objects: $output' );</script>";
   }
 }
 
@@ -16,5 +16,14 @@ function echoParagraphs($paragraphs)
     echo "<li>" . $paragraphs[$loop] . "</li>";
   }
 }
+
+function replace($subject, $arr)
+{
+  foreach ($arr as $clave => $valor) {
+    $subject = str_replace($clave, $valor, $subject);
+  }
+  return $subject;
+}
+
 
 ?>

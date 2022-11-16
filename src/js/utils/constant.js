@@ -1,3 +1,6 @@
+import loader from '../../../i18n/loader.js';
+
+const i18n = loader(LANGUAGE);
 export const JSON_FILENAME_TEMPLATE = 'dict_$date.json';
 export const OUTPUT_FILENAME_TEMPLATE = 'output_$date.txt';
 export const DATE_FORMAT = 'DDMMYY_HHmmss';
@@ -60,17 +63,12 @@ export const COIN_TEMPLATE = '{COIN}';
 
 // ERRORS
 export const ERROR = {
-  INVALID_JSON_FORMAT:
-    'El diccionario introducido no tiene un formato Json válido',
-  DICT_FIELD_MISSING:
-    "El diccionario Json introducido no tiene el campo 'dict'",
-  COPYPASTE_FAILED:
-    'Ha habido un error al copiar al cortapapeles. Por favor, copie el texto manualmente con <CTRL + C> o <CMD + C>.',
-
-  FIELD_MISSING: `Debes completar el ${FIELD_NAME_TEMPLATE}`,
-  MIN_LENGHT_REQUIRED: `El ${FIELD_NAME_TEMPLATE} debe contener al menos {PARAM_1} caracteres`,
-  WRONG_EMAIL_FORMAT:
-    'El email debe tener un formato válido (Ej: mail@domain.com)',
+  INVALID_JSON_FORMAT: i18n['INVALID_JSON_FORMAT'],
+  DICT_FIELD_MISSING: i18n['DICT_FIELD_MISSING'],
+  COPYPASTE_FAILED: i18n['COPYPASTE_FAILED'],
+  FIELD_MISSING: i18n['FIELD_MISSING'],
+  MIN_LENGHT_REQUIRED: i18n['MIN_LENGHT_REQUIRED'],
+  WRONG_EMAIL_FORMAT: i18n['WRONG_EMAIL_FORMAT'],
 };
 
 // ALERT TYPE ERROR
@@ -78,18 +76,15 @@ export const DANGER = 'danger';
 export const SUCCESS = 'success';
 
 // WARNING
-export const CONTENT_TYPE_MISSING =
-  `El elemento '{${ELEM_ID_TEMPLATE}}' el cual se quiere copiar su contenido no tiene el atributo 'data-content-type'.${SEPARATOR.LINE}` +
-  `Esto puede provocar problemas a la hora de copiar texto y por tanto no se haga correctamente.${SEPARATOR.LINE}` +
-  `Los valores disponibles para 'data-content-type' son: ${SEPARATOR.LINE}`;
+export const CONTENT_TYPE_MISSING = i18n['CONTENT_TYPE_MISSING'];
 
 // HTTP METHODOS
 export const POST = 'post';
 
 // FORM DATA
-export const NAME = 'NOMBRE';
-export const EMAIL = 'EMAIL';
-export const MESSAGE = 'MENSAJE';
+export const NAME = i18n['NAME'];
+export const EMAIL = i18n['EMAIL'];
+export const MESSAGE = i18n['MESSAGE'];
 
 // CONTACT EMAIL
 export const SEND_EMAIL_URL = 'src/php/sendEmail.php';

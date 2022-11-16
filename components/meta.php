@@ -1,5 +1,3 @@
-
-
 <?php
 $web_title = WEB_TITLE;
 $web_root = WEB_ROOT;
@@ -9,7 +7,7 @@ $metaOpenGraphText = <<<EOD
     { "charset": "utf-8" },
     { "name":       "viewport",             "content": "width=device-width, initial-scale=1" },
     { "name":       "description",          "content": "$web_description" },
-    { "http-equiv": "Content-Language",     "content": "$web_lang>" },
+    { "http-equiv": "Content-Language",     "content": "$lang>" },
     { "name":       "distribution",         "content": "global" },
     { "name":       "Robots",               "content": "all" },
     { "property":   "og:type",              "content": "website" },

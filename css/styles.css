@@ -160,3 +160,11 @@ body.modal-open {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.lang-selector {
+  margin-right: 1%;
+}
+
+.dropdown-lang-menu {
+  min-width: 100px;
+}
