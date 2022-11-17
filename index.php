@@ -29,7 +29,7 @@ require ROOT_I18N_PATH . "/loader.php";
   <script type="text/javascript" src="/src/js/min/jquery.json-editor.min.js"></script>
   <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.   js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha256-h1OMS35Ij1pJ0S+Y1qBK/GHQDyankPMZVpeZrNQ062U=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha256-xLI5SjD6DkojxrMIVBNT4ghypv12Xtj7cOa0AgKd6wA=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/easyqrcodejs@4.4.13/src/easy.qrcode.js" integrity="sha256-oiTj+ZVUvV845jrn6LeYh9jPjdmMk1dHUlp11Wd5DkA=" crossorigin="anonymous" defer></script>
     -->
   <script type="text/javascript" src="/src/js/min/easy.qrcode.min.js"></script>
