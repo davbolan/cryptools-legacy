@@ -1,5 +1,3 @@
-import { CHANGE } from '../utils/constant.js';
-
 const expandTool = (elemIdentifier) => {
   $(elemIdentifier + '.collapse').collapse('show');
 };
@@ -22,5 +20,3 @@ const loadURLHandle = () => {
   $(window.location).on(CHANGE, loadLocationChangeHandle);
   loadLocationChangeHandle();
 };
-
-export default loadURLHandle;

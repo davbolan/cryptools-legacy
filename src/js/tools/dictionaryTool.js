@@ -1,23 +1,3 @@
-import CryptoolsJsonError from '../errors/cryptoolsJsonError.js';
-import Alert from '../main/alert.js';
-import moment from '../min/moment.min.js';
-/* import moment from 'https://cdn.jsdelivr.net/npm/moment@2.29.4/dist/moment.min.js'; */
-import {
-  CHANGE,
-  CLICK,
-  DANGER,
-  DATE_FORMAT,
-  DISABLED,
-  ENCODE,
-  ERROR,
-  KEY_UP,
-  OUTPUT_FILENAME_TEMPLATE,
-  PASTE,
-  SEPARATOR,
-} from '../utils/constant.js';
-import copyToClipboard from '../utils/copyclipboard.js';
-import { setEnableComponents } from '../utils/utils.js';
-
 const dictPanel = {
   inputId: '#dict-file-input',
   buttonId: '#dict-file-button',
@@ -119,12 +99,12 @@ const processText = (dictJson, textToProcess) => {
   return textProcessed;
 };
 
-const getResultButtonsGroup = () => {
+const getResultButtonsGroupDictionary = () => {
   return [$('#copy-dict-result-button'), $('#download-dict-result-button')];
 };
 
 const transformButtonHandle = () => {
-  const resultButtonsGroup = getResultButtonsGroup();
+  const resultButtonsGroup = getResultButtonsGroupDictionary();
   const $dictTextPanel = $(dictPanel.contentId);
   const $inputTextPanel = $(textPanel.contentId);
   const $dictResultPanel = $('#dict-result-id');
@@ -146,7 +126,7 @@ const transformButtonHandle = () => {
   }
 };
 
-const copyResultToClipboard = () => {
+const copyResultToClipboardDictionary = () => {
   try {
     copyToClipboard($('#dict-result-id'));
   } catch (err) {
@@ -157,10 +137,7 @@ const copyResultToClipboard = () => {
 const downloadResult = () => {
   const result = $('#dict-result-id').text();
   const href = 'data:text/plain;charset=UTF-8,' + encodeURIComponent(result);
-  const download = OUTPUT_FILENAME_TEMPLATE.replace(
-    '$date',
-    moment().format(DATE_FORMAT)
-  );
+  const download = 'output.txt';
 
   $('#output-dict-download-link').prop({ href, download });
   $('#output-dict-download-button').click();
@@ -169,8 +146,6 @@ const downloadResult = () => {
 const loadDictionaryHandle = () => {
   loadPanels();
   $('#transform-button').on(CLICK, transformButtonHandle);
-  $('#copy-dict-result-button').on(CLICK, copyResultToClipboard);
+  $('#copy-dict-result-button').on(CLICK, copyResultToClipboardDictionary);
   $('.download-output-dict').on(CLICK, downloadResult);
 };
-
-export default loadDictionaryHandle;

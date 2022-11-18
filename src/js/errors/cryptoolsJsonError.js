@@ -1,4 +1,4 @@
-export default class CryptoolsJsonError extends Error {
+class CryptoolsJsonError extends Error {
   constructor(message) {
     super(message);
     this.name = 'CryptoolsJsonError';

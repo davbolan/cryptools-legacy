@@ -1,26 +1,3 @@
-import Alert from '../main/alert.js';
-import moment from '../min/moment.min.js';
-/* import moment from 'https://cdn.jsdelivr.net/npm/moment@2.29.4/dist/moment.min.js'; */
-import DEFAULT_DICT, { BASIC_DICT, EXTENDED_DICT } from '../utils/chars.js';
-import {
-  BACKSLASH,
-  CHANGE,
-  CLICK,
-  CUSTOM_OPTION,
-  DANGER,
-  DATE_FORMAT,
-  DOUBLE_QUOTE,
-  ENTER_KEY,
-  JSON_FILENAME_TEMPLATE,
-  KEY_DOWN,
-  KEY_UP,
-  MAX_LOOPS,
-  MIN_LOOPS,
-  SEPARATOR,
-} from '../utils/constant.js';
-import copyToClipboard from '../utils/copyclipboard.js';
-import { setEnableComponents, setVisibleComponents } from '../utils/utils.js';
-
 let editor;
 
 const setResult = (resultNoLinebreak, result) => {
@@ -36,7 +13,7 @@ const shuffle = (list) => {
   return list;
 };
 
-const copyResultToClipboard = () => {
+const copyResultToClipboardBuilder = () => {
   try {
     copyToClipboard($('#dictbuilder-textarea-result-id'));
   } catch (err) {
@@ -47,10 +24,7 @@ const copyResultToClipboard = () => {
 const downloadJson = () => {
   const result = $('#dictbuilder-textarea-result-id').val();
   const href = 'data:text/plain;charset=UTF-8,' + encodeURIComponent(result);
-  const download = JSON_FILENAME_TEMPLATE.replace(
-    '$date',
-    moment().format(DATE_FORMAT)
-  );
+  const download = 'dict.json';
 
   $('#result-download-link').prop({ href, download });
   $('#result-download-button').click();
@@ -66,7 +40,7 @@ const modalButtonHandle = () => {
   editor.load(JSON.parse($('#dictbuilder-result-id').text()));
 };
 
-const getResultButtonsGroup = () => {
+const getResultButtonsGroupBuilder = () => {
   return [
     $('#open-modal-button'),
     $('#redo-dictbuilder-button'),
@@ -128,7 +102,7 @@ const buildJsonStr = (resultDict, options = {}) => {
 };
 
 const updateResult = (resultDict) => {
-  const resultButtonsGroup = getResultButtonsGroup();
+  const resultButtonsGroup = getResultButtonsGroupBuilder();
   let resultNoLinebreak = '';
   let result = '';
   let enableButtons = false;
@@ -202,10 +176,8 @@ const addDefaultDict = (event) => {
 const loadDictionaryBuilderHandle = () => {
   const DICT_BUILDER_EVENTS = `${KEY_DOWN} ${KEY_UP} ${CHANGE} ${CLICK}`;
   $('.dict-builder').on(DICT_BUILDER_EVENTS, buildDict);
-  $('.copy-dict').on(CLICK, copyResultToClipboard);
+  $('.copy-dict').on(CLICK, copyResultToClipboardBuilder);
   $('.download-json-dict').on(CLICK, downloadJson);
   $('#open-modal-button').on(CLICK, modalButtonHandle);
   $('.default-dict').on(CLICK, addDefaultDict);
 };
-
-export default loadDictionaryBuilderHandle;

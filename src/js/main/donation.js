@@ -1,13 +1,3 @@
-import {
-  CLICK,
-  COIN_TEMPLATE,
-  DANGER,
-  HIDDEN_BS_MODAL,
-} from '../utils/constant.js';
-import Alert from '../main/alert.js';
-import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
-import { setVisibleComponents, copyToClipboard } from '../utils/utils.js';
-
 let qrCode = undefined;
 
 const initQRCode = (text, logo) => {
@@ -81,5 +71,3 @@ const loadDonationHandle = () => {
   $('#crypto-info-modal').on(HIDDEN_BS_MODAL, resetCoinInfoModal);
   $('#coin-address-text').on(CLICK, copyResultToClipboard);
 };
-
-export default loadDonationHandle;

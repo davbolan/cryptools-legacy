@@ -1,14 +1,4 @@
-import Alert from '../main/alert.js';
-import { CHANGE, CLICK, DANGER, ENCODE, KEY_UP } from '../utils/constant.js';
-import copyToClipboard from '../utils/copyclipboard.js';
-import {
-  decodeBase64,
-  encodeBase64,
-  setEnableComponents,
-  setVisibleComponents,
-} from '../utils/utils.js';
-
-const copyResultToClipboard = () => {
+const copyResultToClipboardb64 = () => {
   try {
     copyToClipboard($('#base64-result-id'));
   } catch (err) {
@@ -48,7 +38,5 @@ const coderDecoder = () => {
 const loadBase64Handle = () => {
   $('#base64-text-id').on(KEY_UP, coderDecoder);
   $('input[name="flexRadioBase64Operation"]').on(CHANGE, coderDecoder);
-  $('#copy-base64result-button').on(CLICK, copyResultToClipboard);
+  $('#copy-base64result-button').on(CLICK, copyResultToClipboardb64);
 };
-
-export default loadBase64Handle;

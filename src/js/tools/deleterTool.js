@@ -1,9 +1,4 @@
-import Alert from '../main/alert.js';
-import { CLICK, DANGER, KEY_UP } from '../utils/constant.js';
-import copyToClipboard from '../utils/copyclipboard.js';
-import { setEnableComponents } from '../utils/utils.js';
-
-const copyResultToClipboard = () => {
+const copyResultToClipboardDeleter = () => {
   try {
     copyToClipboard($('#deleter-result-id'));
   } catch (err) {
@@ -26,7 +21,5 @@ const deleter = () => {
 
 const loadDeleterHandle = () => {
   [$('#deleter-word-id'), $('#deleter-text-id')].on(KEY_UP, deleter);
-  $('#copy-deleter-result-button').on(CLICK, copyResultToClipboard);
+  $('#copy-deleter-result-button').on(CLICK, copyResultToClipboardDeleter);
 };
-
-export default loadDeleterHandle;

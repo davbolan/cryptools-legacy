@@ -1,7 +1,3 @@
-import CryptoolsCopypasteError from '../errors/cryptoolsCopypasteError.js';
-import { CONTENT_TYPES, COPY, ERROR, HIDE } from './constant.js';
-import { showContentTypeMissingWarning } from './utils.js';
-
 const getText = (elem) => {
   let text = '';
   if (elem instanceof jQuery) {
@@ -68,5 +64,3 @@ const copyToClipboard = (elem) => {
     alternativeCopy(text);
   }
 };
-
-export default copyToClipboard;

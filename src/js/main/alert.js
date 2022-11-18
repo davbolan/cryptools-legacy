@@ -1,4 +1,3 @@
-import { DANGER, SUCCESS } from '../utils/constant.js';
 const FADE_IN = 300;
 const DELAY = 2500;
 const FADE_OUT = 300;
@@ -45,5 +44,3 @@ const Alert = (errorMsg, type = DEFAULT_TYPE) => {
   $('#alert-msg').text(errorMsg);
   $('#alert-component').fadeIn(FADE_IN).delay(DELAY).fadeOut(FADE_OUT);
 };
-
-export default Alert;
