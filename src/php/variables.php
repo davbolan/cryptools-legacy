@@ -28,6 +28,7 @@ $root = "$protocol://$host";
 define("WEB_HOST", $host);
 define("WEB_ROOT", $root);
 define("WEB_URL", $requestUri);
+define("ZIP_FILE_PATH", "$root/$config->projectZipFile");
 
 define("WEB_TITLE", $config->appName);
 define("APP_NAME", $config->appName);

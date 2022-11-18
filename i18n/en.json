@@ -103,6 +103,8 @@
   "DICT_COPY_TO_CLIPBOARD": "Copy result to clipboard",
   "DICT_DOWNLOAD_DICT": "Download result",
 
+  "DOWNLOAD_CRYPTOOLS_ZIP": "Download cryptools...",
+
   "CONTACT": "Contact",
   "CONTACT_NAME": "Name",
   "CONTACT_EMAIL": "E-mail",

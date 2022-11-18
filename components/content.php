@@ -10,6 +10,7 @@
       <?php include ROOT_COMPONENTS_TOOLS_PATH . '/dictionaryBuilder.php' ?>
       <?php include ROOT_COMPONENTS_TOOLS_PATH . '/dictionary.php' ?>
     </div>
+    <?php include ROOT_COMPONENTS_PATH . '/download-zip.html' ?>
   </div>
 
 </main>
