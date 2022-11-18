@@ -162,7 +162,8 @@ body.modal-open {
 }
 
 .lang-selector {
-  margin-right: 1%;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
 }
 
 .dropdown-lang-menu {

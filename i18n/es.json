@@ -103,6 +103,8 @@
   "DICT_COPY_TO_CLIPBOARD": "Copiar resultado al cortapapeles",
   "DICT_DOWNLOAD_DICT": "Descargar resultado",
 
+  "DOWNLOAD_CRYPTOOLS_ZIP": "Descargar cryptools...",
+
   "CONTACT": "Contacto",
   "CONTACT_NAME": "Nombre",
   "CONTACT_EMAIL": "Correo electrónico",
