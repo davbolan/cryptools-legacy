@@ -33,18 +33,18 @@
   "B64_COPY_TO_CLIPBOARD": "Copy result to clipboard",
   "B64_ERROR_DECODE": "Error: it is not possible to perform the decoding with the entered characters. Check it out to continue.",
 
-  "DELETER_INTRO": [
+  "REPLACER_INTRO": [
     "Not much to explain, a simple tool to remove what we want from a text."
   ],
-  "DELETER_STEPS": [
+  "REPLACER_STEPS": [
     "Enter the character, word or text you want to delete",
     "Enter the text you want to remove from"
   ],
-  "DELETER_TITLE": "Deleter",
-  "DELETER_WHAT_WORD_OR_CHAR": "What word or character do you want to delete?",
-  "DELETER_WHAT_TEXT": "What is the text?",
-  "DELETER_RESULT": "Result",
-  "DELETER_COPY_TO_CLIPBOARD": "Copy result to clipboard",
+  "REPLACER_TITLE": "Replacer",
+  "REPLACER_WHAT_WORD_OR_CHAR": "What word or character do you want to delete?",
+  "REPLACER_WHAT_TEXT": "What is the text?",
+  "REPLACER_RESULT": "Result",
+  "REPLACER_COPY_TO_CLIPBOARD": "Copy result to clipboard",
 
   "BUILDER_INTRO": [
     "A dictionary is made up of a set of keys, each of which has an associated value.",

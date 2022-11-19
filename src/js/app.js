@@ -3,7 +3,7 @@ import loadDonationHandle from './main/donation.js';
 import loadURLHandle from './main/url.js';
 import {
   loadBase64Handle,
-  loadDeleterHandle,
+  loadReplacerHandle,
   loadDictionaryBuilderHandle,
   loadDictionaryHandle,
 } from './tools/tools.js';
@@ -16,7 +16,7 @@ const initTooltips = () => {
 
 const loadToolsHandle = () => {
   loadBase64Handle();
-  loadDeleterHandle();
+  loadReplacerHandle();
   loadDictionaryBuilderHandle();
   loadDictionaryHandle();
 };

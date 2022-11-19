@@ -33,18 +33,18 @@
   "B64_COPY_TO_CLIPBOARD": "Copiar resultado al cortapapeles",
   "B64_ERROR_DECODE": "Error: no es posible realizar la decodificación con los carácteres introducidos. Revísalo para poder continuar.",
 
-  "DELETER_INTRO": [
+  "REPLACER_INTRO": [
     "No hay mucho que explicar, una herramienta simple para eliminar lo que queramos de un texto."
   ],
-  "DELETER_STEPS": [
+  "REPLACER_STEPS": [
     "Introduce el carácter, palabra o texto que quieres eliminar",
     "Introduce el texto del que quieres eliminar"
   ],
-  "DELETER_TITLE": "Eliminador",
-  "DELETER_WHAT_WORD_OR_CHAR": "¿Qué palabra o carácter quieres eliminar?",
-  "DELETER_WHAT_TEXT": "¿Qué texto?",
-  "DELETER_RESULT": "Resultado",
-  "DELETER_COPY_TO_CLIPBOARD": "Copiar resultado al cortapapeles",
+  "REPLACER_TITLE": "Reemplazador",
+  "REPLACER_WHAT_WORD_OR_CHAR": "¿Qué palabra o carácter quieres eliminar?",
+  "REPLACER_WHAT_TEXT": "¿Qué texto?",
+  "REPLACER_RESULT": "Resultado",
+  "REPLACER_COPY_TO_CLIPBOARD": "Copiar resultado al cortapapeles",
 
   "BUILDER_INTRO": [
     "Un diccionario se componen de un conjunto de claves, en la que cada una tiene asociada un valor.",

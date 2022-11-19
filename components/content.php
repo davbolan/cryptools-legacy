@@ -6,7 +6,7 @@
     </h2>
     <div class="accordion" id="general-accordion">
       <?php include ROOT_COMPONENTS_TOOLS_PATH . '/base64.php' ?>
-      <?php include ROOT_COMPONENTS_TOOLS_PATH . '/deleter.php' ?>
+      <?php include ROOT_COMPONENTS_TOOLS_PATH . '/replacer.php' ?>
       <?php include ROOT_COMPONENTS_TOOLS_PATH . '/dictionaryBuilder.php' ?>
       <?php include ROOT_COMPONENTS_TOOLS_PATH . '/dictionary.php' ?>
     </div>
