@@ -49,7 +49,7 @@
   "BUILDER_INTRO": [
     "Un diccionario se componen de un conjunto de claves, en la que cada una tiene asociada un valor.",
     "Bajo este premisa y aprovechando su funcionamiento, podemos transformar un texto en uno completamente diferente.",
-    "De forma contraria, si queremos volver al texto original, solamente debemos intercambiar la <samp>keclavey</samp> con su <samp>valor</samp> ({<samp>valor</samp>}).",
+    "De forma contraria, si queremos volver al texto original, solamente debemos intercambiar la <samp>clave</samp> con su <samp>valor</samp> ({<samp>valor</samp>}).",
     "Con este utilidad, podrás crear facilmente un diccionario.",
     "<strong>¡No pierdas tu diccionario o probablemente te resultará imposible recuperar en un futuro el contenido de tus textos encriptados!</strong>"
   ],
